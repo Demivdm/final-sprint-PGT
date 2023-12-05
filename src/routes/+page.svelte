@@ -1,41 +1,37 @@
 <script>
-
-    
-    import Nav from "$lib/organisms/nav.svelte"    
-    import { page } from '$app/stores'
+	import Nav from '$lib/organisms/nav.svelte';
+	import { page } from '$app/stores';
 	import LoginOutButton from '../lib/organisms/LoginOutButton.svelte';
 
-    export let data
+	export let data;
 
-    let loading = false
+	let loading = false;
 
-    const handleLogout = () => {
-		loading = true
+	const handleLogout = () => {
+		loading = true;
 		return async ({ result }) => {
-			await invalidate('supabase:auth')
-			await applyAction(result)
-			loading = false
-		}
-	}
+			await invalidate('supabase:auth');
+			await applyAction(result);
+			loading = false;
+		};
+	};
 
-
-    console.log(data)
+	console.log(data);
 </script>
 
-
 <main>
+	<Nav {data}></Nav>
 
-    <Nav {data}></Nav>
+	<LoginOutButton />
 
-    <LoginOutButton />
-
+	
 </main>
 
 <style>
-    main {
-        display: flex;
+	main {
+		display: flex;
 		flex-direction: column;
 		padding: 0 2rem;
 		width: 100%;
-    }
+	}
 </style>
