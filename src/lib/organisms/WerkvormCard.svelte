@@ -1,6 +1,5 @@
 <script>
 	export let werkvorm;
-	console.log(werkvorm.tags[0]);
 </script>
 
 <article>
@@ -11,7 +10,7 @@
 	</ul>
 	<img src={werkvorm.thumbnail.url} alt="" />
 	<div>
-        <div class="werkvorm-content">
+        <div>
             <h2>{werkvorm.title}</h2>
             <p>{werkvorm.korteBeschrijving}</p>
         </div>
@@ -20,10 +19,6 @@
 </article>
 
 <style>
-	* {
-		/* border: solid 1px red; */
-	}
-
 	article {
 		display: flex;
 		flex-direction: column;
@@ -49,7 +44,6 @@
 
 	article:hover > ul {
 		z-index: 0;
-		/* opacity: 1; */
 	}
 
 	article:hover a {
@@ -106,7 +100,6 @@
         text-transform: capitalize;
 		position: absolute;
 		z-index: -1;
-		/* opacity: 0; */
 		transition: all ease-out 0.2s;
     }
 
