@@ -19,6 +19,7 @@ export async function load() {
 						titel
 					}
 				}
+				title
 				tags {
 					... on Tag {
 						id
