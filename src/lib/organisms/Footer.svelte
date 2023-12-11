@@ -17,7 +17,6 @@
     @media (min-width: 48rem) {
         footer {
             margin: 0 auto;
-            position: relative;
         }
     }
 </style>
