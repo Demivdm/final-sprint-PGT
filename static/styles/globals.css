@@ -3,6 +3,7 @@
 /* -------------------------------------------------------------------------- */
 :global(:root){
     --color-hva-blue: #351EB6;
+    --color-hva-blue-secundary: #25167a;
     --color-hva-navy: #1E1649;
     --color-hva-pink: #F25379;
     --color-hva-green: #02857D;
@@ -11,6 +12,7 @@
 
 :root{
     --color-hva-blue: #351EB6;
+    --color-hva-blue-secundary: #25167a;
     --color-hva-navy: #1E1649;
     --color-hva-pink: #F25379;
     --color-hva-green: #02857D;

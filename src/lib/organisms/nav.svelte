@@ -94,6 +94,113 @@
 				<figcaption>menu</figcaption>
 			</figure>
 		</button>
+
+		<ul>
+			<li>
+				<a href="/">
+					<svg
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<g clip-path="url(#clip0_1_168)">
+							<path
+								d="M4 4H20V6.172C19.9999 6.70239 19.7891 7.21101 19.414 7.586L15 12V19L9 21V12.5L4.52 7.572C4.18545 7.20393 4.00005 6.7244 4 6.227V4Z"
+								stroke="#F6F6F6"
+								stroke-width="3"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</g>
+						<defs>
+							<clipPath id="clip0_1_168">
+								<rect width="24" height="24" rx="4" fill="white" />
+							</clipPath>
+						</defs>
+					</svg>
+	
+					filteren & zoeken
+				</a>
+			</li>
+			<li>
+				<a href="/">
+					<svg
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<g clip-path="url(#clip0_1_172)">
+							<path
+								d="M8 7C8 8.06087 8.42143 9.07828 9.17157 9.82843C9.92172 10.5786 10.9391 11 12 11C13.0609 11 14.0783 10.5786 14.8284 9.82843C15.5786 9.07828 16 8.06087 16 7C16 5.93913 15.5786 4.92172 14.8284 4.17157C14.0783 3.42143 13.0609 3 12 3C10.9391 3 9.92172 3.42143 9.17157 4.17157C8.42143 4.92172 8 5.93913 8 7Z"
+								stroke="#F6F6F6"
+								stroke-width="3"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+							<path
+								d="M6 21V19C6 17.9391 6.42143 16.9217 7.17157 16.1716C7.92172 15.4214 8.93913 15 10 15H14C15.0609 15 16.0783 15.4214 16.8284 16.1716C17.5786 16.9217 18 17.9391 18 19V21"
+								stroke="#F6F6F6"
+								stroke-width="3"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</g>
+						<defs>
+							<clipPath id="clip0_1_172">
+								<rect width="24" height="24" rx="4" fill="white" />
+							</clipPath>
+						</defs>
+					</svg>
+	
+					inloggen
+				</a>
+			</li>
+			<li>
+				<a class="link-primary" href="/">
+					<svg
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<g clip-path="url(#clip0_1_177)">
+							<path
+								d="M6.99996 18C5.75223 18 4.55561 17.5259 3.67334 16.682C2.79107 15.8381 2.29541 14.6935 2.29541 13.5C2.29541 12.3065 2.79107 11.1619 3.67334 10.318C4.55561 9.4741 5.75223 9 6.99996 9C7.29464 7.68718 8.15672 6.53348 9.39654 5.79271C10.0104 5.42592 10.6986 5.17154 11.4217 5.04411C12.1449 4.91667 12.8888 4.91868 13.6111 5.05C14.3333 5.18132 15.0198 5.43939 15.6312 5.80948C16.2427 6.17956 16.7672 6.65442 17.1747 7.20693C17.5823 7.75943 17.8649 8.37878 18.0065 9.02959C18.1481 9.68041 18.1459 10.35 18 11H19C19.9282 11 20.8185 11.3687 21.4748 12.0251C22.1312 12.6815 22.5 13.5717 22.5 14.5C22.5 15.4283 22.1312 16.3185 21.4748 16.9749C20.8185 17.6312 19.9282 18 19 18H18"
+								stroke="#F6F6F6"
+								stroke-width="3"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+							<path
+								d="M9 15L12 12L15 15"
+								stroke="#F6F6F6"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+							<path
+								d="M12 12V21"
+								stroke="#F6F6F6"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</g>
+						<defs>
+							<clipPath id="clip0_1_177">
+								<rect width="24" height="24" rx="4" fill="white" />
+							</clipPath>
+						</defs>
+					</svg>
+					Upload een werkvorm
+				</a>
+			</li>
+		</ul>
 	</div>
 	<ul class="desktop-menu">
 		<li>
@@ -272,7 +379,7 @@ data
 	}
 
 	nav {
-		background-color: #25167a;
+		background-color: var(--color-hva-blue-secundary);
 		box-shadow: 8px 8px #1e1649;
 		height: 3rem;
 		margin: 0 1rem;
@@ -282,12 +389,26 @@ data
 		/*  */
 	}
 
-	nav div {
+	nav .mobile-menu {
 		display: flex;
+		justify-content: end;
+		position: relative;
+	}
+
+	nav .mobile-menu ul {
+		position: absolute;
+    	top: 2.5rem;
+    	display: none;
+    	flex-direction: column;
+    	gap: 1rem;
+    	background-color: var(--color-hva-blue-secundary);
+    	box-shadow: 8px 8px var(--color-hva-navy);
+    	right: -0.5rem;
+		padding: 0.5rem;
 	}
 
 	nav button {
-		background-color: #25167a;
+		background-color: var(--color-hva-blue-secundary);
 		border: unset;
 		height: 2rem;
 	}
@@ -329,17 +450,21 @@ data
 		display: none;
 	}
 
-	nav button:active svg:first-child {
+	nav button:focus svg:first-child {
 		display: none;
 	}
 
-	nav button:active svg:last-child {
+	nav button:focus svg:last-child {
 		display: block;
+	}
+
+	nav .mobile-menu button:focus + ul  {
+		display: flex;
 	}
 
 	/* Link states */
 	nav a {
-		border: 2px solid #25167a;
+		border: 2px solid var(--color-hva-blue-secundary);
 		border-radius: 0.25rem;
 		transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 		padding: 0.2rem 0.5rem;
@@ -396,7 +521,7 @@ data
 	}
 
 	@media (min-width: 1080px) {
-		.mobile-menu {
+		nav .mobile-menu {
 			display: none;
 		}
 
@@ -409,7 +534,7 @@ data
 	}
 
 	/* .mobile-menu-dropdown > button {
-        background-color: #25167a;
+        background-color: var(--color-hva-blue-secundary);
         border: 0;
         font-size: 2em;
         padding: 1em;
@@ -421,7 +546,7 @@ data
 }
 
 	.mobile-menu-dropdown {
-        background-color: #25167a;
+        background-color: var(--color-hva-blue-secundary);
         display: flex;
         flex-direction: column;
         text-decoration: none;
@@ -445,7 +570,7 @@ data
 }
 
 	.mobile-menu-dropdown > button {
-        background-color: #25167a;
+        background-color: var(--color-hva-blue-secundary);
         border: 0;
         font-size: 1em;
         justify-content: center;
@@ -465,7 +590,7 @@ data
 }
 
 	.filter-dropdown {
-        background-color: #25167a;
+        background-color: var(--color-hva-blue-secundary);
 }
 
 	/* functionaliteit voor menu */
