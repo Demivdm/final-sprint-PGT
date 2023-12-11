@@ -95,8 +95,8 @@
 			</figure>
 		</button>
 
-		<ul>
-			<li>
+		<ul tabindex="0" role="menu">
+			<li role="menuitem">
 				<a href="/">
 					<svg
 						width="24"
@@ -124,8 +124,8 @@
 					filteren & zoeken
 				</a>
 			</li>
-			<li>
-				<a href="/">
+			<li role="menuitem">
+				<a href="/login">
 					<svg
 						width="24"
 						height="24"
@@ -159,8 +159,8 @@
 					inloggen
 				</a>
 			</li>
-			<li>
-				<a class="link-primary" href="/">
+			<li role="menuitem">
+				<a class="link-primary" href="/upload">
 					<svg
 						width="24"
 						height="24"
@@ -197,7 +197,7 @@
 							</clipPath>
 						</defs>
 					</svg>
-					Upload een werkvorm
+					upload een werkvorm
 				</a>
 			</li>
 		</ul>
@@ -232,7 +232,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="/">
+			<a href="/login">
 				<svg
 					width="24"
 					height="24"
@@ -267,7 +267,7 @@
 			</a>
 		</li>
 		<li>
-			<a class="link-primary" href="/">
+			<a class="link-primary" href="/upload">
 				<svg
 					width="24"
 					height="24"
@@ -304,73 +304,11 @@
 						</clipPath>
 					</defs>
 				</svg>
-				Upload een werkvorm
+				upload een werkvorm
 			</a>
 		</li>
 	</ul>
 </nav>
-
-<!-- <nav>
-	<section class="nav-bar" class:active={
-
-mobileDropdownActive
-}>
-		menu is a mobile only button -->
-
-<!-- <div class="mobile-menu-dropdown">
-			<button on:click={
-
-openMobileMenu
-}>
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg>
-        Menu
-      </button>
-			{
-
-#if mobileDropdownActive
-}
-				<button on:click={
-
-openFilter
-}> Filteren en zoeken</button>
-				<a href="/">Inloggen</a>
-				<a href="/">Werkvorm uploaden</a>
-			{
-
-/if
-}
-		</div> -->
-<!-- <section class="filter-dropdown" class:active={
-
-filterDropdownActive
-}>
-			{
-
-#if filterDropdownActive
-}
-				<section class="search-bar" role="search">
-					dit kan een form zijn -->
-<!-- <form action="search">
-						<label for="search" class="sr-only">Zoekbalk</label>
-						<input type="text" id="search" name="search" aria-label="Search" />
-						<button type="submit" aria-label="Submit search">Zoek</button>
-					</form> -->
-<!-- </section> -->
-<!-- <section class="filter-menu"> -->
-<!-- <NavFilterList {
-
-data
-}></NavFilterList> -->
-
-<!-- <button class="activate-filters">Filters toepassen</button>
-				</section>
-			{
-
-/if
-}
-		</section>
-	</section>
-</nav> -->
 
 <style>
 	* {
@@ -385,6 +323,7 @@ data
 		margin: 0 1rem;
 		padding: 0.5rem;
 		width: calc(100% - 2rem);
+		text-transform: capitalize;
 
 		/*  */
 	}
@@ -397,20 +336,28 @@ data
 
 	nav .mobile-menu ul {
 		position: absolute;
-    	top: 2.5rem;
+    	top: 3.5rem;
     	display: none;
     	flex-direction: column;
-    	gap: 1rem;
+    	gap: 0.5rem;
     	background-color: var(--color-hva-blue-secundary);
     	box-shadow: 8px 8px var(--color-hva-navy);
     	right: -0.5rem;
 		padding: 0.5rem;
 	}
 
+	nav .mobile-menu ul a {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
 	nav button {
 		background-color: var(--color-hva-blue-secundary);
 		border: unset;
 		height: 2rem;
+		text-transform: capitalize;
 	}
 
 	nav figure {
@@ -476,6 +423,7 @@ data
 
 	nav a:focus {
 		border: 2px solid var(--color-hva-pink);
+		background-color: var(--color-hva-blue-secundary);
 	}
 
 	/* Primaire ruisknop */

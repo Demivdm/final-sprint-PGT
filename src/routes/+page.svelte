@@ -23,8 +23,6 @@
 
     <Nav {data}></Nav>
 
-    <LoginOutButton />
-
 </main>
 
 <style>
