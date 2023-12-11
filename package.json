@@ -17,14 +17,15 @@
 		"eslint-plugin-svelte": "^2.30.0",
 		"prettier": "^3.0.0",
 		"prettier-plugin-svelte": "^3.0.0",
-		"svelte": "^4.0.5",
+		"svelte": "^4.2.7",
 		"vite": "^4.4.2"
 	},
 	"type": "module",
 	"dependencies": {
 		"@supabase/auth-helpers-sveltekit": "^0.10.7",
-		"@supabase/supabase-js": "^2.38.5",
+		"@supabase/supabase-js": "^2.39.0",
 		"gql": "^1.1.2",
-		"graphql-request": "^6.1.0"
+		"graphql-request": "^6.1.0",
+		"supabase": "^1.115.5"
 	}
 }
