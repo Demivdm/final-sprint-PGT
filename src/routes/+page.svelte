@@ -1,11 +1,12 @@
 <script>
-    import Nav from "$lib/organisms/nav.svelte"    
-    import { page } from '$app/stores'
+  import Nav from "$lib/organisms/nav.svelte"    
+  import { page } from '$app/stores'
 	import LoginOutButton from '../lib/organisms/LoginOutButton.svelte';
+	import WerkvormCard from "../lib/organisms/WerkvormCard.svelte";
 
-    export let data
+  export let data
 
-    let loading = false
+  let loading = false
 
     const handleLogout = () => {
 		loading = true
@@ -15,14 +16,21 @@
 			loading = false
 		}
 	}
-    console.log(data)
+    // console.log(data)
 </script>
 
 
 <main>
 
-    <Nav {data}></Nav>
+    <!-- <Nav {data}></Nav> -->
 
+    <!-- <LoginOutButton /> -->
+
+    <section class="werkvormen">
+        {#each data.werkvormen as werkvorm}
+            <WerkvormCard {werkvorm}/>
+        {/each}
+    </section>
 </main>
 
 <style>
@@ -32,6 +40,12 @@
 		padding: 0;
 		width: 100%;
     }
+  
+    .werkvormen {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 2rem;
+        margin: 2rem 0;
 
     @media (min-width: 700px){
         main {

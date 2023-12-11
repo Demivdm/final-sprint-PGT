@@ -10,6 +10,7 @@ export async function load() {
 				korteBeschrijving
 				link
 				studiejaar
+                title
 				contactpersonen {
 					email
 				}
@@ -23,7 +24,13 @@ export async function load() {
 					... on Tag {
 						id
 						titel
+                        kleur {
+                            hex
+                        }
 					}
+				}
+                thumbnail {
+					url
 				}
 			}
 			tags {
