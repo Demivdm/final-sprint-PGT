@@ -29,7 +29,7 @@
 
 <nav>
 	<div class="mobile-menu">
-		<button>
+		<button class="dropdown-menu-button">
 			<figure>
 				<div>
 					<svg
@@ -96,7 +96,7 @@
 		</button>
 
 		<ul tabindex="0" role="menu">
-			<li role="menuitem">
+			<li class="menu-item" role="menuitem">
 				<button>
 					<svg
 						width="24"
@@ -204,7 +204,7 @@
 	</div>
 	<ul class="desktop-menu">
 		<li>
-			<a href="/">
+			<button>
 				<svg
 					width="24"
 					height="24"
@@ -229,7 +229,7 @@
 				</svg>
 
 				filteren & zoeken
-			</a>
+			</button>
 		</li>
 		<li>
 			<a href="/login">
@@ -367,6 +367,25 @@
 		justify-content: center;
 	}
 
+	/* Filter button */
+	li.menu-item button {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 1rem;
+		padding: 0.2rem 0.5rem;
+	}
+
+	li.menu-item button svg {
+		position: static;
+	}
+
+	li.menu-item button:hover {
+		background-color: var(--color-hva-pink);
+	}	
+
+
 	/* Menu button */
 	nav button figcaption {
 		font-family: 'Open sans';
@@ -384,21 +403,26 @@
 	}
 
 	nav button svg {
+		display: block;
 		position: absolute;
 		transition: 0.2s ease-in-out;
 		width: 1.5rem;
 	}
 
-	nav button svg:first-child {
+	nav .dropdown-menu-button svg:first-child {
 		display: block;
 	}
 
-	nav button svg:last-child {
+	nav .dropdown-menu-button svg:last-child {
 		display: none;
 	}
 
 	nav button:focus svg:first-child {
 		display: none;
+	}
+
+	nav ul li button {
+		display: block;
 	}
 
 	nav button:focus svg:last-child {
@@ -410,7 +434,7 @@
 	}
 
 	/* Link states */
-	nav a {
+	nav a, nav .menu-item button {
 		border: 2px solid var(--color-hva-blue-secundary);
 		border-radius: 0.25rem;
 		transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
