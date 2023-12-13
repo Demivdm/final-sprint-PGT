@@ -6,6 +6,7 @@ export async function load() {
 	let query = gql`
 		query Assets {
 			werkvormen {
+				title
 				beschrijving
 				korteBeschrijving
 				link
@@ -20,6 +21,7 @@ export async function load() {
 						titel
 					}
 				}
+				title
 				tags {
 					... on Tag {
 						id
