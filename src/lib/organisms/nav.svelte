@@ -97,7 +97,7 @@
 
 		<ul tabindex="0" role="menu">
 			<li role="menuitem">
-				<a href="/">
+				<button>
 					<svg
 						width="24"
 						height="24"
@@ -122,7 +122,7 @@
 					</svg>
 	
 					filteren & zoeken
-				</a>
+				</button>
 			</li>
 			<li role="menuitem">
 				<a href="/login">
