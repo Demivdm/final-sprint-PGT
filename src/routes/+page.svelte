@@ -5,6 +5,7 @@
 
 	import LoginOutButton from '../lib/organisms/LoginOutButton.svelte';
 	import WerkvormCard from "../lib/organisms/WerkvormCard.svelte";
+	import NavFilterList from "../lib/atoms/NavFilterList.svelte";
 
 
 	export let data;
@@ -26,6 +27,7 @@
 
 <main>
 	<Nav {data}/>
+	<NavFilterList {data}/>
 
 
     <!-- <Nav {data}></Nav> -->
