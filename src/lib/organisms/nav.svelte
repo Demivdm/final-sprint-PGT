@@ -368,22 +368,33 @@
 	}
 
 	/* Filter button */
-	li.menu-item button {
+	li.menu-item button, .desktop-menu li button {
 		width: 100%;
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
 		font-size: 1rem;
 		padding: 0.2rem 0.5rem;
+		transition: 0.3s ease-in-out;
+		border-radius: 0.25rem;
+		border: 2px solid var(--color-hva-blue-secundary);
 	}
 
 	li.menu-item button svg {
 		position: static;
 	}
 
-	li.menu-item button:hover {
+	li.menu-item button:hover, .desktop-menu li button:hover {
 		background-color: var(--color-hva-pink);
 	}	
+
+	.desktop-menu li button:focus {
+		border: 2px solid var(--color-hva-pink);
+	}
+
+	.desktop-menu li button svg {
+		position: static;
+	}
 
 
 	/* Menu button */
