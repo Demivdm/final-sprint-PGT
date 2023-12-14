@@ -48,6 +48,9 @@
 		});
 	  }
 	}
+	 function werkvormenCount(tagTitel) {
+    return filterWerkvormen().filter(werkvorm => werkvorm.tags.some(tag => tag.titel === tagTitel)).length;
+  }
   </script>
   
   <div class="tags">
@@ -56,6 +59,7 @@
 		<li>
 		  <h2>
 			{tag.titel}
+			({werkvormenCount(tag.titel)})
 			<input
 			  type="checkbox"
 			  on:change={handleCheckboxChange}
@@ -71,6 +75,7 @@
 		{#if !headerTagIds.includes(tag.id)}
 		  <li>
 			{tag.titel}
+			({werkvormenCount(tag.titel)})
 			<input
 			  type="checkbox"
 			  on:change={handleCheckboxChange}
@@ -88,14 +93,14 @@
   <!-- dit ga ik later mergen met de werkvormen -->
   
   
-  <!-- {#each displayedWerkvormen as filteredWerkvorm}
+  {#each displayedWerkvormen as filteredWerkvorm}
 	{#if displayedWerkvormen.length > 0}
 	  <h2>{filteredWerkvorm.title}</h2>
 	  {#each filteredWerkvorm.tags as werkvormTag}
 		<p>{werkvormTag.titel}</p>
 	  {/each}
 	{/if}
-  {/each} -->
+  {/each}
   
   <style>
 	ul:first-of-type {
