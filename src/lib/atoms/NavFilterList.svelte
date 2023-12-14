@@ -22,6 +22,11 @@
 <!-- wanneer een werkvorm maar 1 tag had werd tags niet meer als array gezien en kan er geen for each doorheen loopen -->
 
 <div class="tag" id="mega-menu">
+  <form method="GET" action="/">
+    <button type="submit">zoeken</button>
+    <input name="searchbar" type="text" />
+    <label for="searchbar" hidden>Zoek een werkvorm</label>
+  </form>
 	<ul>
 		{#each headerFilterTags as tag}
 			<li><h2>{tag.titel}<input type="checkbox" /></h2></li>
@@ -61,6 +66,59 @@
 	ul input[type='checkbox'] {
 		margin-left: 1em;
 	}
+
+  /* Zoekbalk */
+  form {
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: row-reverse;
+  }
+
+  form input , button {
+    padding: 0.25rem 0.5rem;
+    background-color: var(--color-hva-blue-secundary);
+    border-radius: 0.25rem;
+  }
+
+  form input {
+    width: auto;
+    height: auto;
+    border: 2px solid var(--color-white);
+    color: var(--color-white);
+  }
+
+  form button {
+    color: var(--color-white);
+    background-color: #593bff;
+    font-size: 1rem;
+    border: unset;
+    position: relative;
+    transition: 0.3s ease-in-out;
+  }
+
+  form button:hover {
+    background-color: var(--color-hva-pink);
+  }
+
+  form button:focus {
+    border: 2px solid var(--color-hva-pink);
+  }
+
+  form button::before {
+    background-image: url('https://img.freepik.com/free-vector/seamless-grainy-texture-background_1409-2115.jpg');
+    background-size: 180%;
+    border-radius: 0.25rem;
+    content: '';
+    height: 100%;
+    left: 0;
+    mix-blend-mode: color-burn;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
 	@media (min-width: 700px) {
 		ul:first-of-type {
 			display: flex;
