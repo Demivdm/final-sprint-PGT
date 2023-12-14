@@ -1,5 +1,5 @@
 <script>
-
+	import { onMount } from 'svelte';
     import Nav from "$lib/organisms/nav.svelte"    
     import { page } from '$app/stores'
   
@@ -19,7 +19,19 @@
               loading = false
           }
       }
-      // console.log(data)
+
+      onMount(async () => {
+		document.documentElement.classList.add("javascriptEnabled");
+
+		const filterSearchButtons = document.querySelectorAll('#filterSearch')
+
+        filterSearchButtons.forEach(filterSearchButton => {
+            const filterMegaMenu = document.querySelector('#mega-menu')
+		    filterSearchButton.addEventListener('click', () => {
+			    filterMegaMenu.classList.toggle('visible')
+		    })
+        });
+	});
   
   </script>
 

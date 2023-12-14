@@ -80,3 +80,11 @@ a{
 a, button {
     cursor: pointer;
 }
+
+/* Filter instellingen */
+.tag {
+	display: none;
+}
+.visible{
+    display: block;
+}

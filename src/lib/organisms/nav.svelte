@@ -1,5 +1,4 @@
 <script>
-	import { onMount } from 'svelte';
 	import NavFilterList from '../atoms/NavFilterList.svelte';
 	export let data;
 
@@ -24,14 +23,6 @@
 		// funtie die kijkt of filterdropdown true of false is en deze naar de andere staat dan de huidige staat toe togglt.
 		filterDropdownActive = !filterDropdownActive;
 	}
-
-	onMount(async () => {
-		document.documentElement.classList.add("javascriptEnabled");
-
-		const filterSearchButton = document.querySelector('filterSearch')
-
-		
-	});
 
 	console.log(data);
 </script>
@@ -515,15 +506,6 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-	}
-
-	/* Filter instellingen */
-	.tag {
-		display: none;
-	}
-
-	.menu-item:focus .tag {
-	    display: block;
 	}
 
 	@media (min-width: 1080px) {

@@ -21,7 +21,7 @@
 <!-- tags stond binnen werkvormen in de query en daarom werkte het niet -->
 <!-- wanneer een werkvorm maar 1 tag had werd tags niet meer als array gezien en kan er geen for each doorheen loopen -->
 
-<div class="tag" id="mega-menu" hidden>
+<div class="tag" id="mega-menu">
 	<ul>
 		{#each headerFilterTags as tag}
 			<li><h2>{tag.titel}<input type="checkbox" /></h2></li>
