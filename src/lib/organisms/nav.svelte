@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte';
 	import NavFilterList from '../atoms/NavFilterList.svelte';
 	export let data;
 
@@ -24,12 +25,20 @@
 		filterDropdownActive = !filterDropdownActive;
 	}
 
+	onMount(async () => {
+		document.documentElement.classList.add("javascriptEnabled");
+
+		const filterSearchButton = document.querySelector('filterSearch')
+
+		
+	});
+
 	console.log(data);
 </script>
 
 <nav>
 	<div class="mobile-menu">
-		<button class="dropdown-menu-button">
+		<button class="dropdown-menu-button" tabindex="0" aria-expanded="false" aria-controls="mobile-menu">
 			<figure>
 				<div>
 					<svg
@@ -95,9 +104,9 @@
 			</figure>
 		</button>
 
-		<ul tabindex="0" role="menu">
+		<ul role="menu" id="mobile-menu" hidden>
 			<li class="menu-item" role="menuitem">
-				<button>
+				<button id="filterSearch" aria-expanded="false" aria-controls="mega-menu" type="button">
 					<svg
 						width="24"
 						height="24"
@@ -120,12 +129,11 @@
 							</clipPath>
 						</defs>
 					</svg>
-	
 					filteren & zoeken
 				</button>
 			</li>
 			<li role="menuitem">
-				<a href="/login">
+				<a href="/login" aria-expanded="true">
 					<svg
 						width="24"
 						height="24"
@@ -155,12 +163,11 @@
 							</clipPath>
 						</defs>
 					</svg>
-	
 					inloggen
 				</a>
 			</li>
 			<li role="menuitem">
-				<a class="link-primary" href="/upload">
+				<a class="link-primary" href="/upload" aria-expanded="true">
 					<svg
 						width="24"
 						height="24"
@@ -202,9 +209,9 @@
 			</li>
 		</ul>
 	</div>
-	<ul class="desktop-menu">
+	<ul class="desktop-menu" role="menu" tabindex="0">
 		<li>
-			<button>
+			<button id="filterSearch" aria-expanded="false" type="button">
 				<svg
 					width="24"
 					height="24"
@@ -227,7 +234,6 @@
 						</clipPath>
 					</defs>
 				</svg>
-
 				filteren & zoeken
 			</button>
 		</li>
@@ -324,8 +330,6 @@
 		padding: 0.5rem;
 		width: calc(100% - 2rem);
 		text-transform: capitalize;
-
-		/*  */
 	}
 
 	nav .mobile-menu {
@@ -337,13 +341,16 @@
 	nav .mobile-menu ul {
 		position: absolute;
     	top: 3.5rem;
-    	display: none;
     	flex-direction: column;
     	gap: 0.5rem;
     	background-color: var(--color-hva-blue-secundary);
     	box-shadow: 8px 8px var(--color-hva-navy);
     	right: -0.5rem;
 		padding: 0.5rem;
+	}
+
+	nav .mobile-menu ul:hover {
+		display: flex;
 	}
 
 	nav .mobile-menu ul a {
@@ -388,14 +395,13 @@
 		background-color: var(--color-hva-pink);
 	}	
 
-	.desktop-menu li button:focus {
+	.desktop-menu li button:focus-within {
 		border: 2px solid var(--color-hva-pink);
 	}
 
 	.desktop-menu li button svg {
 		position: static;
 	}
-
 
 	/* Menu button */
 	nav button figcaption {
@@ -428,7 +434,7 @@
 		display: none;
 	}
 
-	nav button:focus svg:first-child {
+	nav button:focus-within svg:first-child {
 		display: none;
 	}
 
@@ -436,15 +442,23 @@
 		display: block;
 	}
 
-	nav button:focus svg:last-child {
+	nav ul li:first-child {
+		display: none;
+	}
+
+	.javascriptEnabled nav ul li:first-child {
 		display: block;
 	}
 
-	nav .mobile-menu button:focus + ul  {
+	nav button:focus-within svg:last-child {
+		display: block;
+	}
+
+	nav .mobile-menu button:focus-within + ul  {
 		display: flex;
 	}
 
-	/* Link states */
+	/* Interactive states */
 	nav a, nav .menu-item button {
 		border: 2px solid var(--color-hva-blue-secundary);
 		border-radius: 0.25rem;
@@ -452,11 +466,11 @@
 		padding: 0.2rem 0.5rem;
 	}
 
-	nav a:hover {
+	nav a:hover, ul li button:hover {
 		background-color: var(--color-hva-pink);
 	}
 
-	nav a:focus {
+	nav a:focus, ul li button:focus {
 		border: 2px solid var(--color-hva-pink);
 		background-color: var(--color-hva-blue-secundary);
 	}
@@ -501,6 +515,15 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
+	}
+
+	/* Filter instellingen */
+	.tag {
+		display: none;
+	}
+
+	.menu-item:focus .tag {
+	    display: block;
 	}
 
 	@media (min-width: 1080px) {
