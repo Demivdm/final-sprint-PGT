@@ -23,9 +23,14 @@
 
 <div class="tag" id="mega-menu">
   <form method="GET" action="/">
-    <button type="submit">zoeken</button>
-    <input name="searchbar" type="text" />
-    <label for="searchbar" hidden>Zoek een werkvorm</label>
+    <fieldset>
+      <button type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+        zoeken
+      </button>
+      <input name="searchbar" type="text" />
+      <label for="searchbar" hidden>Zoek een werkvorm</label>
+    </fieldset>
   </form>
 	<ul>
 		{#each headerFilterTags as tag}
@@ -70,10 +75,18 @@
   /* Zoekbalk */
   form {
     width: 100%;
-    height: 2rem;
+    height: auto;
+    display: block;
+    padding: 1rem 2rem;
+  }
+
+  form fieldset {
+    width: fit-content;
     display: flex;
-    gap: 0.5rem;
     flex-direction: row-reverse;
+    gap: 0.5rem;
+    border: unset;
+    margin: auto;
   }
 
   form input , button {
@@ -83,9 +96,10 @@
   }
 
   form input {
-    width: auto;
+    width: 50vw;
     height: auto;
     border: 2px solid var(--color-white);
+    background-color: #f5f5f512;
     color: var(--color-white);
   }
 
@@ -96,6 +110,9 @@
     border: unset;
     position: relative;
     transition: 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   form button:hover {
