@@ -32,8 +32,8 @@
 			<figure>
 				<div>
 					<svg
-						width="24"
-						height="24"
+						width=""
+						height=""
 						viewBox="0 0 24 24"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
@@ -56,13 +56,13 @@
 						</g>
 						<defs>
 							<clipPath id="clip0_937_7">
-								<rect width="24" height="24" fill="white" />
+								<rect width="" height="" fill="white" />
 							</clipPath>
 						</defs>
 					</svg>
 					<svg
-						width="24"
-						height="24"
+						width=""
+						height=""
 						viewBox="0 0 24 24"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +85,7 @@
 						</g>
 						<defs>
 							<clipPath id="clip0_937_18">
-								<rect width="24" height="24" fill="white" />
+								<rect width="" height="" fill="white" />
 							</clipPath>
 						</defs>
 					</svg>
@@ -310,6 +310,11 @@
 	* {
 		color: white;
 		margin: 0;
+	}
+
+	svg {
+		width: 1.5rem;
+    	height: 1.5rem;
 	}
 
 	nav {
