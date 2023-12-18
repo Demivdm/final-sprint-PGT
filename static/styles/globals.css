@@ -93,6 +93,14 @@ a, button {
 }
 
 /* Toegankelijkheid */
+#textIncrease {
+    display: none;
+}
+
+.javascriptEnabled #textIncrease {
+    display: block;
+}
+
 .text-large {
     font-size: 150%;
 }
