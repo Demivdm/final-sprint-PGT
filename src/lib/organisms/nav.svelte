@@ -1,5 +1,4 @@
 <script>
-	import NavFilterList from '../atoms/NavFilterList.svelte';
 	export let data;
 
 	// filter staat standaard uit, het menu is standaard uitgeklapt
