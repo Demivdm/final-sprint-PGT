@@ -69,10 +69,22 @@ body{
     height: 100%;
 }
 
+a:focus-visible, button:focus-visible {
+    outline: inherit;
+}
+
 a{
     color: var(--color-white);
 }
 
 a, button {
     cursor: pointer;
+}
+
+/* Filter instellingen */
+.tag {
+	display: none;
+}
+.visible{
+    display: block;
 }
