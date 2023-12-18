@@ -48,11 +48,24 @@
 		});
 	  }
 	}
+
+	export let searchInput
+	export let searchWerkvormen
+
   </script>
-  
-  <div class="tags">
-	<ul>
-	  {#each headerFilterTags as tag}
+
+  <div class="tag" id="mega-menu">
+	<form method="get" action="/">
+	  <fieldset>
+		<button bind:this={searchInput} type="submit">
+		  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+		  zoeken
+		</button>
+		<input name="q" type="text" id="search-werkvormen" bind:this={searchInput} />
+		<label for="search-werkvormen" hidden>Zoek een werkvorm</label>
+	  </form>
+	  <ul>
+		{#each headerFilterTags as tag}
 		<li>
 		  <h2>
 			{tag.titel}
@@ -65,9 +78,9 @@
 		  </h2>
 		</li>
 	  {/each}
-	</ul>
-	<ul>
-	  {#each data.tags as tag}
+	  </ul>
+	  <ul>
+		{#each data.tags as tag}
 		{#if !headerTagIds.includes(tag.id)}
 		  <li>
 			{tag.titel}
@@ -80,33 +93,6 @@
 		  </li>
 		{/if}
 	  {/each}
-	</ul>
-  </div>
-
-  <div class="tag" id="mega-menu">
-	<form method="GET" action="/">
-	  <fieldset>
-		<button type="submit">
-		  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
-		  zoeken
-		</button>
-		<input name="searchbar" type="text" />
-		<label for="searchbar" hidden>Zoek een werkvorm</label>
-	  </fieldset>
-	</form>
-	  <ul>
-		  {#each headerFilterTags as tag}
-			  <li><h2>{tag.titel}<input type="checkbox" /></h2></li>
-		  {/each}
-	  </ul>
-	  <ul>
-		  {#each data.tags as tag}
-			  <!-- dit if statement checkt of de tag in de lijst met headerTagIds zit -->
-			  {#if !headerTagIds.includes(tag.id)}
-				  <!-- als de tag er niet inzit dan wordt hier de titel getoond -->
-				  <li>{tag.titel}<input type="checkbox" /></li>
-			  {/if}
-		  {/each}
 	  </ul>
   </div>
 
@@ -125,26 +111,102 @@
   {/each} -->
   
   <style>
+	div {
+		background-color: var(--color-hva-blue-secundary);
+		box-shadow: 8px 8px #1e1649;
+		height: fit-content;
+		margin: 0 1rem;
+		padding: 0.5rem;
+		width: calc(100% - 2rem);
+    margin-top: 1rem;
+	}
+
 	ul:first-of-type {
-	  display: flex;
-	  flex-direction: column;
+		display: flex;
+		flex-direction: column;
 	}
 	ul > li {
-	  padding: 0.5em;
-	  margin-left: 1.5em;
+		padding: 0.5em;
+		margin-left: 1.5em;
 	}
-  
+
 	ul input[type='checkbox'] {
-	  margin-left: 1em;
+		margin-left: 1em;
 	}
+
+  /* Zoekbalk */
+  form {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 1rem 2rem;
+  }
+
+  form fieldset {
+    width: fit-content;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.5rem;
+    border: unset;
+    margin: auto;
+  }
+
+  form input , button {
+    padding: 0.25rem 0.5rem;
+    background-color: var(--color-hva-blue-secundary);
+    border-radius: 0.25rem;
+  }
+
+  form input {
+    width: 50vw;
+    height: auto;
+    border: 2px solid var(--color-white);
+    background-color: #f5f5f512;
+    color: var(--color-white);
+  }
+
+  form button {
+    color: var(--color-white);
+    background-color: #593bff;
+    font-size: 1rem;
+    border: unset;
+    position: relative;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  form button:hover {
+    background-color: var(--color-hva-pink);
+  }
+
+  form button:focus {
+    border: 2px solid var(--color-hva-pink);
+  }
+
+  form button::before {
+    background-image: url('https://img.freepik.com/free-vector/seamless-grainy-texture-background_1409-2115.jpg');
+    background-size: 180%;
+    border-radius: 0.25rem;
+    content: '';
+    height: 100%;
+    left: 0;
+    mix-blend-mode: color-burn;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
 	@media (min-width: 700px) {
-	  ul:first-of-type {
-		display: flex;
-		flex-direction: row;
-	  }
-	  ul {
-		display: flex;
-		width: 75vw;
-	  }
+		ul:first-of-type {
+			display: flex;
+			flex-direction: row;
+		}
+		ul {
+			display: flex;
+
+			width: 75vw;
+		}
 	}
-  </style>
+</style>
