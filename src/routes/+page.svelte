@@ -7,6 +7,8 @@
 	import WerkvormCard from '../lib/organisms/WerkvormCard.svelte';
 	import NavFilterList from '../lib/atoms/NavFilterList.svelte';
 
+	export let data
+
 	let loading = false;
 
 	const handleLogout = () => {
