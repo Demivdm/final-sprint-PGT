@@ -7,7 +7,7 @@
 	import WerkvormCard from '../lib/organisms/WerkvormCard.svelte';
 	import NavFilterList from '../lib/atoms/NavFilterList.svelte';
 
-	export let data
+	export let data;
 
 	let loading = false;
 
@@ -20,6 +20,18 @@
 		};
 	};
 
+	// Zoekbalk logica
+	let searchInput = null;
+	let filteredWerkvormen = data.werkvormen;
+
+	function searchWerkvormen(event) {
+		event.preventDefault();
+		const searchTerm = searchInput.value.toLowerCase();
+		filteredWerkvormen = data.werkvormen.filter((werkvorm) =>
+			werkvorm.heading.toLowerCase().includes(searchTerm)
+		);
+	}
+
 	onMount(async () => {
 		document.documentElement.classList.add('javascriptEnabled');
 
@@ -31,24 +43,28 @@
 				filterMegaMenu.classList.toggle('visible');
 			});
 		});
+
+		searchInput = document.getElementById('search-werkvormen');
+
+		// Voeg submit event listener toe voor het tonen van resultaten bij het indienen van het formulier
+		searchInput.form.addEventListener('submit', searchWerkvorm);
+
+		return () => {
+			// Verwijder event listeners bij het opruimen van de component
+			searchInput.form.removeEventListener('submit', searchWerkvorm);
+		};
 	});
 </script>
 
 <main>
 	<Nav {data} />
-	<NavFilterList {data} />
+	<NavFilterList {data} {filteredWerkvormen} {searchInput} {searchWerkvormen} />
 
 	<!-- <LoginOutButton /> -->
 
-	<section class="werkvormen">
-		{#each data.werkvormen as werkvorm}
+	<section class="werkvormen" id="custom-view">
+		{#each filteredWerkvormen as werkvorm}
 			<WerkvormCard {werkvorm} />
-		{/each}
-	</section>
-
-	<section class="werkvormen">
-		{#each data.werkvormen as werkvorm}
-			<!-- <WerkvormCard {werkvorm}/> -->
 		{/each}
 	</section>
 </main>
@@ -60,6 +76,10 @@
 		gap: 2rem;
 		margin: 2rem 0;
 	}
+
+    #custom-view {
+        transition: var(--animation-default) ease-in-out;
+    }
 
 	@media (min-width: 700px) {
 		main {
