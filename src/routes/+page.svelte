@@ -24,13 +24,13 @@
 	let searchInput = null;
 	let filteredWerkvormen = data.werkvormen;
 
-	function searchWerkvormen(event) {
-		event.preventDefault();
-		const searchTerm = searchInput.value.toLowerCase();
-		filteredWerkvormen = data.werkvormen.filter((werkvorm) =>
-			werkvorm.heading.toLowerCase().includes(searchTerm)
-		);
-	}
+    function searchWerkvormen(event) {
+      event.preventDefault();
+      const searchTerm = searchInput.value.toLowerCase();
+      filteredWerkvormen = data.werkvormen.filter((werkvorm) =>
+          werkvorm.title.toLowerCase().includes(searchTerm)
+      );
+  }
 
 	onMount(async () => {
 		document.documentElement.classList.add('javascriptEnabled');
@@ -47,18 +47,18 @@
 		searchInput = document.getElementById('search-werkvormen');
 
 		// Voeg submit event listener toe voor het tonen van resultaten bij het indienen van het formulier
-		searchInput.form.addEventListener('submit', searchWerkvorm);
+		searchInput.form.addEventListener('submit', searchWerkvormen);
 
 		return () => {
 			// Verwijder event listeners bij het opruimen van de component
-			searchInput.form.removeEventListener('submit', searchWerkvorm);
+			searchInput.form.removeEventListener('submit', searchWerkvormen);
 		};
 	});
 </script>
 
 <main>
 	<Nav {data} />
-	<NavFilterList {data} {filteredWerkvormen} {searchInput} {searchWerkvormen} />
+    <NavFilterList {data} {filteredWerkvormen} {searchInput} {searchWerkvormen} />
 
 	<!-- <LoginOutButton /> -->
 
