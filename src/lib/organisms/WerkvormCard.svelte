@@ -8,13 +8,14 @@
 			<li style="border-color: {tag.kleur.hex};">{tag.titel}</li>
 		{/each}
 	</ul>
+
 	<img src={werkvorm.thumbnail.url} alt="" />
 	<div>
-        <div>
-            <h2>{werkvorm.title}</h2>
-            <p>{werkvorm.korteBeschrijving}</p>
-        </div>
-        <a href={werkvorm.link}><img src="images/icons/arrow-right.svg" alt="" />Bekijk werkvorm</a>
+		<div>
+			<h2>{werkvorm.title}</h2>
+			<p>{werkvorm.korteBeschrijving}</p>
+		</div>
+		<a href={werkvorm.link}><img src="images/icons/arrow-right.svg" alt="" />Bekijk werkvorm</a>
 	</div>
 </article>
 
@@ -25,7 +26,7 @@
 		row-gap: 1rem;
 		background-color: var(--color-hva-blue-secundary);
 		box-shadow: 8px 8px #1e1649;
-        max-width: 20rem;
+		max-width: 20rem;
 		padding: 0.8rem;
 	}
 
@@ -53,8 +54,8 @@
 	article > div {
 		display: flex;
 		flex-direction: column;
-        height: 100%;
-        justify-content: space-between;
+		height: 100%;
+		justify-content: space-between;
 	}
 
 	h2 {
@@ -75,7 +76,7 @@
 		align-items: center;
 		column-gap: 0.5rem;
 		margin-left: 0.5rem;
-        margin-bottom: 0.8rem;
+		margin-bottom: 0.8rem;
 		text-decoration: underline;
 		font-weight: 600;
 		font-size: 1rem;
@@ -91,26 +92,26 @@
 		width: 1rem;
 	}
 
-    ul {
-        display: flex;
-        align-items: center;
-        flex-flow: row wrap;
-        list-style: none;
-        column-gap: 0.5rem;
-        text-transform: capitalize;
+	ul {
+		display: flex;
+		align-items: center;
+		flex-flow: row wrap;
+		list-style: none;
+		column-gap: 0.5rem;
+		text-transform: capitalize;
 		position: absolute;
 		z-index: -1;
 		transition: all ease-out 0.2s;
-    }
+	}
 
-    li {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.2rem 0.5rem;
-        border: solid 2px;
-        border-radius: 0;
-        font-size: 0.8rem;
-        font-weight: 500;
-    }
+	li {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.2rem 0.5rem;
+		border: solid 2px;
+		border-radius: 0;
+		font-size: 0.8rem;
+		font-weight: 500;
+	}
 </style>

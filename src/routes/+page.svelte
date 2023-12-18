@@ -64,7 +64,7 @@
 
 	<section class="werkvormen" id="custom-view">
 		{#each filteredWerkvormen as werkvorm}
-			<WerkvormCard {werkvorm} />
+			<WerkvormCard {werkvorm} {data} />
 		{/each}
 	</section>
 </main>
