@@ -23,8 +23,8 @@
 		display: flex;
 		flex-direction: column;
 		row-gap: 1rem;
-		background: var(--color-hva-navy);
-        box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.25);
+		background-color: var(--color-hva-blue-secundary);
+		box-shadow: 8px 8px #1e1649;
         max-width: 20rem;
 		padding: 0.8rem;
 	}
