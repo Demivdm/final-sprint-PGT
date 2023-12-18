@@ -2,6 +2,7 @@
 	export let data;
 	export let searchInput
 	export let searchWerkvormen
+	
 	// verzameling met tags die een header zijn.  
 	const headerTagIds = [
 	  'clpl0vr7g16x10bvz5txuso4g',
@@ -124,21 +125,12 @@
 		{/if}
 	  {/each}
 	  </ul>
+
+	  
   </div>
 
 
-  <!-- de onderstaande code is de koppeling met de werkvormen -->
-  <!-- dit ga ik later mergen met de werkvormen -->
-  
-  
-  {#each displayedWerkvormen as filteredWerkvorm}
-	{#if displayedWerkvormen.length > 0}
-	  <h2>{filteredWerkvorm.title}</h2>
-	  {#each filteredWerkvorm.tags as werkvormTag}
-		<p>{werkvormTag.titel}</p>
-	  {/each}
-	{/if}
-  {/each}
+ 
   
   <style>
 	div {

@@ -1,13 +1,27 @@
 <script>
 	export let werkvorm;
+	import NavFilterList from "../atoms/NavFilterList.svelte";
+
 </script>
 
 <article>
-	<ul>
+	<!-- het orgineel -->
+	<!-- <ul>
 		{#each werkvorm.tags as tag}
 			<li style="border-color: {tag.kleur.hex};">{tag.titel}</li>
 		{/each}
-	</ul>
+	</ul> -->
+<!-- geintergreerde versie -->
+	<ul>
+		{#each displayedWerkvormen as filteredWerkvorm}
+		  {#if filteredWerkvorm.tags && filteredWerkvorm.tags.length > 0}
+			{#each filteredWerkvorm.tags as werkvormTag}
+			  <li style="border-color: {werkvormTag.kleur.hex};">{werkvormTag.titel}</li>
+			{/each}
+		  {/if}
+		{/each}
+	  </ul>
+	  
 	<img src={werkvorm.thumbnail.url} alt="" />
 	<div>
         <div>
