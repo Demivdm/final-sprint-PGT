@@ -1,6 +1,6 @@
 <script>
 
-  import Nav from "$lib/organisms/nav.svelte"    
+  import Nav from "$lib/organisms/nav.svelte"
   import { page } from '$app/stores'
 
 	import LoginOutButton from '../lib/organisms/LoginOutButton.svelte';
@@ -43,15 +43,16 @@
 </main>
 
 <style>
-	
 
-    
-  
+
+
+
     .werkvormen {
         display: flex;
         flex-flow: row wrap;
         gap: 2rem;
-        margin: 2rem 0;}
+        margin: 2rem 0;
+    }
 
     @media (min-width: 700px){
         main {
@@ -59,4 +60,3 @@
         }
     }
 </style>
-
