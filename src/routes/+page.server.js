@@ -6,10 +6,12 @@ export async function load() {
 	let query = gql`
 		query Assets {
 			werkvormen {
+				title
 				beschrijving
 				korteBeschrijving
 				link
 				studiejaar
+                title
 				contactpersonen {
 					email
 				}
@@ -19,11 +21,18 @@ export async function load() {
 						titel
 					}
 				}
+				title
 				tags {
 					... on Tag {
 						id
 						titel
+                        kleur {
+                            hex
+                        }
 					}
+				}
+                thumbnail {
+					url
 				}
 			}
 			tags {
