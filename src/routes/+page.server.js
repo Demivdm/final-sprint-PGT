@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request';
 import { hygraph, hygraphHP } from '$lib/Utils/hygraph';
-export let data;
+// export let data;
 
 export async function load() {
 	let query = gql`
