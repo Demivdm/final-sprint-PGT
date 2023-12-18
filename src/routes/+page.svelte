@@ -41,6 +41,12 @@
     <Nav {data}></Nav>
     <NavFilterList {data}/>
 
+
+    <section class="werkvormen">
+        {#each data.werkvormen as werkvorm}
+            <!-- <WerkvormCard {werkvorm}/> -->
+        {/each}
+    </section>
 </main>
 
 <style>
