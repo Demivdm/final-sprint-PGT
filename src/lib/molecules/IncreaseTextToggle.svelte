@@ -23,14 +23,16 @@
 <style>
     button {
         position: fixed;
-        bottom: 2rem;
-        right: 2.5rem;
+        bottom: 32px;
+        right: 40px;
         padding: 0.25rem 0.5rem;
+        padding-left: 12px;
         background-color: var(--color-hva-pink-enhanced);
         border: unset;
         color: var(--color-default);
         box-shadow: 0.5rem 0.5rem #1e1649;
         transition: 0.3s ease-in-out;
+        z-index: 5;
     }
 
     button figure {
@@ -42,10 +44,29 @@
         text-transform: capitalize;
     }
 
+    button figure figcaption {
+        visibility: hidden;
+        width: 0px;
+    }
+
     /* Interactive states */
     button:hover {
         background-color: var(--color-hva-blue-secundary-enhanced);
         box-shadow: 0px 0px #1e1649;
         transition: 0.3s ease-in-out;
     }
+
+    @media (min-width: 40rem){
+
+        button {
+            padding-left: 0.5rem;
+        }
+
+        button figure figcaption {
+            visibility: visible;
+            width: fit-content;
+        }
+    }
+
+
 </style>
