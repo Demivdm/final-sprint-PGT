@@ -468,7 +468,7 @@
 	/* Primaire ruisknop */
 	.link-primary {
 		align-items: center;
-		background: #593bff;
+		background: oklch(0.54 0.28 278.48);
 		border-radius: 0.25rem;
 		display: flex;
 		gap: 0.5rem;

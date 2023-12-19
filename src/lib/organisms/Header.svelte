@@ -61,7 +61,7 @@
     }
 
     span {
-        color: var(--color-hva-pink);
+        color: var(--color-hva-pink-enhanced);
         font-weight: 800;
         font-size: 1rem;
     }
