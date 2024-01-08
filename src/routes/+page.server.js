@@ -1,50 +1,23 @@
-import { gql } from 'graphql-request';
-import { hygraph, hygraphHP } from '$lib/Utils/hygraph';
-// export let data;
-
+// Fetch data from Directus
 export async function load() {
-	let query = gql`
-		query Assets {
-			werkvormen {
-				title
-				beschrijving
-				korteBeschrijving
-				link
-				studiejaar
-                title
-				contactpersonen {
-					email
-				}
-				opleiding {
-					titel
-					faculteit {
-						titel
-					}
-				}
-				title
-				tags {
-					... on Tag {
-						id
-						titel
-                        kleur {
-                            hex
-                        }
-					}
-				}
-                thumbnail {
-					url
-				}
-			}
-			tags {
-				id
-				titel
-				kleur {
-					hex
-				}
-			}
-		}
-	`;
-	const data = await hygraphHP.request(query);
+	// Get all data from seperate collections
+	const reqWorkform = await fetch(
+		'https://platform-big-themes.directus.app/items/workform?fields=*.*.*'
+	);
+	const reqCourse = await fetch('https://platform-big-themes.directus.app/items/course');
+	const reqContact = await fetch('https://platform-big-themes.directus.app/items/contact');
+	const reqTag = await fetch('https://platform-big-themes.directus.app/items/tag');
+	const dataWorkform = await reqWorkform.json();
+	const dataCourse = await reqCourse.json();
+	const dataContact = await reqContact.json();
+	const dataTag = await reqTag.json();
+
+	const data = {
+		workform: dataWorkform.data,
+		course: dataCourse.data,
+		contact: dataContact.data,
+		tag: dataTag.data
+	};
 
 	return data;
 }

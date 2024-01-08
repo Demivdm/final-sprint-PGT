@@ -13,15 +13,13 @@
 	export let data
 
     // Convert email field to titel field
-    const contactpersoonObj = data.contactpersoons.map(({
-        email: titel,
+    const contactpersoonObj = data.contact.map(({
+        email: title,
         ...rest
     }) => ({
         ...rest,
-        titel
+        title
     }))
-
-    // console.log(contactpersoonObj);
 
 	let loading = false
     let showUpload = true;
@@ -88,7 +86,7 @@
 			selectName="werkvormOpleiding"
 			selectId="werkvormOpleiding"
 			selectPlaceholder="Selecteer een opleiding..."
-			options={data.opleidings}
+			options={data.course}
             isRequired={false}
 		/>
 

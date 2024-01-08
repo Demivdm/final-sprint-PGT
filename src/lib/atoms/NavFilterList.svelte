@@ -2,8 +2,8 @@
 	export let data;
 	export let searchInput
 	export let searchWerkvormen
-	
-	// verzameling met tags die een header zijn.  
+
+	// verzameling met tags die een header zijn.
 	const headerTagIds = [
 	  'clpl0vr7g16x10bvz5txuso4g',
 	  'clpl0rq3814cl0bvzawxbkmtm',
@@ -11,14 +11,14 @@
 	  'clpldjitj6nx10bw03rhqup1v'
 	];
 //   headfiltertags zijn alleen de tags die het id uit de array bevatten
-	const headerFilterTags = data.tags.filter((tag) => headerTagIds.includes(tag.id));
+	const headerFilterTags = data.tag.filter((tag) => headerTagIds.includes(tag.id));
 //   lege array om de geselcteerde tags in te stoppen
 	let selectedTags = [];
 // alle werkenvormen zodat ze standaard aan kunnen staan
-	let alleWerkvormen = data.werkvormen;
+	let alleWerkvormen = data.workform;
 // alle werkvormen maar krijgen later een check of ze aangeklikt zijn of niet
 	let displayedWerkvormen = alleWerkvormen;
-	
+
 // functie voor de afhandeling van de checkbox
 	function handleCheckboxChange(event) {
 		// een variabele met daarin de gebinde waarden van de tags
@@ -31,10 +31,10 @@
 		selectedTags = selectedTags.filter(tag => tag !== value);
 	  }
 	//   dit is een functie die de staat van de werkvorm update
-  
+
 	  updateDisplayedWerkvormen();
 	}
-  
+
 	// de functie wordt hier aangemaakt
 	function updateDisplayedWerkvormen() {
 		// als de tag niks bevat dan worden alle werkvormen getoond
@@ -68,9 +68,9 @@
 	// hier wordt gecheckt van de gefilterde werkvormen hoeveel er een tag titel bevatten.
     return filterWerkvormen().filter(werkvorm => werkvorm.tags.some(tag => tag.titel === tagTitel)).length;
   }
-  
+
   </script>
-  
+
 
 
   <div class="tag" id="mega-menu">
@@ -106,9 +106,9 @@
 	  {/each}
 
 	</ul>
-	
+
 	  <ul>
-		{#each data.tags as tag}
+		{#each data.tag as tag}
 
 		{#if !headerTagIds.includes(tag.id)}
 		<!-- als dat niet zo is worden de tags getoond -->
@@ -126,12 +126,12 @@
 	  {/each}
 	  </ul>
 
-	  
+
   </div>
 
 
- 
-  
+
+
   <style>
 	div {
 		background-color: var(--color-hva-blue-secundary);

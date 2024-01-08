@@ -23,7 +23,7 @@
 		filterDropdownActive = !filterDropdownActive;
 	}
 
-	console.log(data);
+	// console.log(data);
 </script>
 
 <nav>
@@ -383,7 +383,7 @@
 
 	li.menu-item button:hover, .desktop-menu li button:hover {
 		background-color: var(--color-hva-pink);
-	}	
+	}
 
 	.desktop-menu li button:focus-within {
 		border: 2px solid var(--color-hva-pink);
