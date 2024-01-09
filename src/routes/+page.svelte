@@ -7,8 +7,9 @@
 	import WerkvormCard from '../lib/organisms/WerkvormCard.svelte';
 	import NavFilterList from '../lib/atoms/NavFilterList.svelte';
 	import IncreaseTextToggle from '../lib/molecules/IncreaseTextToggle.svelte';
-
+	
 	export let data;
+	export let tag
 	console.log(data);
 
 	let loading = false;
@@ -56,11 +57,12 @@
 			searchInput.form.removeEventListener('submit', searchWerkvormen);
 		};
 	});
+	
 </script>
 
 <main>
 	<Nav {data} />
-	<NavFilterList {data} {filteredWerkvormen} {searchInput} {searchWerkvormen} />
+	<NavFilterList {data} {tag} {filteredWerkvormen} {searchInput} {searchWerkvormen} />
 
 	<!-- <LoginOutButton /> -->
 
