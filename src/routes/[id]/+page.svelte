@@ -1,7 +1,6 @@
 <script>
 	export let data
 	let workform = data.workform[0]
-    console.log(workform)
 </script>
 
 <main>

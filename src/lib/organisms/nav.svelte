@@ -22,8 +22,6 @@
 		// funtie die kijkt of filterdropdown true of false is en deze naar de andere staat dan de huidige staat toe togglt.
 		filterDropdownActive = !filterDropdownActive;
 	}
-
-	// console.log(data);
 </script>
 
 <nav>
