@@ -3,43 +3,34 @@ import { hygraph, hygraphHP } from '$lib/Utils/hygraph';
 import { HYGRAPH_ASSET_URL, HYGRAPH_KEY } from '$env/static/private';
 
 export async function load() {
-	let query = gql`
-		query MyQuery {
-			faculteits {
-				titel
-				id
-			}
-			opleidings {
-				id
-				titel
-			}
-			contactpersoons {
-				id
-				email
-			}
-			tags {
-				id
-				titel
-			}
-		}
-	`;
+	// Get all data for select fields
+	const reqCourse = await fetch('https://platform-big-themes.directus.app/items/course');
+	const reqContact = await fetch('https://platform-big-themes.directus.app/items/contact');
+	const reqTag = await fetch('https://platform-big-themes.directus.app/items/tag');
+	const dataCourse = await reqCourse.json();
+	const dataContact = await reqContact.json();
+	const dataTag = await reqTag.json();
 
-	const data = await hygraphHP.request(query);
-	// console.log(data);
+	const data = {
+		course: dataCourse.data,
+		contact: dataContact.data,
+		tag: dataTag.data
+	};
+
 	return data;
 }
 
 async function uploadFile(fileData) {
-    const response = await fetch(`${HYGRAPH_ASSET_URL}`, {
-        method: 'POST',
-        headers: {
-            Authorization: `Bearer ${HYGRAPH_KEY}`
-        },
-        body: fileData
-    });
+	const response = await fetch(`${HYGRAPH_ASSET_URL}`, {
+		method: 'POST',
+		headers: {
+			Authorization: `Bearer ${HYGRAPH_KEY}`
+		},
+		body: fileData
+	});
 
-    const data = await response.json();
-    return data;
+	const data = await response.json();
+	return data;
 }
 
 export const actions = {
@@ -55,19 +46,19 @@ export const actions = {
 		const werkvormVideo = formData.get('werkvormVideo');
 		const werkvormMaterialen = formData.get('werkvormMaterialen');
 
-        console.log('werkvormThumbnail', werkvormThumbnail);
+		console.log('werkvormThumbnail', werkvormThumbnail);
 
-        const filesToUpload = new FormData();
+		const filesToUpload = new FormData();
 
 		const files = [werkvormThumbnail, werkvormVideo, werkvormMaterialen];
 
-        files.forEach(file => {
-            filesToUpload.append('files', file);
-            console.log(`Added ${file.name} to filesToUpload`);
-        });
+		files.forEach((file) => {
+			filesToUpload.append('files', file);
+			console.log(`Added ${file.name} to filesToUpload`);
+		});
 
-        const uploadData = await uploadFile(filesToUpload);
-        console.log(uploadData);
+		const uploadData = await uploadFile(filesToUpload);
+		console.log(uploadData);
 
 		const werkvormName = formData.get('werkvormName')?.toString();
 		const werkvormShortDesc = formData.get('werkvormShortDesc')?.toString();
@@ -81,7 +72,6 @@ export const actions = {
 		// const videoHandle = formData.get('videoHandle')?.toString();
 		// const materialenName = formData.get('materialenName')?.toString();
 		// const materialenHandle = formData.get('materialenHandle')?.toString();
-
 
 		const mutation = gql`
 			mutation createWerkvorm(
@@ -106,13 +96,9 @@ export const actions = {
 						opleiding: { connect: { id: $werkvormOpleiding } }
 						studiejaar: $werkvormStudiejaar
 						contactpersonen: { connect: { id: $werkvormContactpersoon } }
-						thumbnail: {
-							create: { fileName: $thumbnailName, handle: $thumbnailHandle }
-						}
+						thumbnail: { create: { fileName: $thumbnailName, handle: $thumbnailHandle } }
 						video: { create: { fileName: $videoName, handle: $videoHandle } }
-						materialen: {
-							create: { fileName: $materialenName, handle: $materialenHandle }
-						}
+						materialen: { create: { fileName: $materialenName, handle: $materialenHandle } }
 					}
 				) {
 					id

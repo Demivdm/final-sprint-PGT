@@ -1,6 +1,7 @@
 <script>
 	export let data
-	let werkvorm = data.werkvormen[0]
+	let workform = data.workform[0]
+    console.log(workform)
 </script>
 
 <main>
@@ -13,16 +14,16 @@
 		</div>
 
 		<header>
-			<h1>{werkvorm.title}</h1>
-			<p>{werkvorm.korteBeschrijving}</p>
+			<h1>{workform.title}</h1>
+			<p>{workform.shortDescription}</p>
 		</header>
 
 		<!-- svelte-ignore a11y-media-has-caption -->
-        {#if werkvorm.video == null}
-        <img src={werkvorm.thumbnail.url} alt="Thumbnail" />
+        {#if workform.video == null}
+        <img src={"https://platform-big-themes.directus.app/assets/" + workform.thumbnail.id} alt="Thumbnail" />
         {:else}
-        <video controls poster={werkvorm.thumbnail.url}>
-            <source src={werkvorm.video.url} type={werkvorm.mimeType} />
+        <video controls poster={"https://platform-big-themes.directus.app/assets/" + workform.thumbnail.id}>
+            <source src={"https://platform-big-themes.directus.app/assets/" + workform.video.id} type={workform.video.type} />
         </video>
         {/if}
 
@@ -30,32 +31,23 @@
             <div class="content-left">
                 <div class="beschrijving">
                     <h2>Beschrijving</h2>
-                    <p>{werkvorm.beschrijving}</p>
+                    <p>{workform.description}</p>
                 </div>
 
                 <div class="extra-info">
                     <div class="info-left">
                         <h3>Faculteit/Opleiding</h3>
-                        <p>{werkvorm.opleiding.faculteit.titel} - {werkvorm.opleiding.titel}</p>
+                        <p>{workform.course.faculty} - {workform.course.title}</p>
                     </div>
                     <div class="info-right">
-                        <h3>Contactpersonen</h3>
-                        {#each werkvorm.contactpersonen as contactpersoon}
-                            <p>{contactpersoon.email}</p>
-                        {/each}
+                        <h3>Contactpersoon</h3>
+                        <p>{workform.contact.email}</p>
                     </div>
                 </div>
             </div>
 
             <div class="content-right">
                 <div class="action-buttons">
-                    <div class="action-button">
-                        <div class="icon-box">
-                            <img src="/images/icons/download.svg" alt="Download icon" />
-                        </div>
-                        <!-- TODO Add download link material -->
-                        <a href="/">Download materiaal</a>
-                    </div>
                     <div class="action-button">
                         <div class="icon-box">
                             <img src="/images/icons/arrow-right.svg" alt="Arrow Icon" />
@@ -67,9 +59,9 @@
                 <div class="tags">
                     <h2>Tags</h2>
                     <div class="tag-list">
-                        {#each werkvorm.tags as tag}
-                            <div class="tag" style="border-color: {tag.kleur.css};">
-                                <p>{tag.titel}</p>
+                        {#each workform.tags as tag}
+                            <div class="tag" style="border-color: {tag.tag_id.color};">
+                                <p>{tag.tag_id.title}</p>
                             </div>
                         {/each}
                     </div>

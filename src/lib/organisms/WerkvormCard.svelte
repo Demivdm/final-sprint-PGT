@@ -1,21 +1,22 @@
 <script>
-	export let werkvorm;
+	export let workform;
+    // console.log(workform.tags);
 </script>
 
 <article>
 	<ul>
-		{#each werkvorm.tags as tag}
-			<li style="border-color: {tag.kleur.hex};">{tag.titel}</li>
+		{#each workform.tags as tag}
+			<li style="border-color: {tag.tag_id.color};">{tag.tag_id.title}</li>
 		{/each}
 	</ul>
 
-	<img src={werkvorm.thumbnail.url} alt="" />
+	<img src={"https://platform-big-themes.directus.app/assets/" + workform.thumbnail.id} alt="" />
 	<div>
 		<div>
-			<h2>{werkvorm.title}</h2>
-			<p>{werkvorm.korteBeschrijving}</p>
+			<h2>{workform.title}</h2>
+			<p>{workform.shortDescription}</p>
 		</div>
-		<a href={werkvorm.link}><img src="images/icons/arrow-right.svg" alt="" />Bekijk werkvorm</a>
+		<a href={workform.link}><img src="images/icons/arrow-right.svg" alt="" />Bekijk werkvorm</a>
 	</div>
 </article>
 
@@ -26,6 +27,7 @@
 		row-gap: 1rem;
 		background-color: var(--color-hva-blue-secundary);
 		box-shadow: 8px 8px #1e1649;
+        min-width: 20rem;
 		max-width: 20rem;
 		padding: 0.8rem;
 	}

@@ -6,9 +6,10 @@
 	import LoginOutButton from '../lib/organisms/LoginOutButton.svelte';
 	import WerkvormCard from '../lib/organisms/WerkvormCard.svelte';
 	import NavFilterList from '../lib/atoms/NavFilterList.svelte';
-    import IncreaseTextToggle from '../lib/molecules/IncreaseTextToggle.svelte';
+	import IncreaseTextToggle from '../lib/molecules/IncreaseTextToggle.svelte';
 
 	export let data;
+	console.log(data);
 
 	let loading = false;
 
@@ -23,15 +24,15 @@
 
 	// Zoekbalk logica
 	let searchInput = null;
-	let filteredWerkvormen = data.werkvormen;
+	let filteredWerkvormen = data.workform;
 
-    function searchWerkvormen(event) {
-      event.preventDefault();
-      const searchTerm = searchInput.value.toLowerCase();
-      filteredWerkvormen = data.werkvormen.filter((werkvorm) =>
-          werkvorm.title.toLowerCase().includes(searchTerm)
-      );
-  }
+	function searchWerkvormen(event) {
+		event.preventDefault();
+		const searchTerm = searchInput.value.toLowerCase();
+		filteredWerkvormen = data.workform.filter((werkvorm) =>
+			werkvorm.title.toLowerCase().includes(searchTerm)
+		);
+	}
 
 	onMount(async () => {
 		document.documentElement.classList.add('javascriptEnabled');
@@ -59,13 +60,13 @@
 
 <main>
 	<Nav {data} />
-    <NavFilterList {data} {filteredWerkvormen} {searchInput} {searchWerkvormen} />
+	<NavFilterList {data} {filteredWerkvormen} {searchInput} {searchWerkvormen} />
 
 	<!-- <LoginOutButton /> -->
 
 	<section class="werkvormen" id="custom-view">
-		{#each filteredWerkvormen as werkvorm}
-			<WerkvormCard {werkvorm} {data} />
+		{#each filteredWerkvormen as workform}
+			<WerkvormCard {workform} {data} />
 		{/each}
 	</section>
 </main>
@@ -80,9 +81,9 @@
 		margin: 2rem 0;
 	}
 
-    #custom-view {
-        transition: var(--animation-default) ease-in-out;
-    }
+	#custom-view {
+		transition: var(--animation-default) ease-in-out;
+	}
 
 	@media (min-width: 700px) {
 		main {

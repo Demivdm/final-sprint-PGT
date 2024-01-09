@@ -20,8 +20,6 @@
 
 		return () => subscription.unsubscribe();
 	});
-
-
 </script>
 
 <Header path={$page.url.pathname} />
