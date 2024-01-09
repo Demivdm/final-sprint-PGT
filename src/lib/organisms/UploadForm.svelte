@@ -136,7 +136,7 @@
             inputName="werkvormVideo"
             inputId="werkvormVideo"
             inputPlaceholder="Selecteer een video..."
-            isRequired={false}
+            isRequired={true}
             hasMultiple={false}
         />
 

@@ -40,15 +40,13 @@ export const actions = {
     'create-werkvorm': async ({ request }) => {
         const formData = await request.formData()
 
+        /* ------------------------------- FILE UPLOAD ------------------------------ */
         // Get all files from formData object
         const werkvormThumbnail = formData.get('werkvormThumbnail')
         const werkvormVideo = formData.get('werkvormVideo')
-
         const filesToUpload = new FormData();
 
         const allFiles = [werkvormThumbnail, werkvormVideo]
-
-        console.log(allFiles);
 
         allFiles.forEach((file) => {
             // If file size is 0, don't upload
@@ -63,54 +61,49 @@ export const actions = {
 
         // Upload files to Directus
         const uploadData = await uploadFile(filesToUpload)
-
         console.log(uploadData);
+
+        /* -------------------------------- FORM DATA ------------------------------- */
+        // Get all data from formData object
+        const werkvormName = formData.get('werkvormName')?.toString()
+        const werkvormShortDesc = formData.get('werkvormShortDesc')?.toString()
+        const werkvormDesc = formData.get('werkvormDesc')?.toString()
+        const werkvormOpleiding = formData.get('werkvormOpleiding')?.toString()
+        const werkvormStudiejaar = formData.get('werkvormStudiejaar')?.toString()
+        const werkvormContactpersoon = formData.get('werkvormContactpersoon')?.toString()
+
+        // TODO - Create checker to see if thumbnail and video are uploaded, else find fix for non-array filtering.
+
+        // Get file id from uploaded thumbnail if filename_download equals werkvormThumbnail.name
+        const werkvormThumbnailID = uploadData.data.filter((file) => {
+            return file.filename_download === werkvormThumbnail.name
+        })
+        console.log(werkvormThumbnailID[0].id);
+
+        // Get file id from uploaded video if filename_download equals werkvormVideo.name
+        const werkvormVideoID = uploadData.data.filter((file) => {
+            return file.filename_download === werkvormVideo.name
+        })
+        console.log(werkvormVideoID[0].id);
+
+        // Slugify werkvormName
+        const slug = werkvormName.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '')
+        console.log(slug);
+
+        // Create data object to send to Directus
+        const data = {
+            title: werkvormName,
+            shortDescription: werkvormShortDesc,
+            description: werkvormDesc,
+            year: werkvormStudiejaar,
+            course: werkvormOpleiding,
+            contact: werkvormContactpersoon,
+            thumbnail: werkvormThumbnailID[0].id,
+            video: werkvormVideoID[0].id,
+            link: slug
+        }
+        console.log(data);
+
+        // TODO - Send data to Directus
     }
 }
-
-
-
-/* -------------------------------------------------------------------------- */
-/*                                  OUDE CODE                                 */
-/* -------------------------------------------------------------------------- */
-// export const actions = {
-// 	'create-werkvorm': async ({ request }) => {
-// 		// TODO - Upload files to assets with /upload endpoint Hygraph
-
-// 		// TODO - Use response from uploading assets to get ID of added file and add to formData object
-
-// 		const formData = await request.formData();
-
-// 		// Get all files from formData object
-// 		const werkvormThumbnail = formData.get('werkvormThumbnail');
-// 		const werkvormVideo = formData.get('werkvormVideo');
-// 		const werkvormMaterialen = formData.get('werkvormMaterialen');
-
-// 		console.log('werkvormThumbnail', werkvormThumbnail);
-
-// 		const filesToUpload = new FormData();
-
-// 		const files = [werkvormThumbnail, werkvormVideo, werkvormMaterialen];
-
-// 		files.forEach((file) => {
-// 			filesToUpload.append('files', file);
-// 			console.log(`Added ${file.name} to filesToUpload`);
-// 		});
-
-// 		const uploadData = await uploadFile(filesToUpload);
-// 		console.log(uploadData);
-
-// 		const werkvormName = formData.get('werkvormName')?.toString();
-// 		const werkvormShortDesc = formData.get('werkvormShortDesc')?.toString();
-// 		const werkvormDesc = formData.get('werkvormDesc')?.toString();
-// 		const werkvormOpleiding = formData.get('werkvormOpleiding')?.toString();
-// 		const werkvormStudiejaar = formData.get('werkvormStudiejaar')?.toString();
-// 		const werkvormContactpersoon = formData.get('werkvormContactpersoon')?.toString();
-// 		// const thumbnailName = formData.get('thumbnailName')?.toString();
-// 		// const thumbnailHandle = formData.get('thumbnailHandle')?.toString();
-// 		// const videoName = formData.get('videoName')?.toString();
-// 		// const videoHandle = formData.get('videoHandle')?.toString();
-// 		// const materialenName = formData.get('materialenName')?.toString();
-// 		// const materialenHandle = formData.get('materialenHandle')?.toString();
-// 	}
-// };
