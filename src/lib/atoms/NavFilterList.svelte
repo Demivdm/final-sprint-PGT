@@ -1,10 +1,9 @@
 <script>
-	export let tag;
 	export let searchInput;
 	export let data
-	
-	
-	
+
+
+
 
 	// verzameling met tags die een header zijn.
 	const headerTagIds = [
@@ -13,7 +12,7 @@
 	  'clpldj1qq2d5r0bw483xnvoyh',
 	  'clpldjitj6nx10bw03rhqup1v'
 	];
- console.log(tag);
+    console.log(data.tag);
 
   </script>
 
@@ -30,13 +29,13 @@
 		<label for="search-werkvormen" hidden>Zoek een werkvorm</label>
 	  </form>
 	  <ul>
-	
+
 	</ul>
 
 	  <ul>
-		
+
 		{#each data.tag as tag}
-			<li style="background-color: {tag.tag_id.color};">{tag.tag_id.title}</li>
+			<li style="background-color: {tag.color};">{tag.title}</li>
 		{/each}
 	  </ul>
 
