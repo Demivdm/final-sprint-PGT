@@ -3,13 +3,23 @@
     import AccessilbleTextIcon from '$lib/atoms/AccessilbleTextIcon.svelte';
 
     onMount(async () => {
-        // Vergroot de tekst op de site
-        const textIncrease = document.querySelector('#textIncrease')
+    // Vergroot de tekst op de site
+    const textIncrease = document.querySelector('#textIncrease')
 
-        textIncrease.addEventListener('click', () => {
-            document.documentElement.classList.toggle('text-large')
-        })
+    // Event bij vergrootknop
+    textIncrease.addEventListener('click', () => {
+        document.documentElement.classList.toggle('text-large')
     })
+
+ // Event bij toetscombinatie command + shift + i
+ document.addEventListener('keydown', function(event) {
+        if ((event.metaKey || event.ctrlKey) && event.shiftKey && event.key === 'i') {
+            document.documentElement.classList.toggle('text-large')
+
+            event.preventDefault();
+        }
+    })
+})
 </script>
 
 <button id="textIncrease">
