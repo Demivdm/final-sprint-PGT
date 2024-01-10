@@ -2,18 +2,6 @@
 	export let searchInput;
 	export let data
 
-
-
-
-	// verzameling met tags die een header zijn.
-	const headerTagIds = [
-	  'clpl0vr7g16x10bvz5txuso4g',
-	  'clpl0rq3814cl0bvzawxbkmtm',
-	  'clpldj1qq2d5r0bw483xnvoyh',
-	  'clpldjitj6nx10bw03rhqup1v'
-	];
-    console.log(data.tag);
-
   </script>
 
 
@@ -28,16 +16,28 @@
 		<input name="q" type="text" id="search-werkvormen" bind:this={searchInput} />
 		<label for="search-werkvormen" hidden>Zoek een werkvorm</label>
 	  </form>
-	  <ul>
+   <section>
+    {#each data.tag as tag}
+    {#if [ 3, 4, 5, 6].includes(tag.id)}
+   
+      <button key={tag.id} style="border: 1px solid {tag.color};">
+        {tag.title}
+    
+    </button>
+    {/if}
+  {/each}
+   
+   </section>
+  <section>
 
-	</ul>
+  {#each data.tag as tag}
+    <button style="background-color: {tag.color};">
+      {tag.title}
+    </button>
 
-	  <ul>
-
-		{#each data.tag as tag}
-			<li style="background-color: {tag.color};">{tag.title}</li>
-		{/each}
-	  </ul>
+{/each}
+   </section>
+      
 
 
   </div>
@@ -56,9 +56,9 @@
     margin-top: 1rem;
 	}
 
-	ul:first-of-type {
+	section {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 	}
 	ul > li {
 		padding: 0.5em;
