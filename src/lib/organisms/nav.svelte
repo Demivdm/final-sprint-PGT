@@ -316,7 +316,7 @@
 		background-color: var(--color-hva-blue-secundary);
 		box-shadow: 8px 8px #1e1649;
 		height: 3rem;
-		margin: 0 1rem;
+		margin: 0;
 		padding: 0.5rem;
 		width: calc(100% - 2rem);
 		text-transform: capitalize;
