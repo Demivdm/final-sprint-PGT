@@ -65,9 +65,9 @@
 	<!-- <LoginOutButton /> -->
 
 	<section class="werkvormen" id="custom-view">
-		{#each filteredWerkvormen as workform}
+		<!-- {#each filteredWerkvormen as workform}
 			<WerkvormCard {workform} {data} />
-		{/each}
+		{/each} -->
 	</section>
 </main>
 
