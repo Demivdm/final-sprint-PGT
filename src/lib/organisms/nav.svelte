@@ -318,7 +318,7 @@
 		height: 3rem;
 		margin: 0;
 		padding: 0.5rem;
-		width: calc(100% - 2rem);
+		width: 100%;
 		text-transform: capitalize;
 	}
 
@@ -337,6 +337,7 @@
     	box-shadow: 8px 8px var(--color-hva-navy);
     	right: -0.5rem;
 		padding: 0.5rem;
+		z-index: 2;
 	}
 
 	nav .mobile-menu ul:hover {

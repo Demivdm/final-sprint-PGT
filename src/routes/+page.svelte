@@ -74,6 +74,10 @@
 <IncreaseTextToggle />
 
 <style>
+	main {
+		padding: 1rem;
+	}
+
 	.werkvormen {
 		display: flex;
 		flex-flow: row wrap;
