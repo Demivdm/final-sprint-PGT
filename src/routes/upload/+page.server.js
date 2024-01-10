@@ -19,9 +19,6 @@ export async function load() {
 }
 
 // Upload file to Directus files
-
-// Use returned file object to get file id and use file id in workform upload.
-
 async function uploadFile(filedata) {
     const response = await fetch('https://platform-big-themes.directus.app/files', {
         method: 'POST',
@@ -39,6 +36,7 @@ async function uploadFile(filedata) {
 export const actions = {
     'create-werkvorm': async ({ request }) => {
         const formData = await request.formData()
+        console.log(formData);
 
         /* ------------------------------- FILE UPLOAD ------------------------------ */
         // Get all files from formData object
@@ -61,7 +59,6 @@ export const actions = {
 
         // Upload files to Directus
         const uploadData = await uploadFile(filesToUpload)
-        console.log(uploadData);
 
         /* -------------------------------- FORM DATA ------------------------------- */
         // Get all data from formData object
@@ -78,32 +75,38 @@ export const actions = {
         const werkvormThumbnailID = uploadData.data.filter((file) => {
             return file.filename_download === werkvormThumbnail.name
         })
-        console.log(werkvormThumbnailID[0].id);
 
         // Get file id from uploaded video if filename_download equals werkvormVideo.name
         const werkvormVideoID = uploadData.data.filter((file) => {
             return file.filename_download === werkvormVideo.name
         })
-        console.log(werkvormVideoID[0].id);
 
         // Slugify werkvormName
         const slug = werkvormName.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '')
-        console.log(slug);
 
-        // Create data object to send to Directus
-        const data = {
-            title: werkvormName,
-            shortDescription: werkvormShortDesc,
-            description: werkvormDesc,
-            year: werkvormStudiejaar,
-            course: werkvormOpleiding,
-            contact: werkvormContactpersoon,
-            thumbnail: werkvormThumbnailID[0].id,
-            video: werkvormVideoID[0].id,
-            link: slug
-        }
-        console.log(data);
+        // Send data to Directus
+        const response = await fetch('https://platform-big-themes.directus.app/items/workform', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${DIRECTUS_KEY}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "title": werkvormName,
+                "shortDescription": werkvormShortDesc,
+                "description": werkvormDesc,
+                "year": werkvormStudiejaar,
+                "course": werkvormOpleiding,
+                "contact": werkvormContactpersoon,
+                "thumbnail": werkvormThumbnailID[0].id,
+                "video": werkvormVideoID[0].id,
+                "link": slug
+            })
+        })
 
-        // TODO - Send data to Directus
+        const responseData = await response.json()
+        console.log(responseData);
+
+        // TODO - Add tags to werkvorm
     }
 }
