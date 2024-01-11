@@ -89,9 +89,23 @@
 		transition: var(--animation-default) ease-in-out;
 	}
 
+	@media (min-width: 46rem) {
+		.werkvormen {
+			width: 42rem;
+			margin: 2rem auto;
+		}
+	}
+
 	@media (min-width: 700px) {
 		main {
 			padding: 0 2rem;
 		}
 	}
+
+	@media (min-width: 70rem) {
+		.werkvormen {
+			width: 64rem;
+		}
+	}
+
 </style>

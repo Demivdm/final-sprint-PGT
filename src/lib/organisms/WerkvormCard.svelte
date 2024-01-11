@@ -10,7 +10,7 @@
 		{/each}
 	</ul>
 
-	<img src={"https://platform-big-themes.directus.app/assets/" + workform.thumbnail.id} alt="" />
+	<img src={"https://platform-big-themes.directus.app/assets/" + workform.thumbnail.id} alt="" width={workform.thumbnail.width} height={workform.thumbnail.height} />
 	<div>
 		<div>
 			<h2>{workform.title}</h2>
