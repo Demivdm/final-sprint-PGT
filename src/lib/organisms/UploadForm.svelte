@@ -62,7 +62,7 @@
             inputPlaceholder="Vul een korte beschrijving in..."
             inputName="werkvormShortDesc"
             inputId="werkvormShortDesc"
-            isRequired={false}
+            isRequired={true}
             maxLength="200"
         />
 
@@ -136,7 +136,7 @@
             inputName="werkvormVideo"
             inputId="werkvormVideo"
             inputPlaceholder="Selecteer een video..."
-            isRequired={true}
+            isRequired={false}
             hasMultiple={false}
         />
 

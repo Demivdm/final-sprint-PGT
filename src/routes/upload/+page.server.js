@@ -36,14 +36,12 @@ async function uploadFile(filedata) {
 export const actions = {
     'create-werkvorm': async ({ request }) => {
         const formData = await request.formData()
-        console.log(formData);
 
         /* ------------------------------- FILE UPLOAD ------------------------------ */
         // Get all files from formData object
         const werkvormThumbnail = formData.get('werkvormThumbnail')
         const werkvormVideo = formData.get('werkvormVideo')
         const filesToUpload = new FormData();
-
         const allFiles = [werkvormThumbnail, werkvormVideo]
 
         allFiles.forEach((file) => {
@@ -65,24 +63,30 @@ export const actions = {
         const werkvormName = formData.get('werkvormName')?.toString()
         const werkvormShortDesc = formData.get('werkvormShortDesc')?.toString()
         const werkvormDesc = formData.get('werkvormDesc')?.toString()
-        const werkvormOpleiding = formData.get('werkvormOpleiding')?.toString()
-        const werkvormStudiejaar = formData.get('werkvormStudiejaar')?.toString()
-        const werkvormContactpersoon = formData.get('werkvormContactpersoon')?.toString()
+        const werkvormOpleiding = formData.get('werkvormOpleiding')?.toString() || null
+        const werkvormStudiejaar = formData.get('werkvormStudiejaar')?.toString() || null
+        const werkvormContactpersoon = formData.get('werkvormContactpersoon')?.toString() || null
 
-        // TODO - Create checker to see if thumbnail and video are uploaded, else find fix for non-array filtering.
+        let werkvormThumbnailDataID
+        let werkvormVideoDataID
 
-        // Get file id from uploaded thumbnail if filename_download equals werkvormThumbnail.name
-        const werkvormThumbnailID = uploadData.data.filter((file) => {
-            return file.filename_download === werkvormThumbnail.name
-        })
+        // Check if uploadData is an array
+        if (Array.isArray(uploadData.data)) {
+            const werkvormThumbnailID = uploadData.data.filter((file) => {
+                return file.filename_download === werkvormThumbnail.name
+            })
+            werkvormThumbnailDataID = werkvormThumbnailID[0].id
 
-        // Get file id from uploaded video if filename_download equals werkvormVideo.name
-        const werkvormVideoID = uploadData.data.filter((file) => {
-            return file.filename_download === werkvormVideo.name
-        })
+            const werkvormVideoID = uploadData.data.filter((file) => {
+                return file.filename_download === werkvormVideo.name
+            })
+            werkvormVideoDataID = werkvormVideoID[0].id
+        } else {
+            werkvormThumbnailDataID = uploadData.data.id
+        }
 
         // Slugify werkvormName
-        const slug = werkvormName.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '')
+        const slug = werkvormName.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') + '-' + Date.now()
 
         // Send data to Directus
         const response = await fetch('https://platform-big-themes.directus.app/items/workform', {
@@ -98,14 +102,14 @@ export const actions = {
                 "year": werkvormStudiejaar,
                 "course": werkvormOpleiding,
                 "contact": werkvormContactpersoon,
-                "thumbnail": werkvormThumbnailID[0].id,
-                "video": werkvormVideoID[0].id,
+                "thumbnail": werkvormThumbnailDataID,
+                "video": werkvormVideoDataID,
                 "link": slug
             })
-        })
+        }).then((response) => response.json())
+        .catch((error) => error)
 
-        const responseData = await response.json()
-        console.log(responseData);
+        console.log(response)
 
         // TODO - Add tags to werkvorm
     }
