@@ -8,10 +8,7 @@
 	import NavFilterList from '../lib/atoms/NavFilterList.svelte';
 	import IncreaseTextToggle from '../lib/molecules/IncreaseTextToggle.svelte';
 
-	export let filteredWorkforms;
 	export let data;
-	
-	
 	console.log(data);
 
 	let loading = false;
@@ -27,14 +24,12 @@
 
 	// Zoekbalk logica
 	let searchInput = null;
-	
-	// let filteredWorkforms = data.workform;
-	// console.log(data.workform)
+	let filteredWerkvormen = data.workform;
 
 	function searchWerkvormen(event) {
 		event.preventDefault();
 		const searchTerm = searchInput.value.toLowerCase();
-		filteredWorkforms = data.workform.filter((werkvorm) =>
+		filteredWerkvormen = data.workform.filter((werkvorm) =>
 			werkvorm.title.toLowerCase().includes(searchTerm)
 		);
 	}
@@ -61,17 +56,19 @@
 			searchInput.form.removeEventListener('submit', searchWerkvormen);
 		};
 	});
-
 </script>
 
 <main>
-	<Nav {data} />
-	<NavFilterList {data} {filteredWorkforms} {searchInput} {searchWerkvormen} />
+	
+<Nav></Nav>
+<!-- omdat ik werkvorm binnen het component aanspreek moet het ook meegestuurd worden met het filtercomponent -->
+	
+		<NavFilterList {data}  {searchInput}  />
 
 	<!-- <LoginOutButton /> -->
 
 	<section class="werkvormen" id="custom-view">
-		{#each filteredWorkforms as workform}
+		{#each filteredWerkvormen as workform}
 			<WerkvormCard {workform} {data} />
 		{/each}
 	</section>

@@ -1,21 +1,22 @@
 <script>
 	export let searchInput;
 	export let data;
-  
+  export let workform;
+
 
   // hier definieer ik wat er in filteredworkforms zit
- let filteredWorkforms = data.workform;
-  
+  let filteredWorkforms = data.workform;
   // een variabel om de aangeklikte tags in op te slaan
   let selectedTag = '';
 
   // hier maak ik een globaal variabel aan, waarin ik workform filter
 // er wordt gecheckt of workform 
-  $: filteredWorkforms = filteredWorkforms.filter(workform =>{
-    return selectedTag == '' || workform.tag.includes(selectedTag)
-  })
+  $: filteredWorkforms = workform && workform.filter(workformItem => {
+    return selectedTag == '' || (workformItem.tags && workformItem.tags.some(tag => tag.title === selectedTag));
+  });
+  console.log(filteredWorkforms)
+  console.log(selectedTag)
 
-  // console.log(selectedTag)
   </script>
 
 
@@ -30,11 +31,11 @@
 		<input name="q" type="text" id="search-werkvormen" bind:this={searchInput} />
 		<label for="search-werkvormen" hidden>Zoek een werkvorm</label>
 	  </form>
-   <section>
+   <section class="headerTags">
     {#each data.tag as tag}
     {#if [ 3, 4, 5, 6].includes(tag.id)}
    
-      <button key={tag.id} style="border: 1px solid {tag.color};" on:click={() => selectedTag = ''}>
+      <button key={tag.id} style="border: 1px solid {tag.color};" on:click={() => selectedTag = tag.title}>
         {tag.title}
     
     </button>
@@ -46,7 +47,7 @@
   <section>
 
   {#each data.tag as tag}
-    <button style="background-color: {tag.color};" on:click={() => selectedTag = ''}>
+    <button style="background-color: {tag.color};" on:click={() => selectedTag = tag.title}>
       {tag.title}
     </button>
 
@@ -61,6 +62,18 @@
 
 
   <style>
+
+    .headerTags button{
+      color: var(--color-white);
+      margin: .5rem .5rem;
+    }
+    .tag button:focus {
+		outline: solid 2px var(--color-hva-pink);
+    
+	}
+  section:nth-of-type(2) button{
+    margin: .5rem .5rem;
+  }
 	div {
 		background-color: var(--color-hva-blue-secundary);
 		box-shadow: 8px 8px #1e1649;

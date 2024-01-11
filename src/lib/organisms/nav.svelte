@@ -1,5 +1,4 @@
 <script>
-	export let data;
 
 	// filter staat standaard uit, het menu is standaard uitgeklapt
 	let mobileDropdownActive = true;
