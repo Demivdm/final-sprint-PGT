@@ -497,7 +497,7 @@
 		gap: 0.5rem;
 	}
 
-	@media (min-width: 1080px) {
+	@media (min-width: 40rem) {
 		nav .mobile-menu {
 			display: none;
 		}

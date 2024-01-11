@@ -33,8 +33,8 @@
 <style>
     button {
         position: fixed;
-        bottom: 32px;
-        right: 40px;
+        bottom: 16px;
+        right: 16px;
         padding: 0.25rem 0.5rem;
         padding-left: 12px;
         background-color: var(--color-hva-pink-enhanced);
