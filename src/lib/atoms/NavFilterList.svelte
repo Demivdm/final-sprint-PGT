@@ -137,11 +137,9 @@
 		background-color: var(--color-hva-blue-secundary);
   		box-shadow: 8px 8px #1e1649;
   		height: fit-content;
-  		margin: 0 0 0 0;
-  		margin-top: 0px;
+  		margin: 1rem 0 0 0;
   		padding: 0.5rem;
   		width: 100%;
-  		margin-top: 1rem;
 	}
 
 	ul:first-of-type {
