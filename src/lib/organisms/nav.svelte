@@ -1,6 +1,6 @@
 <nav>
+	<!-- Mobiele menu voor kleine schermen -->
 	<div class="mobile-menu">
-
 		<details>
 			<summary>
 				<figure>
@@ -34,7 +34,36 @@
 								</clipPath>
 							</defs>
 						</svg>
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="svelte-1gdolbd"><g clip-path="url(#clip0_937_18)" class="svelte-1gdolbd"><path d="M6 6L17.3137 17.3137" stroke="#F6F6F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svelte-1gdolbd"></path><path d="M6 17.3135L17.3137 5.99977" stroke="#F6F6F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="svelte-1gdolbd"></path></g><defs class="svelte-1gdolbd"><clipPath id="clip0_937_18" class="svelte-1gdolbd"><rect width="24" height="24" fill="white" class="svelte-1gdolbd"></rect></clipPath></defs></svg>
+						<svg
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+							class="svelte-1gdolbd"
+							><g clip-path="url(#clip0_937_18)" class="svelte-1gdolbd"
+								><path
+									d="M6 6L17.3137 17.3137"
+									stroke="#F6F6F6"
+									stroke-width="3"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="svelte-1gdolbd"
+								></path><path
+									d="M6 17.3135L17.3137 5.99977"
+									stroke="#F6F6F6"
+									stroke-width="3"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="svelte-1gdolbd"
+								></path></g
+							><defs class="svelte-1gdolbd"
+								><clipPath id="clip0_937_18" class="svelte-1gdolbd"
+									><rect width="24" height="24" fill="white" class="svelte-1gdolbd"
+									></rect></clipPath
+								></defs
+							></svg
+						>
 					</div>
 					<figcaption>menu</figcaption>
 				</figure>
@@ -42,13 +71,41 @@
 			<ul id="mobile-menu">
 				<li class="menu-item">
 					<button id="filterSearch" aria-expanded="false" aria-controls="mega-menu" type="button">
-						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-filter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v7l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227z" /></svg>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="icon icon-tabler icon-tabler-filter"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							stroke-width="2"
+							stroke="currentColor"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path
+								d="M4 4h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v7l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227z"
+							/></svg
+						>
 						filteren & zoeken
 					</button>
 				</li>
 				<li class="menu-item">
 					<a href="/login" aria-expanded="true">
-						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="icon icon-tabler icon-tabler-user"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							stroke-width="2"
+							stroke="currentColor"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path
+								d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"
+							/><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg
+						>
 						inloggen
 					</a>
 				</li>
@@ -94,8 +151,10 @@
 					</a>
 				</li>
 			</ul>
-		  </details>
+		</details>
 	</div>
+
+	<!-- Het desktop menu voor grotere schermen -->
 	<ul class="desktop-menu" role="menu" tabindex="0">
 		<li>
 			<button id="filterSearch" aria-expanded="false" type="button">
@@ -215,15 +274,15 @@
 	}
 
 	summary {
-		list-style: none;
 		border: 2px solid var(--color-hva-blue-secundary);
 		border-radius: 0.25rem;
-  		transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-  		padding: 0.2rem 0.5rem;
+		list-style: none;
+		padding: 0.2rem 0.5rem;
+		transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 	}
 
 	summary::-webkit-details-marker {
-    	display: none
+		display: none;
 	}
 
 	summary:focus-visible {
@@ -240,29 +299,29 @@
 		height: fit-content;
 		margin: 0;
 		padding: 0.5rem;
-		width: 100%;
 		text-transform: capitalize;
+		width: 100%;
 	}
 
 	nav .mobile-menu {
+		align-items: center;
 		display: flex;
+		height: 2rem;
 		justify-content: end;
 		position: relative;
-		height: 2rem;
-		align-items: center;
 	}
 
 	nav .mobile-menu ul {
-		position: absolute;
-    	top: 3.5rem;
-    	flex-direction: column;
-    	gap: 0.5rem;
-    	background-color: var(--color-hva-blue-secundary);
-    	box-shadow: 8px 8px var(--color-hva-navy);
-    	right: -0.5rem;
-		padding: 0.5rem;
-		z-index: 2;
+		background-color: var(--color-hva-blue-secundary);
+		box-shadow: 8px 8px var(--color-hva-navy);
 		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 0.5rem;
+		position: absolute;
+		right: -0.5rem;
+		top: 3.5rem;
+		z-index: 2;
 	}
 
 	nav .mobile-menu ul:hover {
@@ -270,9 +329,9 @@
 	}
 
 	nav .mobile-menu ul a {
+		align-items: center;
 		display: flex;
 		flex-direction: row;
-		align-items: center;
 		gap: 0.5rem;
 	}
 
@@ -291,23 +350,25 @@
 	}
 
 	/* Filter button */
-	li.menu-item button, .desktop-menu li button {
-		width: 100%;
-		display: flex;
+	li.menu-item button,
+	.desktop-menu li button {
 		align-items: center;
-		gap: 0.5rem;
+		border: 2px solid var(--color-hva-blue-secundary);
+		border-radius: 0.25rem;
+		display: flex;
 		font-size: 1rem;
+		gap: 0.5rem;
 		padding: 0.2rem 0.5rem;
 		transition: 0.3s ease-in-out;
-		border-radius: 0.25rem;
-		border: 2px solid var(--color-hva-blue-secundary);
+		width: 100%;
 	}
 
 	li.menu-item button svg {
 		position: static;
 	}
 
-	li.menu-item button:hover, .desktop-menu li button:hover {
+	li.menu-item button:hover,
+	.desktop-menu li button:hover {
 		background-color: var(--color-hva-pink);
 	}
 
@@ -371,24 +432,27 @@
 	}
 
 	/* nav .mobile-menu button:focus-within + ul  {
-		display: flex;
-	} */
+        display: flex;
+      } */
 
 	/* Interactive states */
-	nav a, nav .menu-item button {
+	nav a,
+	nav .menu-item button {
 		border: 2px solid var(--color-hva-blue-secundary);
 		border-radius: 0.25rem;
-		transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 		padding: 0.2rem 0.5rem;
+		transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 	}
 
-	nav a:hover, ul li button:hover {
+	nav a:hover,
+	ul li button:hover {
 		background-color: var(--color-hva-pink);
 	}
 
-	nav a:focus, ul li button:focus {
-		border: 2px solid var(--color-hva-pink);
+	nav a:focus,
+	ul li button:focus {
 		background-color: var(--color-hva-blue-secundary);
+		border: 2px solid var(--color-hva-pink);
 	}
 
 	/* Primaire ruisknop */
@@ -428,8 +492,8 @@
 	}
 
 	ul.desktop-menu a {
-		display: flex;
 		align-items: center;
+		display: flex;
 		gap: 0.5rem;
 	}
 

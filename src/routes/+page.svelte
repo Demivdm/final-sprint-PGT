@@ -82,7 +82,7 @@
 		display: flex;
 		flex-flow: row wrap;
 		gap: 2rem;
-		margin: 2rem 0;
+		margin: 2rem 0 5rem;
 	}
 
 	#custom-view {
