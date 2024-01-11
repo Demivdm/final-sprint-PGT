@@ -41,7 +41,9 @@
                     </div>
                     <div class="info-right">
                         <h3>Contactpersoon</h3>
-                        <p>{workform.contact.email}</p>
+                        <a class="mail-to-link" href="mailto:{workform.contact.email}">
+                            <p>{workform.contact.email}</p>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -50,7 +52,9 @@
                 <div class="action-buttons">
                     <div class="action-button">
                         <div class="icon-box">
-                            <img src="/images/icons/arrow-right.svg" alt="Arrow Icon" />
+                            <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.862464 12.2897C0.269712 11.711 0.25835 10.7613 0.837086 10.1685L10.2681 0.50906C10.8469 -0.0836926 11.7966 -0.0950548 12.3893 0.483682C12.9821 1.06242 12.9934 2.0121 12.4147 2.60485L5.51348 9.6732L19.9823 9.50009C20.8106 9.49018 21.4902 10.1537 21.5001 10.982C21.51 11.8104 20.8465 12.49 20.0181 12.4999L5.54937 12.673L12.6177 19.5742C13.2105 20.1529 13.2218 21.1026 12.6431 21.6954C12.0644 22.2881 11.1147 22.2995 10.5219 21.7207L0.862464 12.2897Z" fill="white"/>
+                            </svg>  
                         </div>
                         <a href="/">Terug naar overzicht</a>
                     </div>
@@ -114,9 +118,10 @@
 		transition: transform 0.2s ease-in-out;
 	}
 
-	.icon-box > img {
+	.icon-box > svg, img {
 		width: 1rem;
 		height: 1rem;
+        aspect-ratio: 1/1;
 		transform: rotate(-45deg);
 	}
 
@@ -134,6 +139,20 @@
 	a:hover {
 		background-color: #362e61;
 	}
+
+    a.mail-to-link {
+        padding: 0;
+        background-color: unset;
+        color: var(--color-white);
+        font-size: 0.9rem;
+        font-weight: 600;
+        font-family: 'Open Sans', sans-serif;
+        cursor: pointer;
+    }
+
+    a.mail-to-link:hover {
+        opacity: 0.7;
+    }
 
 	header {
 		display: flex;

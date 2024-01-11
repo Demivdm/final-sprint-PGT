@@ -135,12 +135,11 @@
   <style>
 	div {
 		background-color: var(--color-hva-blue-secundary);
-		box-shadow: 8px 8px #1e1649;
-		height: fit-content;
-		margin: 0 1rem;
-		padding: 0.5rem;
-		width: calc(100% - 2rem);
-    margin-top: 1rem;
+  		box-shadow: 8px 8px #1e1649;
+  		height: fit-content;
+  		margin: 1rem 0 0 0;
+  		padding: 0.5rem;
+  		width: 100%;
 	}
 
 	ul:first-of-type {
@@ -161,7 +160,7 @@
     width: 100%;
     height: auto;
     display: block;
-    padding: 1rem 2rem;
+    padding: 1rem;
   }
 
   form fieldset {
@@ -227,8 +226,8 @@
 		}
 		ul {
 			display: flex;
-
-			width: 75vw;
+			width: 100%;
+			overflow: auto;
 		}
 	}
 </style>
