@@ -2,6 +2,7 @@
 	import Icon from '$lib/atoms/Icon.svelte'
 	import Label from '$lib/atoms/Label.svelte'
 	import InputField from '$lib/atoms/InputField.svelte'
+	import StandardInput from '../atoms/inputfields/StandardInput.svelte';
 
 	export let iconSrc
 	export let labelFor
@@ -10,6 +11,7 @@
 	export let inputPlaceholder
 	export let inputName
 	export let inputId
+	export let isRequired
 </script>
 
 <div class="form-field">
@@ -18,7 +20,7 @@
 		<Label {labelFor} {labelText}></Label>
 	</span>
 
-	<InputField {inputType} {inputPlaceholder} {inputName} {inputId}></InputField>
+	<StandardInput {inputType} {inputPlaceholder} {inputName} {inputId} {isRequired}></StandardInput>
 </div>
 
 <style>

@@ -50,7 +50,7 @@
 			inputPlaceholder="Vul een naam in..."
 			inputName="werkvormName"
 			inputId="werkvormName"
-            isRequired={false}
+            isRequired={true}
 		/>
 
         <!-- Korte beschrijving -->
@@ -62,7 +62,7 @@
             inputPlaceholder="Vul een korte beschrijving in..."
             inputName="werkvormShortDesc"
             inputId="werkvormShortDesc"
-            isRequired={false}
+            isRequired={true}
             maxLength="200"
         />
 
@@ -75,7 +75,7 @@
 			inputPlaceholder="Beschrijf de werkvorm..."
 			inputName="werkvormDesc"
 			inputId="werkvormDesc"
-            isRequired={false}
+            isRequired={true}
 		/>
 
         <!-- Opleiding -->
@@ -123,7 +123,7 @@
             inputName="werkvormThumbnail"
             inputId="werkvormThumbnail"
             inputPlaceholder="Selecteer een thumbnail..."
-            isRequired={false}
+            isRequired={true}
             hasMultiple={false}
         />
 
@@ -136,19 +136,6 @@
             inputName="werkvormVideo"
             inputId="werkvormVideo"
             inputPlaceholder="Selecteer een video..."
-            isRequired={false}
-            hasMultiple={false}
-        />
-
-        <!-- Materialen -->
-        <FileFormField
-            iconSrc="/images/icons/materials.svg"
-            labelFor="werkvormMaterialen"
-            labelText="Materialen werkvorm"
-            inputType="file"
-            inputName="werkvormMaterialen"
-            inputId="werkvormMaterialen"
-            inputPlaceholder="Selecteer materialen..."
             isRequired={false}
             hasMultiple={false}
         />
