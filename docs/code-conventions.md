@@ -17,22 +17,18 @@ Voor dit project maken we gebruik van het framework SvelteKit en het headless CM
 In HTML schrijven we in semantische html om zo de toegankelijkheid. Zo vermijden het gebruik van `<div>` en weten screenreaders wat ze moeten voorlezen.
  
 ```html
-<article id="customView" class="grid-overview">
-        {#if data && data.wishes && data.wishes.length > 0}
-<ul>
-                {#each data.wishes as wish}
-<li>
-<img src={wish.image.url} alt="Afbeelding van {wish.heading}" />
-<a href="/contact">
-<h3>{wish.heading}</h3>
-</a>
-</li>
-                {/each}
-</ul>
-        {:else}
-<p>Geen wensen gevonden.</p>
-        {/if}
-</article>
+<main>
+	<Nav {data} />
+	<NavFilterList {data} {filteredWerkvormen} {searchInput} {searchWerkvormen} />
+
+	<!-- <LoginOutButton /> -->
+
+	<section class="werkvormen" id="custom-view">
+		{#each filteredWerkvormen as workform}
+			<WerkvormCard {workform} {data} />
+		{/each}
+	</section>
+</main>
 ```
  
 Voorbeelden van semantische html zijn: header, aside, main, footer, details, section etc.
@@ -81,7 +77,13 @@ We hanteren de volgende regels in het algemeen voor het coderen in VS Code:
 - Comments schrijven bij nieuwe stukjes code. Bij functies: beschrijf wat de functie doet in 1 line en schrijf regelmatig comments als er iets wordt toegevoegd aan de functie. Bij nieuwe section html: Beschrijf wat de section inhoud, kort en bondig.
 
 # Integreren
-De website wordt gehost met Netlify. Verder maken wij gebruik van commits om functies toe te voegen aan de codebase en mergen wij branches als er een nieuwe functie klaar is voor productie. 
+Alle commits die via Github Desktop worden gepushed, worden door middel van een emoji verduidelijkt. We hanteren het Gitmoji systeem die op een overzicht duidelijk weergeeft wat de commit inhoud. Zo houden we binnen het team een consistente lijn aan.
+
+[Bekijk de site van Gitmoji](https://gitmoji.dev/)
+
+De website wordt gehost met Vercel. Verder maken wij gebruik van commits om functies toe te voegen aan de codebase en mergen wij branches als er een nieuwe functie klaar is voor productie. 
+
+Ontwikkelaars die code gereed hebben maken een pull request aan die door een ander teamlead word gecontroleerd en gemerged.
 
 Mergen wordt samen gedaan en wordt gereviewed door 2 personen.
 
