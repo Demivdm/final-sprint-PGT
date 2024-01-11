@@ -39,69 +39,20 @@
 					<figcaption>menu</figcaption>
 				</figure>
 			</summary>
-			<ul role="menu" id="mobile-menu">
-				<li class="menu-item" role="menuitem">
+			<ul id="mobile-menu">
+				<li class="menu-item">
 					<button id="filterSearch" aria-expanded="false" aria-controls="mega-menu" type="button">
-						<svg
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<g clip-path="url(#clip0_1_168)">
-								<path
-									d="M4 4H20V6.172C19.9999 6.70239 19.7891 7.21101 19.414 7.586L15 12V19L9 21V12.5L4.52 7.572C4.18545 7.20393 4.00005 6.7244 4 6.227V4Z"
-									stroke="#F6F6F6"
-									stroke-width="3"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-							</g>
-							<defs>
-								<clipPath id="clip0_1_168">
-									<rect width="24" height="24" rx="4" fill="white" />
-								</clipPath>
-							</defs>
-						</svg>
+						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-filter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v7l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227z" /></svg>
 						filteren & zoeken
 					</button>
 				</li>
-				<li role="menuitem">
+				<li class="menu-item">
 					<a href="/login" aria-expanded="true">
-						<svg
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<g clip-path="url(#clip0_1_172)">
-								<path
-									d="M8 7C8 8.06087 8.42143 9.07828 9.17157 9.82843C9.92172 10.5786 10.9391 11 12 11C13.0609 11 14.0783 10.5786 14.8284 9.82843C15.5786 9.07828 16 8.06087 16 7C16 5.93913 15.5786 4.92172 14.8284 4.17157C14.0783 3.42143 13.0609 3 12 3C10.9391 3 9.92172 3.42143 9.17157 4.17157C8.42143 4.92172 8 5.93913 8 7Z"
-									stroke="#F6F6F6"
-									stroke-width="3"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-								<path
-									d="M6 21V19C6 17.9391 6.42143 16.9217 7.17157 16.1716C7.92172 15.4214 8.93913 15 10 15H14C15.0609 15 16.0783 15.4214 16.8284 16.1716C17.5786 16.9217 18 17.9391 18 19V21"
-									stroke="#F6F6F6"
-									stroke-width="3"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-							</g>
-							<defs>
-								<clipPath id="clip0_1_172">
-									<rect width="24" height="24" rx="4" fill="white" />
-								</clipPath>
-							</defs>
-						</svg>
+						<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
 						inloggen
 					</a>
 				</li>
-				<li role="menuitem">
+				<li class="menu-item">
 					<a class="link-primary" href="/upload" aria-expanded="true">
 						<svg
 							width="24"
@@ -286,7 +237,7 @@
 	nav {
 		background-color: var(--color-hva-blue-secundary);
 		box-shadow: 8px 8px #1e1649;
-		height: 3rem;
+		height: fit-content;
 		margin: 0;
 		padding: 0.5rem;
 		width: 100%;
@@ -333,7 +284,7 @@
 	}
 
 	nav figure {
-		align-items: end;
+		align-items: center;
 		display: flex;
 		gap: 0.5rem;
 		justify-content: center;
@@ -396,12 +347,6 @@
 	}
 
 	nav details svg:last-child {
-		display: none;
-	}
-
-	nav details[open] 
-
-	nav button:focus-within svg:first-child {
 		display: none;
 	}
 
