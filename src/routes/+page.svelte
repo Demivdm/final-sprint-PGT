@@ -8,7 +8,10 @@
 	import NavFilterList from '../lib/atoms/NavFilterList.svelte';
 	import IncreaseTextToggle from '../lib/molecules/IncreaseTextToggle.svelte';
 
+	export let filteredWorkforms;
 	export let data;
+	
+	
 	console.log(data);
 
 	let loading = false;
@@ -24,12 +27,14 @@
 
 	// Zoekbalk logica
 	let searchInput = null;
-	let filteredWerkvormen = data.workform;
+	
+	// let filteredWorkforms = data.workform;
+	// console.log(data.workform)
 
 	function searchWerkvormen(event) {
 		event.preventDefault();
 		const searchTerm = searchInput.value.toLowerCase();
-		filteredWerkvormen = data.workform.filter((werkvorm) =>
+		filteredWorkforms = data.workform.filter((werkvorm) =>
 			werkvorm.title.toLowerCase().includes(searchTerm)
 		);
 	}
@@ -61,12 +66,12 @@
 
 <main>
 	<Nav {data} />
-	<NavFilterList {data} {filteredWerkvormen} {searchInput} {searchWerkvormen} />
+	<NavFilterList {data} {filteredWorkforms} {searchInput} {searchWerkvormen} />
 
 	<!-- <LoginOutButton /> -->
 
 	<section class="werkvormen" id="custom-view">
-		{#each filteredWerkvormen as workform}
+		{#each filteredWorkforms as workform}
 			<WerkvormCard {workform} {data} />
 		{/each}
 	</section>

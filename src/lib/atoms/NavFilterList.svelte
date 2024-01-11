@@ -1,7 +1,21 @@
 <script>
 	export let searchInput;
-	export let data
+	export let data;
+  
 
+  // hier definieer ik wat er in filteredworkforms zit
+ let filteredWorkforms = data.workform;
+  
+  // een variabel om de aangeklikte tags in op te slaan
+  let selectedTag = '';
+
+  // hier maak ik een globaal variabel aan, waarin ik workform filter
+// er wordt gecheckt of workform 
+  $: filteredWorkforms = filteredWorkforms.filter(workform =>{
+    return selectedTag == '' || workform.tag.includes(selectedTag)
+  })
+
+  // console.log(selectedTag)
   </script>
 
 
@@ -20,7 +34,7 @@
     {#each data.tag as tag}
     {#if [ 3, 4, 5, 6].includes(tag.id)}
    
-      <button key={tag.id} style="border: 1px solid {tag.color};">
+      <button key={tag.id} style="border: 1px solid {tag.color};" on:click={() => selectedTag = ''}>
         {tag.title}
     
     </button>
@@ -28,10 +42,11 @@
   {/each}
    
    </section>
+
   <section>
 
   {#each data.tag as tag}
-    <button style="background-color: {tag.color};">
+    <button style="background-color: {tag.color};" on:click={() => selectedTag = ''}>
       {tag.title}
     </button>
 
@@ -60,10 +75,7 @@
 		display: flex;
 		flex-direction: row;
 	}
-	ul > li {
-		padding: 0.5em;
-		margin-left: 1.5em;
-	}
+	
 
 	/* ul input[type='checkbox'] {
 		margin-left: 1em;
@@ -133,15 +145,6 @@
     width: 100%;
   }
 
-	@media (min-width: 700px) {
-		ul:first-of-type {
-			display: flex;
-			flex-direction: row;
-		}
-		ul {
-			display: flex;
 
-			width: 75vw;
-		}
-	}
+		
 </style>
