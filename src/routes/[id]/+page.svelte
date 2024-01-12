@@ -131,7 +131,7 @@ a,
 a.mail-to-link {
     padding: 0.9rem 1.8rem 0.9rem 2.3rem;
     border: none;
-    background-color: var(--color-hva-navy);
+    background-color: unset;
     color: var(--color-white);
     font-size: 0.9rem;
     font-weight: 600;
@@ -140,7 +140,7 @@ a.mail-to-link {
 }
 
 a:hover {
-    background-color: #362e61;
+    background-color: unset;
 }
 
 a.mail-to-link:hover {
