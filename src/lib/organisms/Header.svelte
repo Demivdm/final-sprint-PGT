@@ -48,72 +48,78 @@
 
 <style>
     header > div {
-        padding: 2rem 2rem 0;
-    }
+    padding: 2rem 2rem 0;
+}
 
-    .header-wrapper{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-flow: row wrap;
-        column-gap: 1rem;
-        row-gap: 0.6rem;
-    }
+.header-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    column-gap: 1rem;
+    row-gap: 0.6rem;
+}
 
-    span {
-        color: var(--color-hva-pink);
-        /* Enhanced kleuren */
+span {
+    /* Standaard kleur */
+    color: var(--color-hva-pink);
+
+    /* Enhanced kleur binnen @supports */
+    @supports (--css: variables) {
         color: var(--color-hva-pink-enhanced);
-        font-weight: 800;
-        font-size: 1rem;
     }
 
-    img:first-child {
-		max-width: 10rem;
-	}
+    font-weight: 800;
+    font-size: 1rem;
+}
 
-	img:first-child {
-		max-width: 8rem;
-	}
+img:first-child {
+    max-width: 10rem;
+}
 
-	a {
-		text-decoration: underline;
-	}
+img:first-child {
+    max-width: 8rem;
+}
 
-	.nav-components {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-	}
+a {
+    text-decoration: underline;
+}
 
-	nav {
-		padding: 1rem 0;
-		font-weight: 500;
-	}
+.nav-components {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
 
-	.graphic {
-		position: absolute;
-		top: 0rem;
-		z-index: -1;
-		max-width: 70%;
-	}
+nav {
+    padding: 1rem 0;
+    font-weight: 500;
+}
 
-    @media (min-width: 30rem){
-        span{
-            font-size: 1.2rem;
-        }
+.graphic {
+    position: absolute;
+    top: 0rem;
+    z-index: -1;
+    max-width: 70%;
+}
+
+@media (min-width: 30rem){
+    span{
+        font-size: 1.2rem;
     }
+}
 
-    @media (min-width: 48rem){
-        span{
-            font-size: 1.8rem;
-        }
+@media (min-width: 48rem){
+    span{
+        font-size: 1.8rem;
     }
+}
 
-    @media (min-width: 64rem){
-        span{
-            font-size: 2rem;
-        }
+@media (min-width: 64rem){
+    span{
+        font-size: 2rem;
     }
+}
+
 </style>

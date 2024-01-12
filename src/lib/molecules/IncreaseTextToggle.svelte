@@ -31,67 +31,75 @@
 </button>
 
 <style>
-    button {
-        position: fixed;
-        bottom: 16px;
-        right: 16px;
-        padding: 0.25rem 0.5rem;
-        padding-left: 12px;
-        background-color: var(--color-hva-pink);
-        border: 2px solid var(--color-hva-pink);
-        /* Enhanced kleuren */
+button {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    padding: 0.25rem 0.5rem;
+    padding-left: 12px;
+    background-color: var(--color-hva-pink);
+    border: 2px solid var(--color-hva-pink);
+    color: var(--color-white);
+    box-shadow: 0.5rem 0.5rem #1e1649;
+    transition: 0.3s ease-in-out;
+    z-index: 5;
+
+    /* Enhanced kleuren binnen @supports */
+    @supports (--css: variables) {
         background-color: var(--color-hva-pink-enhanced);
         border: 2px solid var(--color-hva-pink-enhanced);
-        color: var(--color-white);
-        box-shadow: 0.5rem 0.5rem #1e1649;
-        transition: 0.3s ease-in-out;
-        z-index: 5;
+    }
+}
+
+button figure {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--unit-default);
+    text-transform: capitalize;
+}
+
+button figure figcaption {
+    visibility: hidden;
+    width: 0px;
+}
+
+/* Interactive states */
+button:hover {
+    background-color: var(--color-hva-blue-secundary);
+    border: 2px solid var(--color-hva-blue-secundary);
+
+    /* Enhanced kleuren binnen @supports */
+    @supports (--css: variables) {
+        background-color: var(--color-hva-blue-secundary-enhanced);
+        border: 2px solid var(--color-hva-blue-secundary-enhanced);
     }
 
-    button figure {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: var(--unit-default);
-        text-transform: capitalize;
+    box-shadow: 0px 0px #1e1649;
+    transition: 0.3s ease-in-out;
+}
+
+button:focus {
+    border: 2px solid var(--color-hva-pink);
+    background-color: var(--color-hva-blue-secundary);
+
+    /* Enhanced kleuren binnen @supports */
+    @supports (--css: variables) {
+        border: 2px solid var(--color-hva-pink-enhanced);
+        background-color: var(--color-hva-blue-secundary-enhanced);
+    }
+}
+
+@media (min-width: 40rem) {
+    button {
+        padding-left: 0.5rem;
     }
 
     button figure figcaption {
-        visibility: hidden;
-        width: 0px;
+        visibility: visible;
+        width: fit-content;
     }
-
-    /* Interactive states */
-    button:hover {
-        background-color: var(--color-hva-blue-secundary);
-        border: 2px solid var(--color-hva-blue-secundary);
-        /* Enhanced kleuren */
-        background-color: var(--color-hva-blue-secundary-enhanced);
-        border: 2px solid var(--color-hva-blue-secundary-enhanced);
-        box-shadow: 0px 0px #1e1649;
-        transition: 0.3s ease-in-out;
-    }
-
-    button:focus {
-        border: 2px solid var(--color-hva-pink);
-        background-color: var(--color-hva-blue-secundary);
-        /* Enhanced kleuren */
-        border: 2px solid var(--color-hva-pink-enhanced);
-        background-color: var(--color-hva-blue-secundary-enhanced);
-    }
-
-
-    @media (min-width: 40rem){
-
-        button {
-            padding-left: 0.5rem;
-        }
-
-        button figure figcaption {
-            visibility: visible;
-            width: fit-content;
-        }
-    }
+}
 
 </style>
