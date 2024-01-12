@@ -60,11 +60,16 @@
 
 <main>
 	
-<Nav></Nav>
+<Nav ></Nav>
 <!-- omdat ik werkvorm binnen het component aanspreek moet het ook meegestuurd worden met het filtercomponent -->
 	
-		<NavFilterList {data}  {searchInput}  />
+		<!-- workform is undefined wanneer het individueel wordt meegegeven -->
+		<!-- als ik er een loop van maak dan is workform defined maar wordt workform niet gezien als array -->
+		<!-- en dus kan de filter functie niet worden toegepast -->
 
+		<!-- {#each filteredWerkvormen as workform} -->
+		<NavFilterList {data}  {searchInput}  />
+		<!-- {/each} -->
 	<!-- <LoginOutButton /> -->
 
 	<section class="werkvormen" id="custom-view">

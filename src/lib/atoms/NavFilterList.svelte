@@ -14,56 +14,62 @@
   $: filteredWorkforms = workform && workform.filter(workformItem => {
     return selectedTag == '' || (workformItem.tags && workformItem.tags.some(tag => tag.title === selectedTag));
   });
-  console.log(filteredWorkforms)
-  console.log(selectedTag)
+
+  // functie om de actieve tag te laten zien
+  // standaard staat de button alltags aan
+  let activeTag = 'allTags'
+
+  // dit is een functie die defineerd dat de active tag 
+  // in de html wordt verteld dat de active tag de opgehaalde tag is. 
+  function currentTag(tag) {
+        activeTag = tag;
+    }
+  // console.log(filteredWorkforms)
+  // console.log(selectedTag)
 
   </script>
 
 
 
   <div class="tag" id="mega-menu">
-	<form method="get" action="/">
-	  <fieldset>
-		<button bind:this={searchInput} type="submit">
-		  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
-		  zoeken
-		</button>
-		<input name="q" type="text" id="search-werkvormen" bind:this={searchInput} />
-		<label for="search-werkvormen" hidden>Zoek een werkvorm</label>
+	  <form method="get" action="/">
+	    <fieldset>
+        <input name="q" type="text" id="search-werkvormen" bind:this={searchInput} />
+		    <label for="search-werkvormen" hidden>Zoek een werkvorm</label>
+		    <button bind:this={searchInput} type="submit">
+		      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+		        zoeken
+		    </button>
+      </fieldset>
 	  </form>
-   <section class="headerTags">
-    {#each data.tag as tag}
-    {#if [ 3, 4, 5, 6].includes(tag.id)}
-   
-      <button key={tag.id} style="border: 1px solid {tag.color};" on:click={() => selectedTag = tag.title}>
+    <section class="header-tags">
+      <button class:selected-tag={activeTag === 'allTags'} on:click={() => currentTag('allTags')}>Alle tags</button>
+      {#each data.tag as tag}
+        {#if [ 3, 4, 5, 6].includes(tag.id)}
+        <button class:selected-tag={activeTag === tag.title} style="border: 2px solid {tag.color};" on:click={() => currentTag(tag.title)}>
+          {tag.title}
+        </button>
+        {/if}
+      {/each}
+    </section>
+    <section>
+      {#each data.tag as tag}
+      <button class:selected-tag={activeTag === tag.title} style="border: 2px solid {tag.color};" on:click={() => currentTag(tag.title)}>
         {tag.title}
-    
-    </button>
-    {/if}
-  {/each}
-   
-   </section>
-
-  <section>
-
-  {#each data.tag as tag}
-    <button style="background-color: {tag.color};" on:click={() => selectedTag = tag.title}>
-      {tag.title}
-    </button>
-
-{/each}
-   </section>
-      
-
-
+      </button>
+      {/each}
+    </section>
   </div>
 
 
 
 
   <style>
+    .header-tags button{
+      font-size: 1rem;
 
-    .headerTags button{
+    }
+    section button{
       color: var(--color-white);
       margin: .5rem .5rem;
     }
@@ -71,9 +77,7 @@
 		outline: solid 2px var(--color-hva-pink);
     
 	}
-  section:nth-of-type(2) button{
-    margin: .5rem .5rem;
-  }
+  
 	div {
 		background-color: var(--color-hva-blue-secundary);
 		box-shadow: 8px 8px #1e1649;
@@ -105,7 +109,6 @@
   form fieldset {
     width: fit-content;
     display: flex;
-    flex-direction: row-reverse;
     gap: 0.5rem;
     border: unset;
     margin: auto;
@@ -157,7 +160,9 @@
     top: 0;
     width: 100%;
   }
-
+  .selected-tag{
+        background-color: var(--color-hva-pink);
+    }
 
 		
 </style>
