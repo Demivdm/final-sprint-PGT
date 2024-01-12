@@ -135,6 +135,8 @@
   <style>
 	div {
 		background-color: var(--color-hva-blue-secundary);
+		/* Enhanced kleur */
+		background-color: var(--color-hva-blue-secundary-enhanced);
   		box-shadow: 8px 8px #1e1649;
   		height: fit-content;
   		margin: 1rem 0 0 0;
@@ -175,6 +177,8 @@
   form input , button {
     padding: 0.25rem 0.5rem;
     background-color: var(--color-hva-blue-secundary);
+	/* Enhanced kleur */
+	background-color: var(--color-hva-blue-secundary-enhanced);
     border-radius: 0.25rem;
   }
 
@@ -200,10 +204,14 @@
 
   form button:hover {
     background-color: var(--color-hva-pink);
+	/* Enhanced kleur */
+	background: var(--color-hva-pink-enhanced);
   }
 
   form button:focus {
     border: 2px solid var(--color-hva-pink);
+	/* Enhanced kleur */
+	border: 2px solid var(--color-hva-pink-enhanced);
   }
 
   form button::before {
