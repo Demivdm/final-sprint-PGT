@@ -9,7 +9,6 @@
 	import IncreaseTextToggle from '../lib/molecules/IncreaseTextToggle.svelte';
 
 	export let data;
-	console.log(data);
 
 	let loading = false;
 

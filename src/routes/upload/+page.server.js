@@ -1,6 +1,4 @@
-import { gql } from 'graphql-request';
-import { hygraph, hygraphHP } from '$lib/Utils/hygraph';
-import { HYGRAPH_ASSET_URL, HYGRAPH_KEY } from '$env/static/private';
+import { DIRECTUS_KEY } from '$env/static/private'
 
 export async function load() {
 	// Get all data for select fields
@@ -20,90 +18,99 @@ export async function load() {
 	return data;
 }
 
-async function uploadFile(fileData) {
-	const response = await fetch(`${HYGRAPH_ASSET_URL}`, {
-		method: 'POST',
-		headers: {
-			Authorization: `Bearer ${HYGRAPH_KEY}`
-		},
-		body: fileData
-	});
+// Upload file to Directus files
+async function uploadFile(filedata) {
+    const response = await fetch('https://platform-big-themes.directus.app/files', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${DIRECTUS_KEY}`
+        },
+        body: filedata
+    })
 
-	const data = await response.json();
-	return data;
+    const data = await response.json()
+
+    return data
 }
 
 export const actions = {
-	'create-werkvorm': async ({ request }) => {
-		// TODO - Upload files to assets with /upload endpoint Hygraph
+    'create-werkvorm': async ({ request }) => {
+        const formData = await request.formData()
 
-		// TODO - Use response from uploading assets to get ID of added file and add to formData object
+        /* ------------------------------- FILE UPLOAD ------------------------------ */
+        // Get all files from formData object
+        const werkvormThumbnail = formData.get('werkvormThumbnail')
+        const werkvormVideo = formData.get('werkvormVideo')
+        const filesToUpload = new FormData();
+        const allFiles = [werkvormThumbnail, werkvormVideo]
 
-		const formData = await request.formData();
+        allFiles.forEach((file) => {
+            // If file size is 0, don't upload
+            if (file.size === 0) {
+                console.log('File size is 0');
+            }
+            else {
+                // Push all files with size > 0 to filesToUpload array
+                filesToUpload.append('files', file);
+            }
+        })
 
-		// Get all files from formData object
-		const werkvormThumbnail = formData.get('werkvormThumbnail');
-		const werkvormVideo = formData.get('werkvormVideo');
-		const werkvormMaterialen = formData.get('werkvormMaterialen');
+        // Upload files to Directus
+        const uploadData = await uploadFile(filesToUpload)
 
-		console.log('werkvormThumbnail', werkvormThumbnail);
+        /* -------------------------------- FORM DATA ------------------------------- */
+        // Get all data from formData object
+        const werkvormName = formData.get('werkvormName')?.toString()
+        const werkvormShortDesc = formData.get('werkvormShortDesc')?.toString()
+        const werkvormDesc = formData.get('werkvormDesc')?.toString()
+        const werkvormOpleiding = formData.get('werkvormOpleiding')?.toString() || null
+        const werkvormStudiejaar = formData.get('werkvormStudiejaar')?.toString() || null
+        const werkvormContactpersoon = formData.get('werkvormContactpersoon')?.toString() || null
 
-		const filesToUpload = new FormData();
+        let werkvormThumbnailDataID
+        let werkvormVideoDataID
 
-		const files = [werkvormThumbnail, werkvormVideo, werkvormMaterialen];
+        // Check if uploadData is an array
+        if (Array.isArray(uploadData.data)) {
+            const werkvormThumbnailID = uploadData.data.filter((file) => {
+                return file.filename_download === werkvormThumbnail.name
+            })
+            werkvormThumbnailDataID = werkvormThumbnailID[0].id
 
-		files.forEach((file) => {
-			filesToUpload.append('files', file);
-			console.log(`Added ${file.name} to filesToUpload`);
-		});
+            const werkvormVideoID = uploadData.data.filter((file) => {
+                return file.filename_download === werkvormVideo.name
+            })
+            werkvormVideoDataID = werkvormVideoID[0].id
+        } else {
+            werkvormThumbnailDataID = uploadData.data.id
+        }
 
-		const uploadData = await uploadFile(filesToUpload);
-		console.log(uploadData);
+        // Slugify werkvormName
+        const slug = werkvormName.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') + '-' + Date.now()
 
-		const werkvormName = formData.get('werkvormName')?.toString();
-		const werkvormShortDesc = formData.get('werkvormShortDesc')?.toString();
-		const werkvormDesc = formData.get('werkvormDesc')?.toString();
-		const werkvormOpleiding = formData.get('werkvormOpleiding')?.toString();
-		const werkvormStudiejaar = formData.get('werkvormStudiejaar')?.toString();
-		const werkvormContactpersoon = formData.get('werkvormContactpersoon')?.toString();
-		// const thumbnailName = formData.get('thumbnailName')?.toString();
-		// const thumbnailHandle = formData.get('thumbnailHandle')?.toString();
-		// const videoName = formData.get('videoName')?.toString();
-		// const videoHandle = formData.get('videoHandle')?.toString();
-		// const materialenName = formData.get('materialenName')?.toString();
-		// const materialenHandle = formData.get('materialenHandle')?.toString();
+        // Send data to Directus
+        const response = await fetch('https://platform-big-themes.directus.app/items/workform', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${DIRECTUS_KEY}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "title": werkvormName,
+                "shortDescription": werkvormShortDesc,
+                "description": werkvormDesc,
+                "year": werkvormStudiejaar,
+                "course": werkvormOpleiding,
+                "contact": werkvormContactpersoon,
+                "thumbnail": werkvormThumbnailDataID,
+                "video": werkvormVideoDataID,
+                "link": slug
+            })
+        }).then((response) => response.json())
+        .catch((error) => error)
 
-		const mutation = gql`
-			mutation createWerkvorm(
-				$werkvormName: String!
-				$werkvormShortDesc: String
-				$werkvormDesc: String!
-				$werkvormOpleiding: ID
-				$werkvormStudiejaar: Int
-				$werkvormContactpersoon: ID
-				$thumbnailName: String!
-				$thumbnailHandle: String!
-				$videoName: String!
-				$videoHandle: String!
-				$materialenName: String!
-				$materialenHandle: String!
-			) {
-				createWerkvorm(
-					data: {
-						title: $werkvormName
-						korteBeschrijving: $werkvormShortDesc
-						beschrijving: $werkvormDesc
-						opleiding: { connect: { id: $werkvormOpleiding } }
-						studiejaar: $werkvormStudiejaar
-						contactpersonen: { connect: { id: $werkvormContactpersoon } }
-						thumbnail: { create: { fileName: $thumbnailName, handle: $thumbnailHandle } }
-						video: { create: { fileName: $videoName, handle: $videoHandle } }
-						materialen: { create: { fileName: $materialenName, handle: $materialenHandle } }
-					}
-				) {
-					id
-				}
-			}
-		`;
-	}
-};
+        console.log(response)
+
+        // TODO - Add tags to werkvorm
+    }
+}
