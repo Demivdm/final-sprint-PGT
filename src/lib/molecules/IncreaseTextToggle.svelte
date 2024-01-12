@@ -37,9 +37,12 @@
         right: 16px;
         padding: 0.25rem 0.5rem;
         padding-left: 12px;
+        background-color: var(--color-hva-pink);
+        border: 2px solid var(--color-hva-pink);
+        /* Enhanced kleuren */
         background-color: var(--color-hva-pink-enhanced);
         border: 2px solid var(--color-hva-pink-enhanced);
-        color: var(--color-default);
+        color: var(--color-white);
         box-shadow: 0.5rem 0.5rem #1e1649;
         transition: 0.3s ease-in-out;
         z-index: 5;
@@ -61,6 +64,9 @@
 
     /* Interactive states */
     button:hover {
+        background-color: var(--color-hva-blue-secundary);
+        border: 2px solid var(--color-hva-blue-secundary);
+        /* Enhanced kleuren */
         background-color: var(--color-hva-blue-secundary-enhanced);
         border: 2px solid var(--color-hva-blue-secundary-enhanced);
         box-shadow: 0px 0px #1e1649;
@@ -68,6 +74,9 @@
     }
 
     button:focus {
+        border: 2px solid var(--color-hva-pink);
+        background-color: var(--color-hva-blue-secundary);
+        /* Enhanced kleuren */
         border: 2px solid var(--color-hva-pink-enhanced);
         background-color: var(--color-hva-blue-secundary-enhanced);
     }
@@ -84,6 +93,5 @@
             width: fit-content;
         }
     }
-
 
 </style>

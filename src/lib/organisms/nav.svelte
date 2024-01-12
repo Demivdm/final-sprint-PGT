@@ -275,6 +275,8 @@
 
 	summary {
 		border: 2px solid var(--color-hva-blue-secundary);
+		/* Enhanced kleur */
+		background-color: var(--color-hva-blue-secundary-enhanced);
 		border-radius: 0.25rem;
 		list-style: none;
 		padding: 0.2rem 0.5rem;
@@ -295,6 +297,8 @@
 
 	nav {
 		background-color: var(--color-hva-blue-secundary);
+		/* Enhanced kleur */
+		background-color: var(--color-hva-blue-secundary-enhanced);
 		box-shadow: 8px 8px #1e1649;
 		height: fit-content;
 		margin: 0;
@@ -313,6 +317,8 @@
 
 	nav .mobile-menu ul {
 		background-color: var(--color-hva-blue-secundary);
+		/* Enhanced kleur */
+		background-color: var(--color-hva-blue-secundary-enhanced);
 		box-shadow: 8px 8px var(--color-hva-navy);
 		display: flex;
 		flex-direction: column;
@@ -337,6 +343,8 @@
 
 	nav button {
 		background-color: var(--color-hva-blue-secundary);
+		/* Enhanced kleur */
+		background-color: var(--color-hva-blue-secundary-enhanced);
 		border: unset;
 		height: 2rem;
 		text-transform: capitalize;
@@ -354,6 +362,8 @@
 	.desktop-menu li button {
 		align-items: center;
 		border: 2px solid var(--color-hva-blue-secundary);
+		/* Enhanced kleur */
+		border: 2px solid var(--color-hva-blue-secundary-enhanced);
 		border-radius: 0.25rem;
 		display: flex;
 		font-size: var(--unit-default);
@@ -370,10 +380,14 @@
 	li.menu-item button:hover,
 	.desktop-menu li button:hover {
 		background-color: var(--color-hva-pink);
+		/* Enhanced kleur */
+		background-color: var(--color-hva-pink-enhanced);
 	}
 
 	.desktop-menu li button:focus-within {
 		border: 2px solid var(--color-hva-pink);
+		/* Enhanced kleur */
+		border: 2px solid var(--color-hva-pink-enhanced);
 	}
 
 	.desktop-menu li button svg {
@@ -439,6 +453,8 @@
 	nav a,
 	nav .menu-item button {
 		border: 2px solid var(--color-hva-blue-secundary);
+		/* Enhanced kleur */
+		border: 2px solid var(--color-hva-blue-secundary-enhanced);
 		border-radius: 0.25rem;
 		padding: 0.2rem 0.5rem;
 		transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -447,12 +463,19 @@
 	nav a:hover,
 	ul li button:hover {
 		background-color: var(--color-hva-pink);
+		/* Enhanced kleur */
+		background-color: var(--color-hva-pink-enhanced);
+		
+
 	}
 
 	nav a:focus,
 	ul li button:focus {
 		background-color: var(--color-hva-blue-secundary);
 		border: 2px solid var(--color-hva-pink);
+		/* Enhanced kleuren */
+		background-color: var(--color-hva-blue-secundary-enhanced);
+		border: 2px solid var(--color-hva-pink-enhanced);
 	}
 
 	/* Primaire ruisknop */
@@ -481,10 +504,14 @@
 
 	.link-primary:hover {
 		background: var(--color-hva-pink);
+		/* Enhanced kleur */
+		background: var(--color-hva-pink-enhanced);
 	}
 
 	.link-primary:focus {
 		border: 2px solid var(--color-hva-pink);
+		/* Enhanced kleur */
+		background: var(--color-hva-pink-enhanced);
 	}
 
 	ul.desktop-menu {

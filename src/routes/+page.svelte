@@ -92,7 +92,7 @@
 	@media (min-width: 46rem) {
 		.werkvormen {
 			width: 42rem;
-			margin: 2rem auto;
+			margin: 2rem auto 5rem;
 		}
 	}
 

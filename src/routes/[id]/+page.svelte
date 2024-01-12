@@ -112,6 +112,8 @@
 		position: absolute;
 		left: -1rem;
 		background: var(--color-hva-pink);
+        /* Enhanced kleur */
+        background: var(--color-hva-pink-enhanced);
 		padding: 0.5rem;
 		aspect-ratio: 1/1;
 		transform: rotate(45deg);
