@@ -50,7 +50,7 @@
         flex-direction: row;
         align-items: center;
         gap: 0.5rem;
-        font-size: 1rem;
+        font-size: var(--unit-default);
         text-transform: capitalize;
     }
 

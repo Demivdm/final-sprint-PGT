@@ -12,6 +12,7 @@
 }
 
 :root{
+    /* Kleuren */
     --color-hva-blue: #351EB6;
     --color-hva-blue-secundary: #25167a;
     --color-hva-blue-secundary-enhanced: oklch(24.71% 0.153 278.44);
@@ -20,6 +21,10 @@
     --color-hva-pink-enhanced: oklch(65.88% 0.257 9.82);
     --color-hva-green: #02857D;
     --color-white: #FFFFFF;
+
+    /* Waardes */
+    --unit-default: 1rem;
+    --unit-large: 2rem;
 }
 
 /* -------------------------------------------------------------------------- */

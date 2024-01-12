@@ -356,7 +356,7 @@
 		border: 2px solid var(--color-hva-blue-secundary);
 		border-radius: 0.25rem;
 		display: flex;
-		font-size: 1rem;
+		font-size: var(--unit-default);
 		gap: 0.5rem;
 		padding: 0.2rem 0.5rem;
 		transition: 0.3s ease-in-out;

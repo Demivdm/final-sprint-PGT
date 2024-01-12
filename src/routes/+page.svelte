@@ -75,7 +75,7 @@
 
 <style>
 	main {
-		padding: 1rem;
+		padding: var(--unit-default);
 	}
 
 	.werkvormen {
