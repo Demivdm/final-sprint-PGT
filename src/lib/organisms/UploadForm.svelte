@@ -113,6 +113,7 @@
             inputPlaceholder="Selecteer een thumbnail..."
             isRequired={true}
             hasMultiple={false}
+            accepted={"image/*"}
         />
 
         <!-- Video -->
@@ -126,6 +127,7 @@
             inputPlaceholder="Selecteer een video..."
             isRequired={false}
             hasMultiple={false}
+            accepted={"video/*"}
         />
 
         <!-- TODO Tags -->

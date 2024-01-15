@@ -23,10 +23,10 @@
 
 		<!-- svelte-ignore a11y-media-has-caption -->
         {#if workform.video == null}
-            <img src={"https://platform-big-themes.directus.app/assets/" + workform.thumbnail.id} alt="Thumbnail" />
+            <img class="thumbnail" src={"https://platform-big-themes.directus.app/assets/" + workform.thumbnail.id} alt="Thumbnail" />
         {:else}
         <video controls poster={"https://platform-big-themes.directus.app/assets/" + workform.thumbnail.id}>
-            <source src={"https://platform-big-themes.directus.app/assets/" + workform.video.id} type={workform.video.type} />
+            <source src={"https://platform-big-themes.directus.app/assets/" + workform.video.id} type="video/mp4" />
         </video>
         {/if}
 
@@ -189,6 +189,13 @@ img {
     width: 100%;
     border-radius: 5px;
     max-width: 28rem;
+}
+
+.thumbnail {
+    width: 100%;
+    height: initial;
+    aspect-ratio: initial;
+    transform: initial;
 }
 
 .content,

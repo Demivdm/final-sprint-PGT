@@ -12,6 +12,7 @@
 	export let inputId
     export let isRequired
     export let hasMultiple
+	export let accepted
 </script>
 
 <div class="form-field">
@@ -20,7 +21,7 @@
 		<Label {labelFor} {labelText}></Label>
 	</span>
 
-	<FileInput {inputType} {inputPlaceholder} {inputName} {inputId} {isRequired} {hasMultiple}></FileInput>
+	<FileInput {inputType} {inputPlaceholder} {inputName} {inputId} {isRequired} {hasMultiple} {accepted}></FileInput>
 </div>
 
 <style>
