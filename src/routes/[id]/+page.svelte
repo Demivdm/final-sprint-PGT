@@ -87,8 +87,8 @@ main {
 }
 
 section {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     margin: 1rem 0;
     gap: 2rem;
 }
@@ -174,16 +174,19 @@ img {
     border-radius: 5px;
     max-width: 28rem;
 }
+/* 
+.content {
+    display: grid;
+    grid-template-columns: 1;
+}
 
-.content,
-.content-left,
 .beschrijving,
 .extra-info,
 .tags,
 .action-buttons {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .beschrijving h2,
@@ -218,7 +221,7 @@ img {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-}
+} */
 
 @media (min-width: 700px) {
     main {
