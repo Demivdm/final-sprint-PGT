@@ -1,19 +1,27 @@
 <script>
-	export let workform;
+	export let workform
 </script>
 
 <article>
 	<ul>
-		{#each workform.tags as tag}
-			<li style="border-color: {tag.tag_id.color};">{tag.tag_id.title}</li>
-		{/each}
+		{#if workform.tags > 0}
+			{#each workform.tags as tag}
+				<li style="border-color: {tag.tag_id.color};">{tag.tag_id.title}</li>
+			{/each}
+		{:else}
+			<li style="border-color: white">Geen tags</li>
+		{/if}
 	</ul>
 
 	<img src={"https://platform-big-themes.directus.app/assets/" + workform.thumbnail.id} alt="" width={workform.thumbnail.width} height={workform.thumbnail.height} />
 	<div>
 		<div>
 			<h2>{workform.title}</h2>
-			<p>{workform.shortDescription}</p>
+			{#if workform.shortDescription}
+				<p>{workform.shortDescription}</p>
+			{:else}
+				<p>Geen beschrijving beschikbaar.</p>
+			{/if}
 		</div>
 		<a href={workform.link}><img src="images/icons/arrow-right.svg" alt="" />Bekijk werkvorm</a>
 	</div>
