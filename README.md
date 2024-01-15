@@ -2,6 +2,8 @@
 
 Deze repository is de release candidate voor de opleiding CMD van de HvA. 
 
+<img width="1440" alt="Scherm­afbeelding 2024-01-15 om 09 26 00" src="https://github.com/Tristandemuijnck/lets-jam-webapplicatie/assets/89298385/73c761a7-6b16-40c1-80e5-ada6b99c00b2">
+
 ## Inhoudsopgave
 
 * Beschrijving
