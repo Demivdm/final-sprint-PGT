@@ -129,113 +129,124 @@
 
   </div>
 
-
-
-
-  <style>
+<style>
 	div {
-		background-color: var(--color-hva-blue-secundary);
-		/* Enhanced kleur */
-		background-color: var(--color-hva-blue-secundary-enhanced);
-  		box-shadow: 8px 8px #1e1649;
-  		height: fit-content;
-  		margin: 1rem 0 0 0;
-  		padding: 0.5rem;
-  		width: 100%;
-	}
+  background-color: var(--color-hva-blue-secundary);
+  box-shadow: 8px 8px #1e1649;
+  height: fit-content;
+  margin: 1rem 0 0 0;
+  padding: 0.5rem;
+  width: 100%;
 
-	ul:first-of-type {
-		display: flex;
-		flex-direction: column;
-	}
-	ul > li {
-		padding: 0.5em;
-		margin-left: 1.5em;
-	}
-
-	ul input[type='checkbox'] {
-		margin-left: 1em;
-	}
-
-  /* Zoekbalk */
-  form {
-    width: 100%;
-    height: auto;
-    display: block;
-    padding: 1rem;
+  /* Enhanced kleur binnen @supports */
+  @supports (--css: variables) {
+    background-color: var(--color-hva-blue-secundary-enhanced);
   }
+}
 
-  form fieldset {
-    width: fit-content;
+ul:first-of-type {
+  display: flex;
+  flex-direction: column;
+}
+ul > li {
+  padding: 0.5em;
+  margin-left: 1.5em;
+}
+
+ul input[type='checkbox'] {
+  margin-left: 1em;
+}
+
+/* Zoekbalk */
+form {
+  width: 100%;
+  height: auto;
+  display: block;
+  padding: 1rem;
+}
+
+form fieldset {
+  width: fit-content;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.5rem;
+  border: unset;
+  margin: auto;
+}
+
+form input,
+form button {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: var(--color-hva-blue-secundary);
+
+  /* Enhanced kleur binnen @supports */
+  @supports (--css: variables) {
+    background-color: var(--color-hva-blue-secundary-enhanced);
+  }
+}
+
+form input {
+  width: 50vw;
+  height: auto;
+  border: 2px solid var(--color-white);
+  background-color: #f5f5f512;
+  color: var(--color-white);
+}
+
+form button {
+  color: var(--color-white);
+  background-color: #593bff;
+  font-size: 1rem;
+  border: unset;
+  position: relative;
+  transition: 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+form button:hover {
+  background-color: var(--color-hva-pink);
+
+  /* Enhanced kleur binnen @supports */
+  @supports (--css: variables) {
+    background: var(--color-hva-pink-enhanced);
+  }
+}
+
+form button:focus {
+  border: 2px solid var(--color-hva-pink);
+
+  /* Enhanced kleur binnen @supports */
+  @supports (--css: variables) {
+    border: 2px solid var(--color-hva-pink-enhanced);
+  }
+}
+
+form button::before {
+  background-image: url('https://img.freepik.com/free-vector/seamless-grainy-texture-background_1409-2115.jpg');
+  background-size: 180%;
+  border-radius: 0.25rem;
+  content: '';
+  height: 100%;
+  left: 0;
+  mix-blend-mode: color-burn;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+@media (min-width: 700px) {
+  ul:first-of-type {
     display: flex;
-    flex-direction: row-reverse;
-    gap: 0.5rem;
-    border: unset;
-    margin: auto;
+    flex-direction: row;
   }
-
-  form input , button {
-    padding: 0.25rem 0.5rem;
-    background-color: var(--color-hva-blue-secundary);
-	/* Enhanced kleur */
-	background-color: var(--color-hva-blue-secundary-enhanced);
-    border-radius: 0.25rem;
-  }
-
-  form input {
-    width: 50vw;
-    height: auto;
-    border: 2px solid var(--color-white);
-    background-color: #f5f5f512;
-    color: var(--color-white);
-  }
-
-  form button {
-    color: var(--color-white);
-    background-color: #593bff;
-    font-size: 1rem;
-    border: unset;
-    position: relative;
-    transition: 0.3s ease-in-out;
+  ul {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  form button:hover {
-    background-color: var(--color-hva-pink);
-	/* Enhanced kleur */
-	background: var(--color-hva-pink-enhanced);
-  }
-
-  form button:focus {
-    border: 2px solid var(--color-hva-pink);
-	/* Enhanced kleur */
-	border: 2px solid var(--color-hva-pink-enhanced);
-  }
-
-  form button::before {
-    background-image: url('https://img.freepik.com/free-vector/seamless-grainy-texture-background_1409-2115.jpg');
-    background-size: 180%;
-    border-radius: 0.25rem;
-    content: '';
-    height: 100%;
-    left: 0;
-    mix-blend-mode: color-burn;
-    position: absolute;
-    top: 0;
     width: 100%;
+    overflow: auto;
   }
+}
 
-	@media (min-width: 700px) {
-		ul:first-of-type {
-			display: flex;
-			flex-direction: row;
-		}
-		ul {
-			display: flex;
-			width: 100%;
-			overflow: auto;
-		}
-	}
 </style>

@@ -264,276 +264,299 @@
 
 <style>
 	* {
-		color: white;
-		margin: 0;
-	}
+    color: white;
+    margin: 0;
+}
 
-	details {
-		content: '';
-		cursor: pointer;
-	}
+details {
+    content: '';
+    cursor: pointer;
+}
 
-	summary {
-		border: 2px solid var(--color-hva-blue-secundary);
-		/* Enhanced kleur */
-		background-color: var(--color-hva-blue-secundary-enhanced);
-		border-radius: 0.25rem;
-		list-style: none;
-		padding: 0.2rem 0.5rem;
-		transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-	}
+summary {
+    border: 2px solid var(--color-hva-blue-secundary);
+    /* Enhanced kleur binnen @supports */
+    @supports (--css: variables) {
+        background-color: var(--color-hva-blue-secundary-enhanced);
+    }
+    border-radius: 0.25rem;
+    list-style: none;
+    padding: 0.2rem 0.5rem;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 
-	summary::-webkit-details-marker {
-		display: none;
-	}
+summary::-webkit-details-marker {
+    display: none;
+}
 
-	summary:focus-visible {
-		outline: unset;
-	}
+summary:focus-visible {
+    outline: unset;
+}
 
-	summary:focus {
-		border: 2px solid var(--color-hva-pink);
-	}
+summary:focus {
+    border: 2px solid var(--color-hva-pink);
+}
 
-	nav {
-		background-color: var(--color-hva-blue-secundary);
-		/* Enhanced kleur */
-		background-color: var(--color-hva-blue-secundary-enhanced);
-		box-shadow: 8px 8px #1e1649;
-		height: fit-content;
-		margin: 0;
-		padding: 0.5rem;
-		text-transform: capitalize;
-		width: 100%;
-	}
+nav {
+    background-color: var(--color-hva-blue-secundary);
+    /* Enhanced kleur binnen @supports */
+    @supports (--css: variables) {
+        background-color: var(--color-hva-blue-secundary-enhanced);
+    }
+    box-shadow: 8px 8px #1e1649;
+    height: fit-content;
+    margin: 0;
+    padding: 0.5rem;
+    text-transform: capitalize;
+    width: 100%;
+}
 
-	nav .mobile-menu {
-		align-items: center;
-		display: flex;
-		height: 2rem;
-		justify-content: end;
-		position: relative;
-	}
+nav .mobile-menu {
+    align-items: center;
+    display: flex;
+    height: 2rem;
+    justify-content: end;
+    position: relative;
+}
 
-	nav .mobile-menu ul {
-		background-color: var(--color-hva-blue-secundary);
-		/* Enhanced kleur */
-		background-color: var(--color-hva-blue-secundary-enhanced);
-		box-shadow: 8px 8px var(--color-hva-navy);
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		padding: 0.5rem;
-		position: absolute;
-		right: -0.5rem;
-		top: 3.5rem;
-		z-index: 2;
-	}
+nav .mobile-menu ul {
+    background-color: var(--color-hva-blue-secundary);
+    /* Enhanced kleur binnen @supports */
+    @supports (--css: variables) {
+        background-color: var(--color-hva-blue-secundary-enhanced);
+    }
+    box-shadow: 8px 8px var(--color-hva-navy);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    position: absolute;
+    right: -0.5rem;
+    top: 3.5rem;
+    z-index: 2;
+}
 
-	nav .mobile-menu ul:hover {
-		display: flex;
-	}
+nav .mobile-menu ul:hover {
+    display: flex;
+}
 
-	nav .mobile-menu ul a {
-		align-items: center;
-		display: flex;
-		flex-direction: row;
-		gap: 0.5rem;
-	}
+nav .mobile-menu ul a {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
 
-	nav button {
-		background-color: var(--color-hva-blue-secundary);
-		/* Enhanced kleur */
-		background-color: var(--color-hva-blue-secundary-enhanced);
-		border: unset;
-		height: 2rem;
-		text-transform: capitalize;
-	}
+nav button {
+    background-color: var(--color-hva-blue-secundary);
+    /* Enhanced kleur binnen @supports */
+    @supports (--css: variables) {
+        background-color: var(--color-hva-blue-secundary-enhanced);
+    }
+    border: unset;
+    height: 2rem;
+    text-transform: capitalize;
+}
 
-	nav figure {
-		align-items: center;
-		display: flex;
-		gap: 0.5rem;
-		justify-content: center;
-	}
+nav figure {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
 
-	/* Filter button */
-	li.menu-item button,
-	.desktop-menu li button {
-		align-items: center;
-		border: 2px solid var(--color-hva-blue-secundary);
-		/* Enhanced kleur */
-		border: 2px solid var(--color-hva-blue-secundary-enhanced);
-		border-radius: 0.25rem;
-		display: flex;
-		font-size: var(--unit-default);
-		gap: 0.5rem;
-		padding: 0.2rem 0.5rem;
-		transition: 0.3s ease-in-out;
-		width: 100%;
-	}
+/* Filter button */
+li.menu-item button,
+.desktop-menu li button {
+    align-items: center;
+    border: 2px solid var(--color-hva-blue-secundary);
+    /* Enhanced kleur binnen @supports */
+    @supports (--css: variables) {
+        border: 2px solid var(--color-hva-blue-secundary-enhanced);
+    }
+    border-radius: 0.25rem;
+    display: flex;
+    font-size: var(--unit-default);
+    gap: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    transition: 0.3s ease-in-out;
+    width: 100%;
+}
 
-	li.menu-item button svg {
-		position: static;
-	}
+li.menu-item button svg {
+    position: static;
+}
 
-	li.menu-item button:hover,
-	.desktop-menu li button:hover {
-		background-color: var(--color-hva-pink);
-		/* Enhanced kleur */
-		background-color: var(--color-hva-pink-enhanced);
-	}
+li.menu-item button:hover,
+.desktop-menu li button:hover {
+    background-color: var(--color-hva-pink);
+    /* Enhanced kleur binnen @supports */
+    @supports (--css: variables) {
+        background-color: var(--color-hva-pink-enhanced);
+    }
+}
 
-	.desktop-menu li button:focus-within {
-		border: 2px solid var(--color-hva-pink);
-		/* Enhanced kleur */
-		border: 2px solid var(--color-hva-pink-enhanced);
-	}
+.desktop-menu li button:focus-within {
+    border: 2px solid var(--color-hva-pink);
+    /* Enhanced kleur binnen @supports */
+    @supports (--css: variables) {
+        border: 2px solid var(--color-hva-pink-enhanced);
+    }
+}
 
-	.desktop-menu li button svg {
-		position: static;
-	}
+.desktop-menu li button svg {
+    position: static;
+}
 
-	/* Menu button */
-	nav button figcaption {
-		font-family: 'Open sans';
-		font-size: 1.25rem;
-		font-weight: 500;
-		transition: 0.2s ease-in-out;
-	}
+/* Menu button */
+nav button figcaption {
+    font-family: 'Open sans';
+    font-size: 1.25rem;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+}
 
-	nav button:hover figcaption {
-		font-weight: 700;
-	}
+nav button:hover figcaption {
+    font-weight: 700;
+}
 
-	nav button div svg {
-		position: relative;
-	}
+nav button div svg {
+    position: relative;
+}
 
-	nav button svg {
-		display: block;
-		position: absolute;
-		transition: 0.2s ease-in-out;
-		width: 1.5rem;
-	}
+nav button svg {
+    display: block;
+    position: absolute;
+    transition: 0.2s ease-in-out;
+    width: 1.5rem;
+}
 
-	nav details svg:first-child {
-		display: block;
-	}
+nav details svg:first-child {
+    display: block;
+}
 
-	nav details svg:last-child {
-		display: none;
-	}
+nav details svg:last-child {
+    display: none;
+}
 
-	nav ul li button {
-		display: block;
-	}
+nav ul li button {
+    display: block;
+}
 
-	nav ul li:first-child {
-		display: none;
-	}
+nav ul li:first-child {
+    display: none;
+}
 
-	.javascriptEnabled nav ul li:first-child {
-		display: block;
-	}
+.javascriptEnabled nav ul li:first-child {
+    display: block;
+}
 
-	nav details[open] svg:first-child {
-		display: none;
-	}
+nav details[open] svg:first-child {
+    display: none;
+}
 
-	nav details[open] svg:last-child {
-		display: block;
-	}
+nav details[open] svg:last-child {
+    display: block;
+}
 
-	/* nav .mobile-menu button:focus-within + ul  {
+/* nav .mobile-menu button:focus-within + ul  {
+    display: flex;
+  } */
+
+/* Interactive states */
+nav a,
+nav .menu-item button {
+    border: 2px solid var(--color-hva-blue-secundary);
+    /* Enhanced kleur binnen @supports */
+    @supports (--css: variables) {
+        border: 2px solid var(--color-hva-blue-secundary-enhanced);
+    }
+    border-radius: 0.25rem;
+    padding: 0.2rem 0.5rem;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+nav a:hover,
+ul li button:hover {
+    background-color: var(--color-hva-pink);
+    /* Enhanced kleur binnen @supports */
+    @supports (--css: variables) {
+        background-color: var(--color-hva-pink-enhanced);
+    }
+}
+
+nav a:focus,
+ul li button:focus {
+    background-color: var(--color-hva-blue-secundary);
+    border: 2px solid var(--color-hva-pink);
+    /* Enhanced kleuren binnen @supports */
+    @supports (--css: variables) {
+        background-color: var(--color-hva-blue-secundary-enhanced);
+        border: 2px solid var(--color-hva-pink-enhanced);
+    }
+}
+
+/* Primaire ruisknop */
+.link-primary {
+    align-items: center;
+    background: oklch(0.54 0.28 278.48);
+    border-radius: 0.25rem;
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    position: relative;
+}
+
+.link-primary::before {
+    background-image: url('https://img.freepik.com/free-vector/seamless-grainy-texture-background_1409-2115.jpg');
+    background-size: 180%;
+    border-radius: 0.25rem;
+    content: '';
+    height: 100%;
+    left: 0;
+    mix-blend-mode: color-burn;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.link-primary:hover {
+    background: var(--color-hva-pink);
+    /* Enhanced kleur binnen @supports */
+    @supports (--css: variables) {
+        background: var(--color-hva-pink-enhanced);
+    }
+}
+
+.link-primary:focus {
+    border: 2px solid var(--color-hva-pink);
+    /* Enhanced kleur binnen @supports */
+    @supports (--css: variables) {
+        background: var(--color-hva-pink-enhanced);
+    }
+}
+
+ul.desktop-menu {
+    display: none;
+}
+
+ul.desktop-menu a {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+}
+
+@media (min-width: 40rem) {
+    nav .mobile-menu {
+        display: none;
+    }
+
+    ul.desktop-menu {
+        align-items: center;
         display: flex;
-      } */
+        gap: 2rem;
+        justify-content: end;
+    }
+}
 
-	/* Interactive states */
-	nav a,
-	nav .menu-item button {
-		border: 2px solid var(--color-hva-blue-secundary);
-		/* Enhanced kleur */
-		border: 2px solid var(--color-hva-blue-secundary-enhanced);
-		border-radius: 0.25rem;
-		padding: 0.2rem 0.5rem;
-		transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-	}
-
-	nav a:hover,
-	ul li button:hover {
-		background-color: var(--color-hva-pink);
-		/* Enhanced kleur */
-		background-color: var(--color-hva-pink-enhanced);
-		
-
-	}
-
-	nav a:focus,
-	ul li button:focus {
-		background-color: var(--color-hva-blue-secundary);
-		border: 2px solid var(--color-hva-pink);
-		/* Enhanced kleuren */
-		background-color: var(--color-hva-blue-secundary-enhanced);
-		border: 2px solid var(--color-hva-pink-enhanced);
-	}
-
-	/* Primaire ruisknop */
-	.link-primary {
-		align-items: center;
-		background: oklch(0.54 0.28 278.48);
-		border-radius: 0.25rem;
-		display: flex;
-		gap: 0.5rem;
-		padding: 0.2rem 0.5rem;
-		position: relative;
-	}
-
-	.link-primary::before {
-		background-image: url('https://img.freepik.com/free-vector/seamless-grainy-texture-background_1409-2115.jpg');
-		background-size: 180%;
-		border-radius: 0.25rem;
-		content: '';
-		height: 100%;
-		left: 0;
-		mix-blend-mode: color-burn;
-		position: absolute;
-		top: 0;
-		width: 100%;
-	}
-
-	.link-primary:hover {
-		background: var(--color-hva-pink);
-		/* Enhanced kleur */
-		background: var(--color-hva-pink-enhanced);
-	}
-
-	.link-primary:focus {
-		border: 2px solid var(--color-hva-pink);
-		/* Enhanced kleur */
-		background: var(--color-hva-pink-enhanced);
-	}
-
-	ul.desktop-menu {
-		display: none;
-	}
-
-	ul.desktop-menu a {
-		align-items: center;
-		display: flex;
-		gap: 0.5rem;
-	}
-
-	@media (min-width: 40rem) {
-		nav .mobile-menu {
-			display: none;
-		}
-
-		ul.desktop-menu {
-			align-items: center;
-			display: flex;
-			gap: 2rem;
-			justify-content: end;
-		}
-	}
 </style>
