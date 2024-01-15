@@ -90,18 +90,6 @@
             isRequired={false}
 		/>
 
-        <!-- Studiejaar -->
-        <FormField
-            iconSrc="/images/icons/year.svg"
-            labelFor="werkvormStudiejaar"
-            labelText="Studiejaar"
-            inputType="number"
-            inputPlaceholder="Selecteer een studiejaar..."
-            inputName="werkvormStudiejaar"
-            inputId="werkvormStudiejaar"
-            isRequired={false}
-        />
-
         <!-- Contactpersoon -->
         <SelectFormField
 			iconSrc="/images/icons/contact.svg"
