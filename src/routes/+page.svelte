@@ -23,7 +23,7 @@
 
 	// Zoekbalk logica
 	let searchInput = null;
-	let filteredWerkvormen = data.workform;
+	let filteredWerkvormen = data?.workform;
 
 	function searchWerkvormen(event) {
 		event.preventDefault();
@@ -64,9 +64,13 @@
 	<!-- <LoginOutButton /> -->
 
 	<section class="werkvormen" id="custom-view">
-		{#each filteredWerkvormen as workform}
-			<WerkvormCard {workform} {data} />
-		{/each}
+		{#if filteredWerkvormen}
+			{#each filteredWerkvormen as workform}
+				<WerkvormCard {workform} {data} />
+			{/each}
+		{:else}
+			<p>Geen werkvormen beschikbaar.</p>
+		{/if}
 	</section>
 </main>
 
