@@ -1,6 +1,8 @@
 <script>
 	export let data;
 	let workform = data.workform[0];
+
+    console.log(workform)
 </script>
 
 <main>
@@ -33,11 +35,14 @@
 			<video
 				controls
 				poster={'https://platform-big-themes.directus.app/assets/' + workform.thumbnail.id}
+                width="480" height="480"
 			>
 				<source
 					src={'https://platform-big-themes.directus.app/assets/' + workform.video.id}
 					type={workform.video.type}
+                    loading="lazy"
 				/>
+
 			</video>
 		{/if}
 

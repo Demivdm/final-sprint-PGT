@@ -25,7 +25,7 @@
     <div>
         <div class="header-wrapper">
             <a href="/">
-                <img src="/images/logo.svg" alt="Hogeschool van Amsterdam" />
+                <img src="/images/logo.svg" alt="Hogeschool van Amsterdam" width="128" height="28" />
             </a>
 
             <span>Platform Grote Thema's</span>
