@@ -42,11 +42,11 @@
 		{/if}
 
 		<article class="content">
-			<div class="beschrijving">
+			<div class="description">
 				<h2>Beschrijving</h2>
 				<p>{workform.description}</p>
 			</div>
-			<div>
+			<div class="faculty">
 				<h3>Faculteit/Opleiding</h3>
 				{#if workform.course}
 					<p>{workform.course.faculty} - {workform.course.title}</p>
@@ -54,7 +54,7 @@
 					<p>Geen faculteit/opleiding beschikbaar.</p>
 				{/if}
 			</div>
-			<div>
+			<div class="contactperson">
 				<h3>Contactpersoon</h3>
 				{#if workform.contact}
 					<a class="mail-to-link" href="mailto:{workform.contact.email}">
@@ -120,9 +120,8 @@
 	}
 
 	section {
-		/* display: flex;
-    flex-direction: column; */
-		margin: 1rem 0;
+        width: fit-content;
+        margin: 1rem auto;
 		gap: 2rem;
 	}
 
@@ -187,7 +186,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
-		margin-bottom: 1rem;
 	}
 
 	header h1 {
@@ -204,6 +202,7 @@
 		width: 100%;
 		border-radius: 5px;
 		max-width: 28rem;
+        grid-area: videoplayer;
 	}
 
 	img {
@@ -215,30 +214,56 @@
 	/* Layout content werkvorm */
 	article.content {
 		display: grid;
-		grid-template: 'a b' 1fr;
+		grid-template:"a" 1fr;
+        gap: 1rem;
 	}
 
 	article.content {
 		margin-bottom: 1rem;
+        grid-template-areas:"a"
+                            "b"
+                            "c"
+                            "d";
 	}
 
 	/* Grid area definitie */
-	.beschrijving {
+	.description {
 		grid-area: a;
+	}
+
+    .faculty {
+        grid-area: b;
+    }
+
+    .contactperson {
+        grid-area: c;
+    }
+
+    .tags {
+        grid-area: d;
+    }
+
+    .description h2 {
+		font-size: 1.3rem;
 	}
 
 	@media (min-width: 700px) {
 		main {
 			padding: 0 3rem 8rem;
 		}
+
+        article.content {
+            grid-template-areas:"a c"
+                                "b d";
+        }
 	}
 
 	@media (min-width: 1024px) {
-		section {
-			gap: 1.5rem;
-		}
+        header {
+            grid-area: werkvorm-title;
+        }
 
-		header h1 {
+        header h1 {
 			font-size: 1.8rem;
 		}
 
@@ -246,17 +271,32 @@
 			max-width: 40rem;
 		}
 
-		.content {
-			margin-top: 1rem;
-			grid-template-columns: 1fr 1fr;
+        section {
+            display: grid;
+            grid-template-areas:
+            "werkvorm-title uploadbutton" 
+            "videoplayer werkvorm-content";
+            grid-auto-columns: 3fr 2fr;
+            margin: 0 auto;
+            gap: 1.5rem;
+        }
+
+		article.content {
+			grid-template:
+                "a" 
+                "b" 
+                "c" 
+                "d"
+            ;
+            grid-area: werkvorm-content;
 		}
 
-		.beschrijving {
+		.description {
 			max-width: 35rem;
 		}
 
-		.beschrijving h2 {
-			font-size: 1.3rem;
-		}
+        .upload-button {
+            grid-area: uploadbutton;
+        }
 	}
 </style>
