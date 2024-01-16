@@ -7,8 +7,12 @@
 	import WerkvormCard from '../lib/organisms/WerkvormCard.svelte';
 	import NavFilterList from '../lib/atoms/NavFilterList.svelte';
 	import IncreaseTextToggle from '../lib/molecules/IncreaseTextToggle.svelte';
+	import { selectedTag } from '../lib/Utils/tagStore';
 
 	export let data;
+	export let currentTag;
+	export let activeTag;
+	let selectedTagValue; 
 	console.log(data);
 
 	let loading = false;
@@ -56,6 +60,17 @@
 			searchInput.form.removeEventListener('submit', searchWerkvormen);
 		};
 	});
+	
+
+	// bij update gebeurt er niks met de werkvorm kaarten 
+	// bij subscribe verdwijnen alle werkvormkaarten
+
+  selectedTag.subscribe(value => {
+    selectedTagValue = value;
+  });
+
+  console.log(selectedTag)
+
 </script>
 
 <main>
@@ -68,15 +83,27 @@
 		<!-- en dus kan de filter functie niet worden toegepast -->
 
 		<!-- {#each filteredWerkvormen as workform} -->
-		<NavFilterList {data}  {searchInput}  />
+		<NavFilterList {data} {searchInput} {selectedTag} {activeTag} {currentTag} />
+
+
 		<!-- {/each} -->
 	<!-- <LoginOutButton /> -->
-
 	<section class="werkvormen" id="custom-view">
+
+		{#each filteredWerkvormen as workform}
+      		{#if selectedTagValue === 'tag.title' || (workform.tag && workform.tag.some(tag => tag.title === selectedTagValue))}
+        		<WerkvormCard {workform} {data} />
+      		{/if}
+    	{/each}
+
+	</section>
+
+
+	<!-- <section class="werkvormen" id="custom-view">
 		{#each filteredWerkvormen as workform}
 			<WerkvormCard {workform} {data} />
 		{/each}
-	</section>
+	</section> -->
 </main>
 
 <IncreaseTextToggle />

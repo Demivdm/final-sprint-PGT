@@ -3,6 +3,7 @@
 	// filter staat standaard uit, het menu is standaard uitgeklapt
 	let mobileDropdownActive = true;
 	let filterDropdownActive = false;
+	
 
 	function openMobileMenu() {
 		// Deze functie checkt of de scherm breedte minder dan 700 pixels is.
