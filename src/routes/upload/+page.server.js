@@ -123,7 +123,5 @@ export const actions = {
 			.catch((error) => error)
 
 		console.log(response)
-
-		// TODO - Add tags to werkvorm
 	}
 }
