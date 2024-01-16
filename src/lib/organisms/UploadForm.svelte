@@ -1,5 +1,6 @@
 <script>
 	import { applyAction, enhance } from '$app/forms'
+    import Select from 'svelte-select'
 
 	import FormField from '$lib/molecules/FormField.svelte'
 	import SelectFormField from '$lib/molecules/SelectFormField.svelte';
@@ -11,6 +12,14 @@
 	export let formMethod
     export let btnText
 	export let data
+
+    let tagOptions = data.tag.map((tag) => {
+        return {
+            id: tag.id,
+            label: tag.title,
+            value: tag.value
+        }
+    })
 
     // Convert email field to titel field
     const contactpersoonObj = data.contact.map(({
@@ -130,7 +139,8 @@
             accepted={"video/*"}
         />
 
-        <!-- TODO Tags -->
+        <!-- Multi select dropdown for selecting tags -->
+        <Select items={tagOptions} name="tags" multiple placeholder="Selecteer tags ..." />
 	</div>
 
 	<Button btnType="submit" {btnText}></Button>
