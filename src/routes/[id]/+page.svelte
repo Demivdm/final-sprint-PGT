@@ -31,14 +31,14 @@
         {/if}
 
 		<article class="content">
-            <div class="content-left">
+            <div>
                 <div class="beschrijving">
                     <h2>Beschrijving</h2>
                     <p>{workform.description}</p>
                 </div>
 
                 <div class="extra-info">
-                    <div class="info-left">
+                    <div>
                         <h3>Faculteit/Opleiding</h3>
                         {#if workform.course}
                             <p>{workform.course.faculty} - {workform.course.title}</p>
@@ -46,7 +46,7 @@
                             <p>Geen faculteit/opleiding beschikbaar.</p>
                         {/if}
                     </div>
-                    <div class="info-right">
+                    <div>
                         <h3>Contactpersoon</h3>
                         {#if workform.contact}
                             <a class="mail-to-link" href="mailto:{workform.contact.email}">
@@ -170,6 +170,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 header h1 {
@@ -196,12 +197,30 @@ img {
 
 /* Layout content werkvorm */
 
-/* article.content {
-
-} */
+article.content {
+    display: grid;
+    grid-template: "a b" 1fr;
+}
 
 article.content, .beschrijving, .info-left, .extra-info {
     margin-bottom: 1rem;
+}
+
+/* Grid area definitie */
+.beschrijving {
+    grid-area: a;
+}
+
+.info-left {
+    grid-area: b;
+}
+
+.info-right {
+    grid-area: c;
+}
+
+.extra-info {
+    grid-area: d;
 }
 
 /* 
@@ -262,7 +281,7 @@ article.content, .beschrijving, .info-left, .extra-info {
         flex-direction: row;
         gap: 3rem;
     }
-
+/* 
     .content-left {
         width: 55%;
     }
@@ -275,7 +294,7 @@ article.content, .beschrijving, .info-left, .extra-info {
     .content-right {
         width: 45%;
         margin-top: 3rem;
-    }
+    } */
 }
 
 @media (min-width: 1024px) {
