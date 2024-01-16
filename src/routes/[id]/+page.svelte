@@ -1,6 +1,6 @@
 <script>
-	export let data
-	let workform = data.workform[0]
+	export let data;
+	let workform = data.workform[0];
 </script>
 
 <main>
@@ -9,7 +9,9 @@
 			<div class="icon-box">
 				<img src="/images/icons/upload.svg" alt="Upload icon" />
 			</div>
-			<a href="/upload">Ben jij docent en wil je zelf een werkvorm uploaden? Klik dan hier om je aan te melden.</a>
+			<a href="/upload"
+				>Ben jij docent en wil je zelf een werkvorm uploaden? Klik dan hier om je aan te melden.</a
+			>
 		</div>
 
 		<header>
@@ -22,314 +24,239 @@
 		</header>
 
 		<!-- svelte-ignore a11y-media-has-caption -->
-        {#if workform.video == null}
-            <img src={"https://platform-big-themes.directus.app/assets/" + workform.thumbnail.id} alt="Thumbnail" />
-        {:else}
-        <video controls poster={"https://platform-big-themes.directus.app/assets/" + workform.thumbnail.id}>
-            <source src={"https://platform-big-themes.directus.app/assets/" + workform.video.id} type={workform.video.type} />
-        </video>
-        {/if}
+		{#if workform.video == null}
+			<img
+				src={'https://platform-big-themes.directus.app/assets/' + workform.thumbnail.id}
+				alt="Thumbnail"
+			/>
+		{:else}
+			<video
+				controls
+				poster={'https://platform-big-themes.directus.app/assets/' + workform.thumbnail.id}
+			>
+				<source
+					src={'https://platform-big-themes.directus.app/assets/' + workform.video.id}
+					type={workform.video.type}
+				/>
+			</video>
+		{/if}
 
 		<article class="content">
-            <div>
-                <div class="beschrijving">
-                    <h2>Beschrijving</h2>
-                    <p>{workform.description}</p>
-                </div>
+			<div class="beschrijving">
+				<h2>Beschrijving</h2>
+				<p>{workform.description}</p>
+			</div>
+			<div>
+				<h3>Faculteit/Opleiding</h3>
+				{#if workform.course}
+					<p>{workform.course.faculty} - {workform.course.title}</p>
+				{:else}
+					<p>Geen faculteit/opleiding beschikbaar.</p>
+				{/if}
+			</div>
+			<div>
+				<h3>Contactpersoon</h3>
+				{#if workform.contact}
+					<a class="mail-to-link" href="mailto:{workform.contact.email}">
+						<p>{workform.contact.email}</p>
+					</a>
+				{:else}
+					<p>Geen contactpersoon beschikbaar.</p>
+				{/if}
+			</div>
 
-                <div class="extra-info">
-                    <div>
-                        <h3>Faculteit/Opleiding</h3>
-                        {#if workform.course}
-                            <p>{workform.course.faculty} - {workform.course.title}</p>
-                        {:else}
-                            <p>Geen faculteit/opleiding beschikbaar.</p>
-                        {/if}
-                    </div>
-                    <div>
-                        <h3>Contactpersoon</h3>
-                        {#if workform.contact}
-                            <a class="mail-to-link" href="mailto:{workform.contact.email}">
-                                <p>{workform.contact.email}</p>
-                            </a>
-                        {:else}
-                            <p>Geen contactpersoon beschikbaar.</p>
-                        {/if}
-                    </div>
-                </div>
-            </div>
+			<div class="tags">
+				<h2>Tags</h2>
+				<div class="tag-list">
+					{#if workform.tags > 0}
+						{#each workform.tags as tag}
+							<div class="tag" style="border-color: {tag.tag_id.color};">
+								<p>{tag.tag_id.title}</p>
+							</div>
+						{/each}
+					{:else}
+						<p class="tag">Geen tags beschikbaar.</p>
+					{/if}
+				</div>
+			</div>
 
-            <div class="tags">
-                <h2>Tags</h2>
-                <div class="tag-list">
-                    {#if workform.tags > 0}
-                        {#each workform.tags as tag}
-                            <div class="tag" style="border-color: {tag.tag_id.color};">
-                                <p>{tag.tag_id.title}</p>
-                            </div>
-                        {/each}
-                    {:else}
-                        <p class="tag">Geen tags beschikbaar.</p>
-                    {/if}
-                </div>
-            </div>
-
-            <div class="content-right">
-                <div class="action-buttons">
-                    <div class="action-button">
-                        <div class="icon-box">
-                            <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.862464 12.2897C0.269712 11.711 0.25835 10.7613 0.837086 10.1685L10.2681 0.50906C10.8469 -0.0836926 11.7966 -0.0950548 12.3893 0.483682C12.9821 1.06242 12.9934 2.0121 12.4147 2.60485L5.51348 9.6732L19.9823 9.50009C20.8106 9.49018 21.4902 10.1537 21.5001 10.982C21.51 11.8104 20.8465 12.49 20.0181 12.4999L5.54937 12.673L12.6177 19.5742C13.2105 20.1529 13.2218 21.1026 12.6431 21.6954C12.0644 22.2881 11.1147 22.2995 10.5219 21.7207L0.862464 12.2897Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <a href="/">Terug naar overzicht</a>
-                    </div>
-                </div>
-            </div>
+			<div>
+				<div class="action-buttons">
+					<div class="action-button">
+						<div class="icon-box">
+							<svg
+								width="22"
+								height="23"
+								viewBox="0 0 22 23"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									fill-rule="evenodd"
+									clip-rule="evenodd"
+									d="M0.862464 12.2897C0.269712 11.711 0.25835 10.7613 0.837086 10.1685L10.2681 0.50906C10.8469 -0.0836926 11.7966 -0.0950548 12.3893 0.483682C12.9821 1.06242 12.9934 2.0121 12.4147 2.60485L5.51348 9.6732L19.9823 9.50009C20.8106 9.49018 21.4902 10.1537 21.5001 10.982C21.51 11.8104 20.8465 12.49 20.0181 12.4999L5.54937 12.673L12.6177 19.5742C13.2105 20.1529 13.2218 21.1026 12.6431 21.6954C12.0644 22.2881 11.1147 22.2995 10.5219 21.7207L0.862464 12.2897Z"
+									fill="white"
+								/>
+							</svg>
+						</div>
+						<a href="/">Terug naar overzicht</a>
+					</div>
+				</div>
+			</div>
 		</article>
 	</section>
 </main>
 
 <style>
-* {
-    color: white;
-    margin: 0;
-}
+	* {
+		color: white;
+		margin: 0;
+	}
 
-main {
-    display: flex;
-    flex-direction: column;
-    padding: 0 1rem 8rem;
-}
+	main {
+		display: flex;
+		flex-direction: column;
+		padding: 0 1rem 8rem;
+	}
 
-section {
-    /* display: flex;
+	section {
+		/* display: flex;
     flex-direction: column; */
-    margin: 1rem 0;
-    gap: 2rem;
-}
+		margin: 1rem 0;
+		gap: 2rem;
+	}
 
-.upload-button,
-.action-button {
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin: 0;
-    max-width: 27rem;
-}
+	.upload-button,
+	.action-button {
+		display: flex;
+		align-items: center;
+		position: relative;
+		margin: 0;
+		max-width: 27rem;
+	}
 
-.icon-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 0rem;
-    background: var(--color-hva-pink);
-    /* Enhanced kleur binnen @supports */
-    @supports (--css: variables) {
-        background: var(--color-hva-pink-enhanced);
-    }
-    padding: 0.5rem;
-    aspect-ratio: 1/1;
-    transform: rotate(45deg);
-    transition: transform 0.2s ease-in-out;
-}
+	.icon-box {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		left: 0rem;
+		background: var(--color-hva-pink);
+		/* Enhanced kleur binnen @supports */
+		@supports (--css: variables) {
+			background: var(--color-hva-pink-enhanced);
+		}
+		padding: 0.5rem;
+		aspect-ratio: 1/1;
+		transform: rotate(45deg);
+		transition: transform 0.2s ease-in-out;
+	}
 
-.icon-box > svg,
-img {
-    width: 1rem;
-    height: 1rem;
-    aspect-ratio: 1/1;
-    transform: rotate(-45deg);
-}
+	.icon-box > svg,
+	img {
+		width: 1rem;
+		height: 1rem;
+		aspect-ratio: 1/1;
+		transform: rotate(-45deg);
+	}
 
-a {
-    padding: 0.9rem 1.8rem 0.9rem 3rem;
-    border: none;
-    background-color: unset;
-    color: var(--color-white);
-    font-size: 0.9rem;
-    font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
-    cursor: pointer;
-}
+	a {
+		padding: 0.9rem 1.8rem 0.9rem 3rem;
+		border: none;
+		background-color: unset;
+		color: var(--color-white);
+		font-size: 0.9rem;
+		font-weight: 600;
+		font-family: 'Open Sans', sans-serif;
+		cursor: pointer;
+	}
 
-a.mail-to-link {
-    padding: 0;
-}
+	a.mail-to-link {
+		padding: 0;
+	}
 
-a:hover {
-    background-color: unset;
-}
+	a:hover {
+		background-color: unset;
+	}
 
-a.mail-to-link:hover {
-    opacity: 0.7;
-}
+	a.mail-to-link:hover {
+		opacity: 0.7;
+	}
 
-header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
+	header {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+	}
 
-header h1 {
-    font-size: 1.4rem;
-    font-weight: 700;
-}
+	header h1 {
+		font-size: 1.4rem;
+		font-weight: 700;
+	}
 
-header p {
-    font-size: 1rem;
-    font-weight: 400;
-}
+	header p {
+		font-size: 1rem;
+		font-weight: 400;
+	}
 
-video {
-    width: 100%;
-    border-radius: 5px;
-    max-width: 28rem;
-}
+	video {
+		width: 100%;
+		border-radius: 5px;
+		max-width: 28rem;
+	}
 
-img {
-    width: 100%;
-    border-radius: 5px;
-    max-width: 28rem;
-}
+	img {
+		width: 100%;
+		border-radius: 5px;
+		max-width: 28rem;
+	}
 
-/* Layout content werkvorm */
+	/* Layout content werkvorm */
+	article.content {
+		display: grid;
+		grid-template: 'a b' 1fr;
+	}
 
-article.content {
-    display: grid;
-    grid-template: "a b" 1fr;
-}
+	article.content {
+		margin-bottom: 1rem;
+	}
 
-article.content, .beschrijving, .info-left, .extra-info {
-    margin-bottom: 1rem;
-}
+	/* Grid area definitie */
+	.beschrijving {
+		grid-area: a;
+	}
 
-/* Grid area definitie */
-.beschrijving {
-    grid-area: a;
-}
+	@media (min-width: 700px) {
+		main {
+			padding: 0 3rem 8rem;
+		}
+	}
 
-.info-left {
-    grid-area: b;
-}
+	@media (min-width: 1024px) {
+		section {
+			gap: 1.5rem;
+		}
 
-.info-right {
-    grid-area: c;
-}
+		header h1 {
+			font-size: 1.8rem;
+		}
 
-.extra-info {
-    grid-area: d;
-}
+		video {
+			max-width: 40rem;
+		}
 
-/* 
-.content {
-    display: grid;
-    grid-template-columns: 1;
-}
+		.content {
+			margin-top: 1rem;
+			grid-template-columns: 1fr 1fr;
+		}
 
-.beschrijving,
-.extra-info,
-.tags,
-.action-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+		.beschrijving {
+			max-width: 35rem;
+		}
 
-.beschrijving h2,
-.extra-info h3,
-.tags h2 {
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-.beschrijving p,
-.extra-info p,
-.tag p {
-    font-size: 1rem;
-    font-weight: 400;
-}
-
-.tag-list {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 0.5rem;
-}
-
-.tag {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid;
-    padding: 0.3rem 0.5rem;
-}
-
-.content-right {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-} */
-
-@media (min-width: 700px) {
-    main {
-        padding: 0 3rem 8rem;
-    }
-
-    .content {
-        flex-direction: row;
-        gap: 3rem;
-    }
-/* 
-    .content-left {
-        width: 55%;
-    }
-
-    .extra-info {
-        flex-direction: row;
-        gap: 2rem;
-    }
-
-    .content-right {
-        width: 45%;
-        margin-top: 3rem;
-    } */
-}
-
-@media (min-width: 1024px) {
-    section {
-        gap: 1.5rem;
-    }
-
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    video {
-        max-width: 40rem;
-    }
-
-    .content {
-        margin-top: 1rem;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .content-left {
-        width: unset;
-    }
-
-    .beschrijving {
-        max-width: 35rem;
-    }
-
-    .beschrijving h2 {
-        font-size: 1.3rem;
-    }
-
-    .content-right {
-        width: unset;
-    }
-}
-
+		.beschrijving h2 {
+			font-size: 1.3rem;
+		}
+	}
 </style>
