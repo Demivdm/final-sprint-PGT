@@ -59,6 +59,21 @@
                 </div>
             </div>
 
+            <div class="tags">
+                <h2>Tags</h2>
+                <div class="tag-list">
+                    {#if workform.tags > 0}
+                        {#each workform.tags as tag}
+                            <div class="tag" style="border-color: {tag.tag_id.color};">
+                                <p>{tag.tag_id.title}</p>
+                            </div>
+                        {/each}
+                    {:else}
+                        <p class="tag">Geen tags beschikbaar.</p>
+                    {/if}
+                </div>
+            </div>
+
             <div class="content-right">
                 <div class="action-buttons">
                     <div class="action-button">
@@ -68,21 +83,6 @@
                             </svg>
                         </div>
                         <a href="/">Terug naar overzicht</a>
-                    </div>
-                </div>
-
-                <div class="tags">
-                    <h2>Tags</h2>
-                    <div class="tag-list">
-                        {#if workform.tags > 0}
-                            {#each workform.tags as tag}
-                                <div class="tag" style="border-color: {tag.tag_id.color};">
-                                    <p>{tag.tag_id.title}</p>
-                                </div>
-                            {/each}
-                        {:else}
-                            <p class="tag">Geen tags beschikbaar.</p>
-                        {/if}
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@ section {
     display: flex;
     align-items: center;
     position: relative;
-    margin: 0 0 1rem auto;
+    margin: 0;
     max-width: 27rem;
 }
 
@@ -123,7 +123,7 @@ section {
     align-items: center;
     justify-content: center;
     position: absolute;
-    left: -1rem;
+    left: 0rem;
     background: var(--color-hva-pink);
     /* Enhanced kleur binnen @supports */
     @supports (--css: variables) {
@@ -143,9 +143,8 @@ img {
     transform: rotate(-45deg);
 }
 
-a,
-a.mail-to-link {
-    padding: 0.9rem 1.8rem 0.9rem 2.3rem;
+a {
+    padding: 0.9rem 1.8rem 0.9rem 3rem;
     border: none;
     background-color: unset;
     color: var(--color-white);
@@ -153,6 +152,10 @@ a.mail-to-link {
     font-weight: 600;
     font-family: 'Open Sans', sans-serif;
     cursor: pointer;
+}
+
+a.mail-to-link {
+    padding: 0;
 }
 
 a:hover {
@@ -190,6 +193,17 @@ img {
     border-radius: 5px;
     max-width: 28rem;
 }
+
+/* Layout content werkvorm */
+
+/* article.content {
+
+} */
+
+article.content, .beschrijving, .info-left, .extra-info {
+    margin-bottom: 1rem;
+}
+
 /* 
 .content {
     display: grid;
@@ -279,6 +293,7 @@ img {
 
     .content {
         margin-top: 1rem;
+        grid-template-columns: 1fr 1fr;
     }
 
     .content-left {
