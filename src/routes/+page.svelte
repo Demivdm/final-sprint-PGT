@@ -10,8 +10,6 @@
 	import { selectedTag } from '../lib/Utils/tagStore';
 
 	export let data;
-	export let currentTag;
-	export let activeTag;
 	let selectedTagValue; 
 	console.log(data);
 
@@ -76,14 +74,9 @@
 <main>
 	
 <Nav ></Nav>
-<!-- omdat ik werkvorm binnen het component aanspreek moet het ook meegestuurd worden met het filtercomponent -->
-	
-		<!-- workform is undefined wanneer het individueel wordt meegegeven -->
-		<!-- als ik er een loop van maak dan is workform defined maar wordt workform niet gezien als array -->
-		<!-- en dus kan de filter functie niet worden toegepast -->
 
 		<!-- {#each filteredWerkvormen as workform} -->
-		<NavFilterList {data} {searchInput} {selectedTag} {activeTag} {currentTag} />
+		<NavFilterList {data} {searchInput} {selectedTag}  />
 
 
 		<!-- {/each} -->
@@ -91,7 +84,7 @@
 	<section class="werkvormen" id="custom-view">
 
 		{#each filteredWerkvormen as workform}
-      		{#if selectedTagValue === 'tag.title' || (workform.tag && workform.tag.some(tag => tag.title === selectedTagValue))}
+      		{#if  (workform.tag && workform.tag.some(tag => tag.title === selectedTagValue))}
         		<WerkvormCard {workform} {data} />
       		{/if}
     	{/each}

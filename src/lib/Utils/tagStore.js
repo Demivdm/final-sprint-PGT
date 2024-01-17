@@ -1,9 +1,10 @@
 import { writable } from 'svelte/store';
 
-// Initialize the store with the default value 'tag.title'
-export const selectedTag = writable('tag.title');
+// standaard waarde is alltags en hierin zit data.tag
 
-// Function to update the value of the selectedTag store
+export const selectedTag = writable('allTags');
+
+// Functie om de selected tag mee te updaten
 export const setTag = (tag) => {
 	selectedTag.set(tag);
 };
