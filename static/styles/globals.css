@@ -88,11 +88,6 @@ a, button {
     cursor: pointer;
 }
 
-/* Typografie */
-p {
-    max-width: 30rem;
-}
-
 /* Filter instellingen */
 .tag {
 	display: none;

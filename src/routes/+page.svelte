@@ -73,8 +73,7 @@
 		display: flex;
 		flex-flow: row wrap;
 		gap: 2rem;
-		margin: 2rem auto 0;
-    	padding-bottom: 5rem;
+		margin: 2rem 0 5rem;
 	}
 
 	#custom-view {
@@ -84,8 +83,7 @@
 	@media (min-width: 46rem) {
 		.werkvormen {
 			width: 42rem;
-			margin: 2rem auto 0;
-    		padding-bottom: 5rem;
+			margin: 2rem auto 5rem;
 		}
 	}
 
