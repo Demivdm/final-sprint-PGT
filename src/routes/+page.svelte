@@ -10,21 +10,23 @@
 	import { selectedTag } from '../lib/Utils/tagStore';
 
 	/* ----------------------------- TRISTAN ATTEMPT ---------------------------- */
-
-	// Initialize store for selected filter
-	let selectedTagValue = $selectedTag
 	$: filteredWorkforms = []
-	console.log("Reactive store:", selectedTagValue);
+	// console.log("Reactive store:", selectedTagValue);
 
 	$: {
-		// Get all workforms where tag id is equal to selectedTag
-		filteredWorkforms = data.workform.filter(workform => workform.tags.some(tag => tag.tag_id.id === $selectedTag));
-		console.log("Filtered workforms:", filteredWorkforms);
+		// Check if selectedTag equals allTags or if it is a specific tag
+		if ($selectedTag === "allTags") {
+			filteredWorkforms = data.workform;
+		} else {
+			// Get all workforms where tag id is equal to selectedTag
+			filteredWorkforms = data.workform.filter(workform => workform.tags.some(tag => tag.tag_id.id === $selectedTag));
+			// console.log("Filtered workforms:", filteredWorkforms);
+		}
 	}
 	/* ------------------------------- END ATTEMPT ------------------------------ */
 
 	export let data;
-	console.log(data);
+	// console.log(data);
 
 	let loading = false;
 
@@ -84,7 +86,9 @@
 </script>
 
 <main>
-	<p>The selected filter is: {filteredWorkforms}</p>
+	<!-- v Uncomment to show selected filter v -->
+	<!-- <p>The selected filter is: {$selectedTag}</p> -->
+
 	<Nav></Nav>
 
 	<!-- {#each filteredWerkvormen as workform} -->

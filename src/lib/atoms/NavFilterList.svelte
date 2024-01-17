@@ -49,7 +49,7 @@
 		</fieldset>
 	</form>
 	<section class="header-tags">
-		<button class:selected-tag={selectedTag === data.tag} on:click={() => selectedTag.set(data.tag)}
+		<button class:selected-tag={selectedTag === data.tag} on:click={() => selectedTag.set("allTags")}
 			>Alle tags</button
 		>
 		{#each data.tag as tag}
