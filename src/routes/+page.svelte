@@ -9,8 +9,21 @@
 	import IncreaseTextToggle from '../lib/molecules/IncreaseTextToggle.svelte';
 	import { selectedTag } from '../lib/Utils/tagStore';
 
+	/* ----------------------------- TRISTAN ATTEMPT ---------------------------- */
+
+	// Initialize store for selected filter
+	let selectedTagValue = $selectedTag
+	$: filteredWorkforms = []
+	console.log("Reactive store:", selectedTagValue);
+
+	$: {
+		// Get all workforms where tag id is equal to selectedTag
+		filteredWorkforms = data.workform.filter(workform => workform.tags.some(tag => tag.tag_id.id === $selectedTag));
+		console.log("Filtered workforms:", filteredWorkforms);
+	}
+	/* ------------------------------- END ATTEMPT ------------------------------ */
+
 	export let data;
-	let selectedTagValue;
 	console.log(data);
 
 	let loading = false;
@@ -66,10 +79,12 @@
 	// 	selectedTagValue = value;
 	// });
 
-	console.log(selectedTag);
+
+
 </script>
 
 <main>
+	<p>The selected filter is: {filteredWorkforms}</p>
 	<Nav></Nav>
 
 	<!-- {#each filteredWerkvormen as workform} -->
@@ -78,11 +93,20 @@
 	<!-- {/each} -->
 	<!-- <LoginOutButton /> -->
 	<section class="werkvormen" id="custom-view">
-		{#each filteredWerkvormen as workform}
+		<!-- Check if filteredWorkforms array contains more than 1 object -->
+		{#if filteredWorkforms.length > 0}
+			{#each filteredWorkforms as workform}
+				<WerkvormCard {workform} {data} />
+			{/each}
+		{:else}
+			<p>Geen werkvormen gevonden</p>
+		{/if}
+		<!-- {#each filteredWorkforms as workform}
+			<p>WerkvormCard</p>
 			{#if workform.tag && workform.tag.some((tag) => selectedTag.includes(tag.title))}
 				<WerkvormCard {workform} {data} />
 			{/if}
-		{/each}
+		{/each} -->
 	</section>
 
 	<!-- <section class="werkvormen" id="custom-view">

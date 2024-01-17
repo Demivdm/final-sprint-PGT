@@ -1,25 +1,25 @@
 <script>
 	export let searchInput;
 	export let data;
-	export let filteredWerkvormen;
+	// export let filteredWerkvormen;
 
 	import { setTag, selectedTag } from '../Utils/tagStore';
 
 	// functie om de geklikte tag mee af te handelen
-	function handleTagClick(tag) {
-		setTag(tag);
+	function handleTagClick(tagID) {
+		setTag(tagID);
 	}
 	let allTags = data.tag;
 	// hier maak ik een globaal variabel aan, waarin ik workform filter
 	// er wordt gecheckt of workform bestaat
-	$: filteredWerkvormen =
-		data.workform &&
-		data.workform.filter((workform) => {
-			return (
-				allTags === data.tag || // alle tags als default
-				(workform.tag && workform.tag.some((tag) => tag.title === allTags))
-			);
-		});
+	// $: filteredWerkvormen =
+	// 	data.workform &&
+	// 	data.workform.filter((workform) => {
+	// 		return (
+	// 			allTags === data.tag || // alle tags als default
+	// 			(workform.tag && workform.tag.some((tag) => tag.title === allTags))
+	// 		);
+	// 	});
 	console.log(allTags);
 </script>
 
@@ -57,7 +57,7 @@
 				<button
 					class:selected-tag={selectedTag === tag.title}
 					style="border: 2px solid {tag.color};"
-					on:click={() => handleTagClick(tag.title)}
+					on:click={() => handleTagClick(tag.id)}
 				>
 					{tag.title}
 				</button>
@@ -69,7 +69,7 @@
 			<button
 				class:selected-tag={selectedTag === tag.title}
 				style="border: 2px solid {tag.color};"
-				on:click={() => handleTagClick(tag.title)}
+				on:click={() => handleTagClick(tag.id)}
 			>
 				{tag.title}
 			</button>
