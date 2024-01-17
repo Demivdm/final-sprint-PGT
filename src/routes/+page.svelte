@@ -3,23 +3,11 @@
 	import Nav from '$lib/organisms/nav.svelte';
 	import { page } from '$app/stores';
 
-	import LoginOutButton from '../lib/organisms/LoginOutButton.svelte';
 	import WerkvormCard from '../lib/organisms/WerkvormCard.svelte';
 	import NavFilterList from '../lib/atoms/NavFilterList.svelte';
 	import IncreaseTextToggle from '../lib/molecules/IncreaseTextToggle.svelte';
 
 	export let data;
-
-	let loading = false;
-
-	const handleLogout = () => {
-		loading = true;
-		return async ({ result }) => {
-			await invalidate('supabase:auth');
-			await applyAction(result);
-			loading = false;
-		};
-	};
 
 	// Zoekbalk logica
 	let searchInput = null;

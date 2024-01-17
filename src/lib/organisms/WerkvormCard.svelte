@@ -4,7 +4,7 @@
 
 <article>
 	<ul>
-		{#if workform.tags > 0}
+		{#if workform.tags.length > 0}
 			{#each workform.tags as tag}
 				<li style="border-color: {tag.tag_id.color};">{tag.tag_id.title}</li>
 			{/each}
