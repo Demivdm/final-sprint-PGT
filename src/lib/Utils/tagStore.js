@@ -1,10 +1,18 @@
+// tagstore.js
 import { writable } from 'svelte/store';
 
-// standaard waarde is alltags en hierin zit data.tag
+// default tag
+const initialTag = 'allTags';
 
-export const selectedTag = writable('allTags');
+// default tag opgeslagen in selectedtag
+export const selectedTag = writable(initialTag);
 
-// Functie om de selected tag mee te updaten
+// functie om de tag aan te passen
 export const setTag = (tag) => {
 	selectedTag.set(tag);
 };
+
+// check of het werkt.
+selectedTag.subscribe((value) => {
+	console.log('Selected Tag:', value);
+});

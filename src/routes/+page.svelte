@@ -10,7 +10,7 @@
 	import { selectedTag } from '../lib/Utils/tagStore';
 
 	export let data;
-	let selectedTagValue; 
+	let selectedTagValue;
 	console.log(data);
 
 	let loading = false;
@@ -58,39 +58,32 @@
 			searchInput.form.removeEventListener('submit', searchWerkvormen);
 		};
 	});
-	
 
-	// bij update gebeurt er niks met de werkvorm kaarten 
+	// bij update gebeurt er niks met de werkvorm kaarten
 	// bij subscribe verdwijnen alle werkvormkaarten
+	// dit doet niks?
+	// selectedTag.set((value) => {
+	// 	selectedTagValue = value;
+	// });
 
-  selectedTag.subscribe(value => {
-    selectedTagValue = value;
-  });
-
-  console.log(selectedTag)
-
+	console.log(selectedTag);
 </script>
 
 <main>
-	
-<Nav ></Nav>
+	<Nav></Nav>
 
-		<!-- {#each filteredWerkvormen as workform} -->
-		<NavFilterList {data} {searchInput} {selectedTag}  />
+	<!-- {#each filteredWerkvormen as workform} -->
+	<NavFilterList {data} {searchInput} />
 
-
-		<!-- {/each} -->
+	<!-- {/each} -->
 	<!-- <LoginOutButton /> -->
 	<section class="werkvormen" id="custom-view">
-
 		{#each filteredWerkvormen as workform}
-      		{#if  (workform.tag && workform.tag.some(tag => tag.title === selectedTagValue))}
-        		<WerkvormCard {workform} {data} />
-      		{/if}
-    	{/each}
-
+			{#if workform.tag && workform.tag.some((tag) => selectedTag.includes(tag.title))}
+				<WerkvormCard {workform} {data} />
+			{/if}
+		{/each}
 	</section>
-
 
 	<!-- <section class="werkvormen" id="custom-view">
 		{#each filteredWerkvormen as workform}

@@ -5,24 +5,22 @@
 
 	import { setTag, selectedTag } from '../Utils/tagStore';
 
-// functie om de geklikte tag mee af te handelen
-	function handleTagClick(newTag) {
-		setTag(newTag);
+	// functie om de geklikte tag mee af te handelen
+	function handleTagClick(tag) {
+		setTag(tag);
 	}
-
+	let allTags = data.tag;
 	// hier maak ik een globaal variabel aan, waarin ik workform filter
 	// er wordt gecheckt of workform bestaat
 	$: filteredWerkvormen =
-  data.workform &&
-  data.workform.filter((workform) => {
-    return (
-      selectedTag === data.tag || // alle tags als default
-      (workform.tag && workform.tag.some((tag) => tag.title === selectedTag))
-    );
-  });
-
-
-
+		data.workform &&
+		data.workform.filter((workform) => {
+			return (
+				allTags === data.tag || // alle tags als default
+				(workform.tag && workform.tag.some((tag) => tag.title === allTags))
+			);
+		});
+	console.log(allTags);
 </script>
 
 <div class="tag" id="mega-menu">
@@ -51,9 +49,8 @@
 		</fieldset>
 	</form>
 	<section class="header-tags">
-		<button
-			class:selected-tag={selectedTag === data.tag}
-			on:click={() => selectedTag.set(data.tag)}>Alle tags</button
+		<button class:selected-tag={selectedTag === data.tag} on:click={() => selectedTag.set(data.tag)}
+			>Alle tags</button
 		>
 		{#each data.tag as tag}
 			{#if [3, 4, 5, 6].includes(tag.id)}
