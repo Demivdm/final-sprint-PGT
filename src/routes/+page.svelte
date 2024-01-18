@@ -47,7 +47,7 @@
 	function searchWerkvormen(event) {
 		event.preventDefault();
 		const searchTerm = searchInput.value.toLowerCase();
-		filteredwerkvormen = data.workform.filter((werkvorm) =>
+		filteredWorkforms = data.workform.filter((werkvorm) =>
 			werkvorm.title.toLowerCase().includes(searchTerm)
 		);
 	}
