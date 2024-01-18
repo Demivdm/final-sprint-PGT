@@ -78,6 +78,8 @@
 </script>
 
 <main>
+
+  <IntroSection />
 	<!-- v Uncomment to show selected filter v -->
 	<!-- <p>The selected filter is: {$selectedTag}</p> -->
 
