@@ -1,7 +1,7 @@
 <section>
     <div>
         <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-        <dotlottie-player src="https://lottie.host/51f536b9-e85c-4230-bfb6-aa530e7945ff/ZEpPTYdL3r.json" background="transparent" speed="1" style="width: 128px; height: 128px;" loop autoplay></dotlottie-player>
+        <dotlottie-player src="https://lottie.host/ca1bc273-5190-4bce-b7c8-325269aa3bbb/nwJwAaGoKA.json" background="transparent" speed="1" style="width: 128px; height: 128px;" loop autoplay></dotlottie-player>
     </div>
     <div>
         <h1>Welkom op het platform Werkvormen Grote Thema's</h1>
