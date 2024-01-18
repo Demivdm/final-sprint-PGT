@@ -49,6 +49,7 @@
 			{#if [3, 4, 5, 6].includes(tag.id)}
 				<button
 					class:selected-tag={selectedTag === tag.title}
+					class:activeTag={$selectedTag === tag.id}
 					style="border: 2px solid {tag.color};"
 					on:click={() => handleTagClick(tag.id)}
 				>
