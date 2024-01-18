@@ -1,8 +1,36 @@
-# create-svelte
+# Platform Grote Thema's 
+
+Deze repository is de release candidate voor de opleiding CMD van de HvA. 
+
+<img width="1440" alt="Scherm­afbeelding 2024-01-15 om 09 26 00" src="https://github.com/Tristandemuijnck/lets-jam-webapplicatie/assets/89298385/73c761a7-6b16-40c1-80e5-ada6b99c00b2">
+
+## Inhoudsopgave
+
+* Beschrijving
+* Gebruik
+* Kenmerken
+* Installatie
+* Bronnen
+* Licentie
+
+# Beschrijving
+
+[...]
+
+# Gebruik
+
+[...]
+
+# Kenmerken
+
+[...]
+
+# Installatie 
+## create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-## Creating a project
+### Creating a project
 
 If you're seeing this, you've probably already done this step. Congrats!
 
@@ -14,7 +42,7 @@ npm create svelte@latest
 npm create svelte@latest my-app
 ```
 
-## Developing
+### Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
@@ -25,7 +53,7 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
+### Building
 
 To create a production version of your app:
 
@@ -36,3 +64,9 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+# Bronnen
+
+# Licentie
+
+This project is licensed under the terms of the [MIT license](./LICENSE).
