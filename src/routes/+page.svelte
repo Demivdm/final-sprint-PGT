@@ -6,6 +6,7 @@
 	import WerkvormCard from '../lib/organisms/WerkvormCard.svelte';
 	import NavFilterList from '../lib/atoms/NavFilterList.svelte';
 	import IncreaseTextToggle from '../lib/molecules/IncreaseTextToggle.svelte';
+	import IntroSection from '../lib/organisms/IntroSection.svelte';
 	import { selectedTag } from '../lib/Utils/tagStore';
 
 	/* ----------------------------- TRISTAN ATTEMPT ---------------------------- */
@@ -43,7 +44,7 @@
 	// Zoekbalk logica
 	let searchInput = null;
 
-	
+
 
 	function searchWerkvormen(event) {
 		event.preventDefault();
@@ -79,7 +80,7 @@
 
 <main>
 
-  <IntroSection />
+	<IntroSection />
 	<!-- v Uncomment to show selected filter v -->
 	<!-- <p>The selected filter is: {$selectedTag}</p> -->
 
