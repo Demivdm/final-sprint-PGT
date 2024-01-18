@@ -140,7 +140,16 @@
         />
 
         <!-- Multi select dropdown for selecting tags -->
-        <Select items={tagOptions} name="tags" multiple placeholder="Selecteer tags ..." />
+        <!-- TODO Onderwerp, ik en duurzaamheid werken niet in tags. -->
+        <div class="form-field">
+            <span>
+                <div class="icon">
+                    <img src="/images/icons/tag.svg" alt="" />
+                </div>
+                <label for="tags">Tags</label>
+            </span>
+            <Select id="tags" items={tagOptions} name="tags" multiple placeholder="Selecteer tags..." --background="#1E1649" --border="solid 2px #ffffff" --border-radius="0" --placeholder-color="rgba(255, 255, 255, 0.4)" --border-hover="2px solid #fff" --item-color="black" --item-hover-color="black" --font-size="0.9rem" --border-focused="2px solid #F25379"/>
+        </div>
 	</div>
 
 	<Button btnType="submit" {btnText}></Button>
@@ -193,6 +202,36 @@
         font-size: 0.9rem;
         font-weight: 400;
         text-align: center;
+    }
+
+    .icon {
+        width: var(--icon-width, 1.4rem);
+        height: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    img {
+		width: 100%;
+		height: 100%;
+	}
+
+    .form-field {
+        display: flex;
+        flex-direction: column;
+    }
+	.form-field span {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		column-gap: 0.3rem;
+		margin-bottom: 0.3rem;
+	}
+
+    label {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--label-color, #ffffff);
     }
 
     @media (min-width: 48rem) {
