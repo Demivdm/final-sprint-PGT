@@ -40,7 +40,7 @@
 			>
 				<source
 					src={'https://platform-big-themes.directus.app/assets/' + workform.video.id}
-					type={workform.video.type}
+					type="video/mp4"
                     loading="lazy"
 				/>
 
