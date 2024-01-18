@@ -6,7 +6,7 @@
 	import WerkvormCard from '../lib/organisms/WerkvormCard.svelte';
 	import NavFilterList from '../lib/atoms/NavFilterList.svelte';
 	import IncreaseTextToggle from '../lib/molecules/IncreaseTextToggle.svelte';
-	import IntroSection from '../lib/organisms/IntroSection.svelte';
+	import IntroSection from '../lib/organisms/introSection.svelte';
 	import { selectedTag } from '../lib/Utils/tagStore';
 
 	/* ----------------------------- TRISTAN ATTEMPT ---------------------------- */
