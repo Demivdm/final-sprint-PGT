@@ -1,25 +1,17 @@
 <script>
 	export let searchInput;
 	export let data;
-	// export let filteredWerkvormen;
-
 	import { setTag, selectedTag } from '../Utils/tagStore';
+
+	let allTags = data.tag;
+	let isActive = false;
 
 	// functie om de geklikte tag mee af te handelen
 	function handleTagClick(tagID) {
 		setTag(tagID);
+		isActive = !isActive;
 	}
-	let allTags = data.tag;
-	// hier maak ik een globaal variabel aan, waarin ik workform filter
-	// er wordt gecheckt of workform bestaat
-	// $: filteredWerkvormen =
-	// 	data.workform &&
-	// 	data.workform.filter((workform) => {
-	// 		return (
-	// 			allTags === data.tag || // alle tags als default
-	// 			(workform.tag && workform.tag.some((tag) => tag.title === allTags))
-	// 		);
-	// 	});
+
 	console.log(allTags);
 </script>
 
@@ -49,8 +41,9 @@
 		</fieldset>
 	</form>
 	<section class="header-tags">
-		<button class:selected-tag={selectedTag === data.tag} on:click={() => selectedTag.set("allTags")}
-			>Alle tags</button
+		<button
+			class:selected-tag={selectedTag === data.tag}
+			on:click={() => selectedTag.set('allTags')}>Alle tags</button
 		>
 		{#each data.tag as tag}
 			{#if [3, 4, 5, 6].includes(tag.id)}
@@ -64,7 +57,8 @@
 			{/if}
 		{/each}
 	</section>
-	<section>
+	<!-- secondaire rij met tags, uitgecomment wegens feedback -->
+	<!-- <section>
 		{#each data.tag as tag}
 			<button
 				class:selected-tag={selectedTag === tag.title}
@@ -74,10 +68,14 @@
 				{tag.title}
 			</button>
 		{/each}
-	</section>
+	</section> -->
 </div>
 
 <style>
+	.header-tags {
+		display: flex;
+		flex-wrap: wrap;
+	}
 	.header-tags button {
 		font-size: 1rem;
 	}
@@ -103,10 +101,6 @@
 		display: flex;
 		flex-direction: row;
 	}
-
-	/* ul input[type='checkbox'] {
-		margin-left: 1em;
-	} */
 
 	/* Zoekbalk */
 	form {
@@ -149,6 +143,7 @@
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
+		z-index: 0;
 	}
 
 	form button:hover {
@@ -171,7 +166,7 @@
 		top: 0;
 		width: 100%;
 	}
-	.selected-tag {
+	.activeTag {
 		background-color: var(--color-hva-pink);
 	}
 </style>

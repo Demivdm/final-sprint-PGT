@@ -10,16 +10,18 @@
 	import { selectedTag } from '../lib/Utils/tagStore';
 
 	/* ----------------------------- TRISTAN ATTEMPT ---------------------------- */
-	$: filteredWorkforms = []
+	$: filteredWorkforms = [];
 	// console.log("Reactive store:", selectedTagValue);
 
 	$: {
 		// Check if selectedTag equals allTags or if it is a specific tag
-		if ($selectedTag === "allTags") {
+		if ($selectedTag === 'allTags') {
 			filteredWorkforms = data.workform;
 		} else {
 			// Get all workforms where tag id is equal to selectedTag
-			filteredWorkforms = data.workform.filter(workform => workform.tags.some(tag => tag.tag_id.id === $selectedTag));
+			filteredWorkforms = data.workform.filter((workform) =>
+				workform.tags.some((tag) => tag.tag_id.id === $selectedTag)
+			);
 			// console.log("Filtered workforms:", filteredWorkforms);
 		}
 	}
@@ -41,12 +43,11 @@
 
 	// Zoekbalk logica
 	let searchInput = null;
-	let filteredWerkvormen = data.workform;
 
 	function searchWerkvormen(event) {
 		event.preventDefault();
 		const searchTerm = searchInput.value.toLowerCase();
-		filteredWerkvormen = data.workform.filter((werkvorm) =>
+		filteredwerkvormen = data.workform.filter((werkvorm) =>
 			werkvorm.title.toLowerCase().includes(searchTerm)
 		);
 	}
@@ -69,20 +70,10 @@
 		searchInput.form.addEventListener('submit', searchWerkvormen);
 
 		return () => {
-			// Verwijder event listeners bij het opruimen van de component
+			// Verwijder event listeners bij het opruimen van het component
 			searchInput.form.removeEventListener('submit', searchWerkvormen);
 		};
 	});
-
-	// bij update gebeurt er niks met de werkvorm kaarten
-	// bij subscribe verdwijnen alle werkvormkaarten
-	// dit doet niks?
-	// selectedTag.set((value) => {
-	// 	selectedTagValue = value;
-	// });
-
-
-
 </script>
 
 <main>
@@ -91,11 +82,8 @@
 
 	<Nav></Nav>
 
-	<!-- {#each filteredWerkvormen as workform} -->
 	<NavFilterList {data} {searchInput} />
 
-	<!-- {/each} -->
-	<!-- <LoginOutButton /> -->
 	<section class="werkvormen" id="custom-view">
 		<!-- Check if filteredWorkforms array contains more than 1 object -->
 		{#if filteredWorkforms.length > 0}
@@ -105,19 +93,7 @@
 		{:else}
 			<p>Geen werkvormen gevonden</p>
 		{/if}
-		<!-- {#each filteredWorkforms as workform}
-			<p>WerkvormCard</p>
-			{#if workform.tag && workform.tag.some((tag) => selectedTag.includes(tag.title))}
-				<WerkvormCard {workform} {data} />
-			{/if}
-		{/each} -->
 	</section>
-
-	<!-- <section class="werkvormen" id="custom-view">
-		{#each filteredWerkvormen as workform}
-			<WerkvormCard {workform} {data} />
-		{/each}
-	</section> -->
 </main>
 
 <IncreaseTextToggle />
