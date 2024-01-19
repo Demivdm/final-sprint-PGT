@@ -46,7 +46,6 @@
 			on:click={() => selectedTag.set('allTags')}>Alle tags</button
 		>
 		{#each data.tag as tag}
-			{#if [3, 4, 5, 6].includes(tag.id)}
 				<button
 					class:selected-tag={selectedTag === tag.title}
 					class:activeTag={$selectedTag === tag.id}
@@ -55,7 +54,6 @@
 				>
 					{tag.title}
 				</button>
-			{/if}
 		{/each}
 	</section>
 	<!-- secondaire rij met tags, uitgecomment wegens feedback -->
