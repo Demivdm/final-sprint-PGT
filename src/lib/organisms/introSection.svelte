@@ -1,7 +1,17 @@
 <section>
     <div>
-        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-        <dotlottie-player src="https://lottie.host/51f536b9-e85c-4230-bfb6-aa530e7945ff/ZEpPTYdL3r.json" background="transparent" speed="1" style="width: 128px; height: 128px;" loop autoplay></dotlottie-player>
+        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+        <dotlottie-player   
+            src="https://lottie.host/ca1bc273-5190-4bce-b7c8-325269aa3bbb/nwJwAaGoKA.json" 
+            background="transparent" 
+            speed="1" 
+            style="width: 128; height: 128" 
+            direction="1" 
+            mode="bounce" 
+            loop 
+            autoplay
+        >
+    </dotlottie-player>
     </div>
     <div>
         <h1>Welkom op het platform Werkvormen Grote Thema's</h1>
@@ -19,8 +29,15 @@
 
     @media (min-width: 768px){
         section {
-            width: 42.5rem;
+            width: 90vw;
             grid-template-columns: 1fr 10fr;
+        }
+    }
+
+    @media (min-width: 1024px){
+        section {
+            width: 80vw;    
+            margin: 0 auto;
         }
     }
 </style>
