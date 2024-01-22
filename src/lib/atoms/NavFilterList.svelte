@@ -46,14 +46,14 @@
 			on:click={() => selectedTag.set('allTags')}>Alle tags</button
 		>
 		{#each data.tag as tag}
-				<button
-					class:selected-tag={selectedTag === tag.title}
-					class:activeTag={$selectedTag === tag.id}
-					style="border: 2px solid {tag.color};"
-					on:click={() => handleTagClick(tag.id)}
-				>
-					{tag.title}
-				</button>
+			<button
+				class:selected-tag={selectedTag === tag.title}
+				class:activeTag={$selectedTag === tag.id}
+				style="border: 2px solid {tag.color};"
+				on:click={() => handleTagClick(tag.id)}
+			>
+				{tag.title}
+			</button>
 		{/each}
 	</section>
 	<!-- secondaire rij met tags, uitgecomment wegens feedback -->
@@ -75,7 +75,7 @@
 		background-color: var(--color-hva-blue-secundary);
 		box-shadow: 8px 8px #1e1649;
 		height: fit-content;
-		margin: 1rem 0 0 0;
+
 		padding: 0.5rem;
 		width: 100%;
 
@@ -167,6 +167,7 @@
 	/* FILTER */
 	.header-tags {
 		display: flex;
+		justify-content: center;
 		flex-wrap: wrap;
 	}
 	.header-tags button {
