@@ -13,7 +13,7 @@
         height="128"
         width="128"
     /> -->
-        <img src="/images/comp1.gif" width="1080" height="1080" alt="animatie" />
+        <img src="/images/werkvorm-animation.gif" width="300" height="300" alt="animatie" />
     </div>
     <div>
         <h1>Welkom op het platform Werkvormen Grote Thema's</h1>
