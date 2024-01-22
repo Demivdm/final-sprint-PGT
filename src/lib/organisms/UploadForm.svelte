@@ -7,6 +7,7 @@
     import FileFormField from '$lib/molecules/FileFormField.svelte';
 	import Button from '$lib/atoms/Button.svelte'
 	import LimitedFormField from '../molecules/LimitedFormField.svelte';
+	import InputHint from '../atoms/InputHint.svelte'
 
 	export let formAction
 	export let formMethod
@@ -60,6 +61,7 @@
 			inputName="werkvormName"
 			inputId="werkvormName"
             isRequired={true}
+            inputHint="Bijv. Waarom is X belangrijk voor jou?"
 		/>
 
         <!-- Korte beschrijving -->
@@ -73,6 +75,7 @@
             inputId="werkvormShortDesc"
             isRequired={true}
             maxLength="200"
+            inputHint="Schrijf hier een korte beschrijving van de werkvorm."
         />
 
 		<!-- Beschrijving -->
@@ -80,11 +83,12 @@
 			iconSrc="/images/icons/description.svg"
 			labelFor="werkvormDesc"
 			labelText="Beschrijving werkvorm"
-			inputType="text"
+			inputType="textarea"
 			inputPlaceholder="Beschrijf de werkvorm..."
 			inputName="werkvormDesc"
 			inputId="werkvormDesc"
             isRequired={true}
+            inputHint="Schrijf hier een uitgebreide beschrijving van de werkvorm."
 		/>
 
         <!-- Opleiding -->
@@ -123,6 +127,7 @@
             isRequired={true}
             hasMultiple={false}
             accepted={"image/*"}
+            inputHint="Bijv. Een afbeelding van de werkvorm."
         />
 
         <!-- Video -->
@@ -137,10 +142,10 @@
             isRequired={false}
             hasMultiple={false}
             accepted={"video/*"}
+            inputHint="Bijv. Een video van de werkvorm."
         />
 
         <!-- Multi select dropdown for selecting tags -->
-        <!-- TODO Onderwerp, ik en duurzaamheid werken niet in tags. -->
         <div class="form-field">
             <span>
                 <div class="icon">
@@ -149,13 +154,14 @@
                 <label for="tags">Tags</label>
             </span>
             <Select id="tags" items={tagOptions} name="tags" multiple placeholder="Selecteer tags..." --background="#1E1649" --border="solid 2px #ffffff" --border-radius="0" --placeholder-color="rgba(255, 255, 255, 0.4)" --border-hover="2px solid #fff" --item-color="black" --item-hover-color="black" --font-size="0.9rem" --border-focused="2px solid #F25379"/>
+            <InputHint inputHint="Selecteer een tag die bij de werkvorm past."/>
         </div>
 	</div>
 
 	<Button btnType="submit" {btnText}></Button>
 </form>
 
-<!-- Check email -->
+<!-- After upload message -->
 <article class:showVerify={showVerify}>
     <h2>Werkvorm succesvol geüpload</h2>
 </article>

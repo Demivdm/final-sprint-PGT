@@ -2,6 +2,7 @@
 	import Icon from '$lib/atoms/Icon.svelte'
 	import Label from '$lib/atoms/Label.svelte'
 	import FileInput from '$lib/atoms/inputfields/FileInput.svelte'
+    import InputHint from '$lib/atoms/InputHint.svelte';
 
 	export let iconSrc
 	export let labelFor
@@ -13,6 +14,7 @@
     export let isRequired
     export let hasMultiple
 	export let accepted
+    export let inputHint
 </script>
 
 <div class="form-field">
@@ -22,6 +24,7 @@
 	</span>
 
 	<FileInput {inputType} {inputPlaceholder} {inputName} {inputId} {isRequired} {hasMultiple} {accepted}></FileInput>
+    <InputHint {inputHint}></InputHint>
 </div>
 
 <style>
