@@ -1,7 +1,21 @@
+<script>
+    import { onMount } from 'svelte';
+    import { LottiePlayer } from '@lottiefiles/svelte-lottie-player';
+</script>
 <section>
     <div>
-        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
-        <dotlottie-player src="https://lottie.host/ca1bc273-5190-4bce-b7c8-325269aa3bbb/nwJwAaGoKA.json" background="transparent" speed="1" style="width: 128px; height: 128px;" loop autoplay></dotlottie-player>
+
+    <!-- <LottiePlayer
+        src="https://lottie.host/ca1bc273-5190-4bce-b7c8-325269aa3bbb/nwJwAaGoKA.json"
+        autoplay="true"
+        loop="true"
+        renderer="svg"
+        background="transparent"
+        height="128"
+        width="128"
+    /> -->
+        <img src="/images/werkvorm-animation.gif" width="300" height="300" alt="animatie" />
+
     </div>
     <div>
         <h1>Welkom op het platform Werkvormen Grote Thema's</h1>
@@ -17,10 +31,28 @@
         gap: 1rem;
     }
 
+    section img {
+        width: 150px;
+        height: 150px;
+    }
+
     @media (min-width: 768px){
         section {
-            width: 42.5rem;
+            width: 90vw;
             grid-template-columns: 1fr 10fr;
+        }
+
+        section div:last-child {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    @media (min-width: 1024px){
+        section {
+            width: 80vw;    
+            margin: 0 auto;
         }
     }
 </style>
