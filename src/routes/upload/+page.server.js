@@ -65,15 +65,6 @@ export const actions = {
 		const werkvormOpleiding = formData.get('werkvormOpleiding')?.toString() || null
 		const werkvormContactpersoon = formData.get('werkvormContactpersoon')?.toString() || null
 
-		// const tags = formData.getAll('tags')
-		// const tagsArray = JSON.parse(tags)
-
-		// // Get all file id's out of tagsArray
-		// const tagsID = tagsArray.map((tag) => {
-		// 	return tag.id
-		// })
-        // console.log(tagsID)
-
 		let werkvormThumbnailDataID
 		let werkvormVideoDataID
 
@@ -117,7 +108,6 @@ export const actions = {
 				thumbnail: werkvormThumbnailDataID,
 				video: werkvormVideoDataID,
 				link: slug
-				// tags: tagsID
 			})
 		})
 			.then((response) => response.json())
