@@ -4,8 +4,7 @@
 </script>
 <section>
     <div>
-    <!-- {#if typeof document !== 'undefined'}
-    <LottiePlayer
+    <!-- <LottiePlayer
         src="https://lottie.host/ca1bc273-5190-4bce-b7c8-325269aa3bbb/nwJwAaGoKA.json"
         autoplay="true"
         loop="true"
@@ -13,8 +12,8 @@
         background="transparent"
         height="128"
         width="128"
-    />
-    {/if} -->
+    /> -->
+        <img src="/images/comp1.gif" width="1080" height="1080" alt="animatie" />
     </div>
     <div>
         <h1>Welkom op het platform Werkvormen Grote Thema's</h1>
@@ -30,10 +29,21 @@
         gap: 1rem;
     }
 
+    section img {
+        width: 150px;
+        height: 150px;
+    }
+
     @media (min-width: 768px){
         section {
             width: 90vw;
             grid-template-columns: 1fr 10fr;
+        }
+
+        section div:last-child {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
     }
 
