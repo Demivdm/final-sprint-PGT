@@ -1,17 +1,20 @@
+<script>
+    import { onMount } from 'svelte';
+    import { LottiePlayer } from '@lottiefiles/svelte-lottie-player';
+</script>
 <section>
     <div>
-        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-        <dotlottie-player   
-            src="https://lottie.host/ca1bc273-5190-4bce-b7c8-325269aa3bbb/nwJwAaGoKA.json" 
-            background="transparent" 
-            speed="1" 
-            style="width: 128; height: 128" 
-            direction="1" 
-            mode="bounce" 
-            loop 
-            autoplay
-        >
-    </dotlottie-player>
+    <!-- {#if typeof document !== 'undefined'}
+    <LottiePlayer
+        src="https://lottie.host/ca1bc273-5190-4bce-b7c8-325269aa3bbb/nwJwAaGoKA.json"
+        autoplay="true"
+        loop="true"
+        renderer="svg"
+        background="transparent"
+        height="128"
+        width="128"
+    />
+    {/if} -->
     </div>
     <div>
         <h1>Welkom op het platform Werkvormen Grote Thema's</h1>

@@ -22,6 +22,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@dotlottie/player-component": "^2.7.7"
+		"@dotlottie/player-component": "^2.7.8",
+		"@lottiefiles/svelte-lottie-player": "^0.3.1"
 	}
 }
