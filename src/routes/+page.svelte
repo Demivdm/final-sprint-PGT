@@ -6,17 +6,50 @@
 	import WerkvormCard from '../lib/organisms/WerkvormCard.svelte';
 	import NavFilterList from '../lib/atoms/NavFilterList.svelte';
 	import IncreaseTextToggle from '../lib/molecules/IncreaseTextToggle.svelte';
+	import IntroSection from '../lib/organisms/introSection.svelte';
+	import { selectedTag } from '../lib/Utils/tagStore';
+
+	/* ----------------------------- TRISTAN ATTEMPT ---------------------------- */
+	$: filteredWorkforms = [];
+	// console.log("Reactive store:", selectedTagValue);
+
+	$: {
+		// Check if selectedTag equals allTags or if it is a specific tag
+		if ($selectedTag === 'allTags') {
+			filteredWorkforms = data.workform;
+		} else {
+			// Get all workforms where tag id is equal to selectedTag
+			filteredWorkforms = data.workform.filter((workform) =>
+				workform.tags.some((tag) => tag.tag_id.id === $selectedTag)
+			);
+			// console.log("Filtered workforms:", filteredWorkforms);
+		}
+	}
+	/* ------------------------------- END ATTEMPT ------------------------------ */
 
 	export let data;
+	// console.log(data);
+
+	let loading = false;
+
+	const handleLogout = () => {
+		loading = true;
+		return async ({ result }) => {
+			await invalidate('supabase:auth');
+			await applyAction(result);
+			loading = false;
+		};
+	};
 
 	// Zoekbalk logica
 	let searchInput = null;
-	let filteredWerkvormen = data?.workform;
+
+
 
 	function searchWerkvormen(event) {
 		event.preventDefault();
 		const searchTerm = searchInput.value.toLowerCase();
-		filteredWerkvormen = data.workform.filter((werkvorm) =>
+		filteredWorkforms = data.workform.filter((werkvorm) =>
 			werkvorm.title.toLowerCase().includes(searchTerm)
 		);
 	}
@@ -39,25 +72,30 @@
 		searchInput.form.addEventListener('submit', searchWerkvormen);
 
 		return () => {
-			// Verwijder event listeners bij het opruimen van de component
+			// Verwijder event listeners bij het opruimen van het component
 			searchInput.form.removeEventListener('submit', searchWerkvormen);
 		};
 	});
 </script>
 
 <main>
-	<Nav {data} />
-	<NavFilterList {data} {filteredWerkvormen} {searchInput} {searchWerkvormen} />
 
-	<!-- <LoginOutButton /> -->
+	<IntroSection />
+	<!-- v Uncomment to show selected filter v -->
+	<!-- <p>The selected filter is: {$selectedTag}</p> -->
+
+	<Nav></Nav>
+
+	<NavFilterList {data} {searchInput} />
 
 	<section class="werkvormen" id="custom-view">
-		{#if filteredWerkvormen}
-			{#each filteredWerkvormen as workform}
+		<!-- Check if filteredWorkforms array contains more than 1 object -->
+		{#if filteredWorkforms.length > 0}
+			{#each filteredWorkforms as workform}
 				<WerkvormCard {workform} {data} />
 			{/each}
 		{:else}
-			<p>Geen werkvormen beschikbaar.</p>
+			<p>Geen werkvormen gevonden</p>
 		{/if}
 	</section>
 </main>

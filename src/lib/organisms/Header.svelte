@@ -28,7 +28,7 @@
                 <img src="/images/logo.svg" alt="Hogeschool van Amsterdam" width="128" height="28" />
             </a>
 
-            <span>Platform Grote Thema's</span>
+            <span>Werkvormen Grote Thema's</span>
         </div>
 
         <div class="nav-components">
@@ -61,14 +61,7 @@
 }
 
 span {
-    /* Standaard kleur */
-    color: var(--color-hva-pink);
-
-    /* Enhanced kleur binnen @supports */
-    @supports (--css: variables) {
-        color: var(--color-hva-pink-enhanced);
-    }
-
+    color: var(--color-white);
     font-weight: 800;
     font-size: 1rem;
 }

@@ -47,15 +47,6 @@
 		transition: all ease-in-out 0.2s;
 	}
 
-	article:hover > img {
-		height: 7.5rem;
-		margin-top: 2.5rem;
-	}
-
-	article:hover > ul {
-		z-index: 0;
-	}
-
 	article:hover a {
 		transform: translateX(0.8rem);
 	}
@@ -108,8 +99,7 @@
 		list-style: none;
 		column-gap: 0.5rem;
 		text-transform: capitalize;
-		position: absolute;
-		z-index: -1;
+		position: relative;
 		transition: all ease-out 0.2s;
 	}
 
