@@ -28,6 +28,7 @@
 		<!-- svelte-ignore a11y-media-has-caption -->
 		{#if workform.video == null}
 			<img
+				class="thumbnail"
 				src={'https://platform-big-themes.directus.app/assets/' + workform.thumbnail.id}
 				alt="Thumbnail"
 			/>
@@ -39,7 +40,7 @@
 			>
 				<source
 					src={'https://platform-big-themes.directus.app/assets/' + workform.video.id}
-					type={workform.video.type}
+					type="video/mp4"
                     loading="lazy"
 				/>
 
@@ -216,6 +217,11 @@
 		max-width: 28rem;
 	}
 
+	.thumbnail {
+		transform: unset;
+		height: unset;
+	}
+
 	/* Layout content werkvorm */
 	article.content {
 		display: grid;
@@ -279,7 +285,7 @@
         section {
             display: grid;
             grid-template-areas:
-            "werkvorm-title uploadbutton" 
+            "werkvorm-title uploadbutton"
             "videoplayer werkvorm-content";
             grid-auto-columns: 3fr 2fr;
             margin: 0 auto;
@@ -288,9 +294,9 @@
 
 		article.content {
 			grid-template:
-                "a" 
-                "b" 
-                "c" 
+                "a"
+                "b"
+                "c"
                 "d"
             ;
             grid-area: werkvorm-content;
