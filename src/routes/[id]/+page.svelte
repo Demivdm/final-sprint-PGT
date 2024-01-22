@@ -28,6 +28,7 @@
 		<!-- svelte-ignore a11y-media-has-caption -->
 		{#if workform.video == null}
 			<img
+				class="workform-visual"
 				src={'https://platform-big-themes.directus.app/assets/' + workform.thumbnail.id}
 				alt="Thumbnail"
 			/>
@@ -128,6 +129,13 @@
         width: fit-content;
         margin: 1rem auto;
 		gap: 2rem;
+	}
+
+	.workform-visual {
+		width: 100%;
+		height: 100%;
+		aspect-ratio: 1/1;
+		transform: rotate(0deg);
 	}
 
 	.upload-button,
