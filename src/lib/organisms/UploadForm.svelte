@@ -146,7 +146,7 @@
         />
 
         <!-- Multi select dropdown for selecting tags -->
-        <div class="form-field">
+        <!-- <div class="form-field">
             <span>
                 <div class="icon">
                     <img src="/images/icons/tag.svg" alt="" />
@@ -155,7 +155,7 @@
             </span>
             <Select id="tags" items={tagOptions} name="tags" multiple placeholder="Selecteer tags..." --background="#1E1649" --border="solid 2px #ffffff" --border-radius="0" --placeholder-color="rgba(255, 255, 255, 0.4)" --border-hover="2px solid #fff" --item-color="black" --item-hover-color="black" --font-size="0.9rem" --border-focused="2px solid #F25379"/>
             <InputHint inputHint="Selecteer een tag die bij de werkvorm past."/>
-        </div>
+        </div> -->
 	</div>
 
 	<Button btnType="submit" {btnText}></Button>
@@ -163,7 +163,8 @@
 
 <!-- After upload message -->
 <article class:showVerify={showVerify}>
-    <h2>Werkvorm succesvol geüpload</h2>
+    <h2>Werkvorm succesvol geüpload.</h2>
+    <p>Het kan even duren voor deze zichtbaar is.</p>
 </article>
 
 <style>
@@ -210,7 +211,7 @@
         text-align: center;
     }
 
-    .icon {
+    /* .icon {
         width: var(--icon-width, 1.4rem);
         height: auto;
         display: flex;
@@ -238,7 +239,7 @@
         font-size: 1rem;
         font-weight: 600;
         color: var(--label-color, #ffffff);
-    }
+    } */
 
     @media (min-width: 48rem) {
         form {
