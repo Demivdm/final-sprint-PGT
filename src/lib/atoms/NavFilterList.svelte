@@ -43,12 +43,13 @@
 	<section class="header-tags">
 		<button
 			class:selected-tag={selectedTag === data.tag}
+			class:active-tag={$selectedTag === 'allTags'}
 			on:click={() => selectedTag.set('allTags')}>Alle tags</button
 		>
 		{#each data.tag as tag}
 			<button
 				class:selected-tag={selectedTag === tag.title}
-				class:activeTag={$selectedTag === tag.id}
+				class:active-tag={$selectedTag === tag.id}
 				style="border: 2px solid {tag.color};"
 				on:click={() => handleTagClick(tag.id)}
 			>
@@ -175,11 +176,11 @@
 		background-color: transparent;
 		padding: 0.3rem 0.5rem 0.3rem 0.5rem;
 	}
-	.tag button:focus {
+	.tag button:focus-visible {
 		outline: solid 2px var(--color-hva-pink);
 	}
 
-	.activeTag {
+	.header-tags .active-tag {
 		background-color: var(--color-hva-pink);
 	}
 
