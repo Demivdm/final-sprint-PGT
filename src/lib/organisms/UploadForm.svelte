@@ -155,7 +155,7 @@
 	form {
 		display: none;
 		flex-direction: column;
-		row-gap: 2rem;
+		row-gap: var(--unit-large);
 	}
 
     .showLogin {
@@ -165,9 +165,9 @@
 	.form-content {
 		display: flex;
 		flex-direction: column;
-		padding: 2rem;
+		padding: var(--unit-large);
 		background: var(--form-bg, #1e1649);
-        row-gap: 1rem;
+        row-gap: var(--unit-default);
 	}
 
     .showVerify {
@@ -179,7 +179,7 @@
         flex-direction: column;
         justify-content: center;
         row-gap: 0.5rem;
-        padding: 2rem 2rem;
+        padding: var(--unit-large) var(--unit-large);
         background: var(--color-hva-navy);
     }
 

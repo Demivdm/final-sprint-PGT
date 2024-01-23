@@ -28,7 +28,7 @@
         padding: var(--unit-default) var(--unit-default) 5rem;
         display: grid;
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: var(--unit-default);
     }
 
     section img {

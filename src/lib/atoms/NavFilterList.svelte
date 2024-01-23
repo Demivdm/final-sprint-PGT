@@ -75,7 +75,7 @@
 		background-color: var(--color-hva-blue-secundary);
 		box-shadow: 8px 8px #1e1649;
 		height: fit-content;
-		margin: 1rem 0 0 0;
+		margin: var(--unit-default) 0 0 0;
 		padding: 0.5rem;
 		width: 100%;
 
@@ -90,7 +90,7 @@
 		width: 100%;
 		height: auto;
 		display: block;
-		padding: 1rem;
+		padding: var(--unit-default);
 	}
 
 	form fieldset {
@@ -124,7 +124,7 @@
 	form button {
 		color: var(--color-white);
 		background-color: #593bff;
-		font-size: 1rem;
+		font-size: var(--unit-default);
 		border: unset;
 		position: relative;
 		transition: 0.3s ease-in-out;
@@ -170,7 +170,7 @@
 		flex-wrap: wrap;
 	}
 	.header-tags button {
-		font-size: 1rem;
+		font-size: var(--unit-default);
 		background-color: transparent;
 		padding: 0.3rem 0.5rem 0.3rem 0.5rem;
 	}

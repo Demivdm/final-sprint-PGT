@@ -110,8 +110,8 @@
 	.werkvormen {
 		display: flex;
 		flex-flow: row wrap;
-		gap: 2rem;
-		margin: 2rem auto 0;
+		gap: var(--unit-large);
+		margin: var(--unit-large) auto 0;
     	padding-bottom: 5rem;
 	}
 
@@ -122,14 +122,14 @@
 	@media (min-width: 46rem) {
 		.werkvormen {
 			width: 42rem;
-			margin: 2rem auto 0;
+			margin: var(--unit-large) auto 0;
     		padding-bottom: 5rem;
 		}
 	}
 
 	@media (min-width: 700px) {
 		main {
-			padding: 0 2rem;
+			padding: 0 var(--unit-large);
 		}
 	}
 

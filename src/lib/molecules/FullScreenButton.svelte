@@ -64,7 +64,6 @@ button {
     bottom: 84px;
     right: 32px;
     padding: 0.25rem 0.5rem;
-    padding-left: 12px;
     background-color: var(--color-hva-pink);
     border: 2px solid var(--color-hva-pink);
     color: var(--color-white);
@@ -83,9 +82,9 @@ button figure {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.5rem;
     font-size: var(--unit-default);
     text-transform: capitalize;
+    margin: 0 0.25rem;
 }
 
 button figure figcaption {
@@ -122,6 +121,10 @@ button:focus {
 @media (min-width: 40rem) {
     button {
         padding-left: 0.5rem;
+    }
+
+    button figure {
+        gap: 0.5rem;
     }
 
     button figure figcaption {

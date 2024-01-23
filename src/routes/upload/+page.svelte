@@ -31,7 +31,7 @@
 	main {
 		display: flex;
 		flex-direction: column;
-		padding: 6rem 2rem;
+		padding: 6rem var(--unit-large);
 	}
 
     section {
@@ -61,7 +61,7 @@
 	@media (min-width: 48rem) {
         section {
             flex-direction: row;
-            gap: 2rem;
+            gap: var(--unit-large);
             margin: 0 auto;
             max-width: unset;
             position: relative;
@@ -84,7 +84,7 @@
         }
 
         header > p {
-            font-size: 1rem;
+            font-size: var(--unit-default);
         }
     }
 </style>

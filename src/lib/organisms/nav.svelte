@@ -261,7 +261,7 @@ nav {
 nav .mobile-menu {
     align-items: center;
     display: flex;
-    height: 2rem;
+    height: var(--unit-large);
     justify-content: end;
     position: relative;
 }
@@ -301,7 +301,7 @@ nav button {
         background-color: var(--color-hva-blue-secundary-enhanced);
     }
     border: unset;
-    height: 2rem;
+    height: var(--unit-large);
     text-transform: capitalize;
 }
 
@@ -501,7 +501,7 @@ ul.desktop-menu a {
     ul.desktop-menu {
         align-items: center;
         display: flex;
-        gap: 2rem;
+        gap: var(--unit-large);
         justify-content: end;
     }
 }

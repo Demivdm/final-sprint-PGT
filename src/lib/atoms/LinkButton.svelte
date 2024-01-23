@@ -15,7 +15,7 @@
         display: flex;
         align-items: center;
         position: relative;
-        padding-left: 1rem;
+        padding-left: var(--unit-default);
     }
 
     .icon-box {
@@ -32,8 +32,8 @@
     }
 
     .icon-box > img {
-        width: 1rem;
-        height: 1rem;
+        width: var(--unit-default);
+        height: var(--unit-default);
         transform: rotate(-45deg);
     }
 

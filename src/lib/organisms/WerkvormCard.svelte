@@ -31,7 +31,7 @@
 	article {
 		display: flex;
 		flex-direction: column;
-		row-gap: 1rem;
+		row-gap: var(--unit-default);
 		background-color: var(--color-hva-blue-secundary);
 		box-shadow: 8px 8px #1e1649;
         min-width: 20rem;
@@ -65,7 +65,7 @@
 	}
 
 	p {
-		font-size: 1rem;
+		font-size: var(--unit-default);
 		font-weight: 400;
 		margin-bottom: 0.9rem;
 	}
@@ -79,7 +79,7 @@
 		margin-bottom: 0.8rem;
 		text-decoration: underline;
 		font-weight: 600;
-		font-size: 1rem;
+		font-size: var(--unit-default);
 		transition: all ease-in-out 0.2s;
 	}
 
@@ -88,8 +88,8 @@
 	}
 
 	a > img {
-		height: 1rem;
-		width: 1rem;
+		height: var(--unit-default);
+		width: var(--unit-default);
 	}
 
 	ul {
@@ -101,6 +101,7 @@
 		text-transform: capitalize;
 		position: relative;
 		transition: all ease-out 0.2s;
+		gap: 0.5rem;
 	}
 
 	li {
