@@ -7,7 +7,7 @@
 
 <style>
     label {
-        font-size: 1rem;
+        font-size: var(--unit-default);
         font-weight: 600;
         color: var(--label-color, #ffffff);
     }

@@ -75,8 +75,8 @@
 		background-color: var(--color-hva-blue-secundary);
 		box-shadow: 8px 8px #1e1649;
 		height: fit-content;
-		margin: 1rem 0 0 0;
-		padding: 0.5rem;
+		margin: var(--unit-default) 0 0 0;
+		padding: var(--unit-small);
 		width: 100%;
 
 		/* Enhanced kleur binnen @supports */
@@ -90,20 +90,20 @@
 		width: 100%;
 		height: auto;
 		display: block;
-		padding: 1rem;
+		padding: var(--unit-default);
 	}
 
 	form fieldset {
 		width: fit-content;
 		display: flex;
-		gap: 0.5rem;
+		gap: var(--unit-small);
 		border: unset;
 		margin: auto;
 	}
 
 	form input,
 	form button {
-		padding: 0.25rem 0.5rem;
+		padding: 0.25rem var(--unit-small);
 		border-radius: 0.25rem;
 		background-color: var(--color-hva-blue-secundary);
 
@@ -124,13 +124,13 @@
 	form button {
 		color: var(--color-white);
 		background-color: #593bff;
-		font-size: 1rem;
+		font-size: var(--unit-default);
 		border: unset;
 		position: relative;
 		transition: 0.3s ease-in-out;
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
+		gap: var(--unit-small);
 	}
 
 	form button:hover {
@@ -170,9 +170,9 @@
 		flex-wrap: wrap;
 	}
 	.header-tags button {
-		font-size: 1rem;
+		font-size: var(--unit-default);
 		background-color: transparent;
-		padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+		padding: 0.3rem var(--unit-small) 0.3rem var(--unit-small);
 	}
 	.tag button:focus {
 		outline: solid 2px var(--color-hva-pink);
@@ -189,6 +189,6 @@
 
 	section button {
 		color: var(--color-white);
-		margin: 0.5rem 0.5rem;
+		margin: var(--unit-small) var(--unit-small);
 	}
 </style>

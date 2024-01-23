@@ -1,4 +1,6 @@
 <script>
+	import FullScreenButton from '$lib/molecules/FullScreenButton.svelte';
+
 	export let data;
 	let workform = data.workform[0];
 
@@ -113,6 +115,8 @@
 	</section>
 </main>
 
+<FullScreenButton />
+
 <style>
 	* {
 		color: white;
@@ -122,13 +126,20 @@
 	main {
 		display: flex;
 		flex-direction: column;
-		padding: 0 1rem 8rem;
+		padding: 0 var(--unit-default) 8rem;
 	}
 
 	section {
         width: fit-content;
-        margin: 1rem auto;
-		gap: 2rem;
+        margin: var(--unit-default) auto;
+		gap: var(--unit-large);
+	}
+
+	.workform-visual {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1/1;
+		transform: rotate(0deg);
 	}
 
 	.upload-button,
@@ -151,7 +162,7 @@
 		@supports (--css: variables) {
 			background: var(--color-hva-pink-enhanced);
 		}
-		padding: 0.5rem;
+		padding: var(--unit-small);
 		aspect-ratio: 1/1;
 		transform: rotate(45deg);
 		transition: transform 0.2s ease-in-out;
@@ -159,8 +170,8 @@
 
 	.icon-box > svg,
 	img {
-		width: 1rem;
-		height: 1rem;
+		width: var(--unit-default);
+		height: var(--unit-default);
 		aspect-ratio: 1/1;
 		transform: rotate(-45deg);
 	}
@@ -191,7 +202,7 @@
 	header {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: var(--unit-small);
 	}
 
 	header h1 {
@@ -200,7 +211,7 @@
 	}
 
 	header p {
-		font-size: 1rem;
+		font-size: var(--unit-default);
 		font-weight: 400;
 	}
 
@@ -228,11 +239,11 @@
 	article.content {
 		display: grid;
 		grid-template:"a" 1fr;
-        gap: 1rem;
+        gap: var(--unit-default);
 	}
 
 	article.content {
-		margin-bottom: 1rem;
+		margin-bottom: var(--unit-default);
         grid-template-areas:"a"
                             "b"
                             "c"

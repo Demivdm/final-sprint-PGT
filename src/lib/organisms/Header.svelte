@@ -48,7 +48,7 @@
 
 <style>
     header > div {
-    padding: 2rem 2rem 0;
+    padding: var(--unit-large) var(--unit-large) 0;
 }
 
 .header-wrapper{
@@ -56,14 +56,14 @@
     align-items: center;
     justify-content: space-between;
     flex-flow: row wrap;
-    column-gap: 1rem;
+    column-gap: var(--unit-default);
     row-gap: 0.6rem;
 }
 
 span {
     color: var(--color-white);
     font-weight: 800;
-    font-size: 1rem;
+    font-size: var(--unit-default);
 }
 
 img:first-child {
@@ -86,7 +86,7 @@ a {
 }
 
 nav {
-    padding: 1rem 0;
+    padding: var(--unit-default) 0;
     font-weight: 500;
 }
 
@@ -111,7 +111,7 @@ nav {
 
 @media (min-width: 64rem){
     span{
-        font-size: 2rem;
+        font-size: var(--unit-large);
     }
 }
 
