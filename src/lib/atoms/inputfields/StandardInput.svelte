@@ -11,7 +11,7 @@
 <style>
     input{
         border: solid 2px var(--border-color, #ffffff);
-        padding: 0.5rem 0.8rem;
+        padding: var(--unit-small) 0.8rem;
         background-color: var(--input-bg, #1E1649);
         color: var(--input-color, #ffffff);
     }

@@ -23,6 +23,7 @@
     --color-white: #FFFFFF;
 
     /* Waardes */
+    --unit-small: 0.5rem;
     --unit-default: 1rem;
     --unit-large: 2rem;
 }

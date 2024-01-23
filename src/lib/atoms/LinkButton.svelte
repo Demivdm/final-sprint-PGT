@@ -25,7 +25,7 @@
         position: absolute;
         left: 0rem;
         background: var(--color-hva-pink, #F25379);
-        padding: 0.5rem;
+        padding: var(--unit-small);
         aspect-ratio: 1/1;
         transform: rotate(45deg);
         transition: transform 0.2s ease-in-out;

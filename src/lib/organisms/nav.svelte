@@ -228,7 +228,7 @@ summary {
     }
     border-radius: 0.25rem;
     list-style: none;
-    padding: 0.2rem 0.5rem;
+    padding: 0.2rem var(--unit-small);
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -253,7 +253,7 @@ nav {
     box-shadow: 8px 8px #1e1649;
     height: fit-content;
     margin: 0;
-    padding: 0.5rem;
+    padding: var(--unit-small);
     text-transform: capitalize;
     width: 100%;
 }
@@ -275,10 +275,10 @@ nav .mobile-menu ul {
     box-shadow: 8px 8px var(--color-hva-navy);
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.5rem;
+    gap: var(--unit-small);
+    padding: var(--unit-small);
     position: absolute;
-    right: -0.5rem;
+    right: -var(--unit-small);
     top: 3.5rem;
     z-index: 2;
 }
@@ -291,7 +291,7 @@ nav .mobile-menu ul a {
     align-items: center;
     display: flex;
     flex-direction: row;
-    gap: 0.5rem;
+    gap: var(--unit-small);
 }
 
 nav button {
@@ -308,7 +308,7 @@ nav button {
 nav figure {
     align-items: center;
     display: flex;
-    gap: 0.5rem;
+    gap: var(--unit-small);
     justify-content: center;
 }
 
@@ -324,8 +324,8 @@ li.menu-item button,
     border-radius: 0.25rem;
     display: flex;
     font-size: var(--unit-default);
-    gap: 0.5rem;
-    padding: 0.2rem 0.5rem;
+    gap: var(--unit-small);
+    padding: 0.2rem var(--unit-small);
     transition: 0.3s ease-in-out;
     width: 100%;
 }
@@ -419,7 +419,7 @@ nav .menu-item button {
         border: 2px solid var(--color-hva-blue-secundary-enhanced);
     }
     border-radius: 0.25rem;
-    padding: 0.2rem 0.5rem;
+    padding: 0.2rem var(--unit-small);
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -449,8 +449,8 @@ ul li button:focus {
     background: oklch(0.54 0.28 278.48);
     border-radius: 0.25rem;
     display: flex;
-    gap: 0.5rem;
-    padding: 0.2rem 0.5rem;
+    gap: var(--unit-small);
+    padding: 0.2rem var(--unit-small);
     position: relative;
 }
 
@@ -490,7 +490,7 @@ ul.desktop-menu {
 ul.desktop-menu a {
     align-items: center;
     display: flex;
-    gap: 0.5rem;
+    gap: var(--unit-small);
 }
 
 @media (min-width: 40rem) {

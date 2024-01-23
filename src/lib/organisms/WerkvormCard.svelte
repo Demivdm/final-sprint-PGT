@@ -61,7 +61,7 @@
 	h2 {
 		font-size: 1.4rem;
 		font-weight: 700;
-		margin-bottom: 0.5rem;
+		margin-bottom: var(--unit-small);
 	}
 
 	p {
@@ -74,8 +74,8 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		column-gap: 0.5rem;
-		margin-left: 0.5rem;
+		column-gap: var(--unit-small);
+		margin-left: var(--unit-small);
 		margin-bottom: 0.8rem;
 		text-decoration: underline;
 		font-weight: 600;
@@ -97,18 +97,18 @@
 		align-items: center;
 		flex-flow: row wrap;
 		list-style: none;
-		column-gap: 0.5rem;
+		column-gap: var(--unit-small);
 		text-transform: capitalize;
 		position: relative;
 		transition: all ease-out 0.2s;
-		gap: 0.5rem;
+		gap: var(--unit-small);
 	}
 
 	li {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0.2rem 0.5rem;
+		padding: 0.2rem var(--unit-small);
 		border: solid 2px;
 		border-radius: 0;
 		font-size: 0.8rem;

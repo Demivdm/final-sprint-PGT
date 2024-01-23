@@ -162,7 +162,7 @@
 		@supports (--css: variables) {
 			background: var(--color-hva-pink-enhanced);
 		}
-		padding: 0.5rem;
+		padding: var(--unit-small);
 		aspect-ratio: 1/1;
 		transform: rotate(45deg);
 		transition: transform 0.2s ease-in-out;
@@ -202,7 +202,7 @@
 	header {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: var(--unit-small);
 	}
 
 	header h1 {

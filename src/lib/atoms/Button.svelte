@@ -24,7 +24,7 @@
 		justify-content: center;
 		position: absolute;
 		left: 0rem;
-		padding: 0.5rem;
+		padding: var(--unit-small);
 		aspect-ratio: 1/1;
 		transform: rotate(45deg);
 		transition: transform 0.2s ease-in-out;

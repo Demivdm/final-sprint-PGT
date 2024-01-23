@@ -178,7 +178,7 @@
         display: none;
         flex-direction: column;
         justify-content: center;
-        row-gap: 0.5rem;
+        row-gap: var(--unit-small);
         padding: var(--unit-large) var(--unit-large);
         background: var(--color-hva-navy);
     }
