@@ -1,4 +1,6 @@
 <script>
+	import FullScreenButton from '$lib/molecules/FullScreenButton.svelte';
+
 	export let data;
 	let workform = data.workform[0];
 
@@ -112,6 +114,8 @@
 		</article>
 	</section>
 </main>
+
+<FullScreenButton />
 
 <style>
 	* {
