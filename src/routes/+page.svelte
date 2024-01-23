@@ -44,8 +44,6 @@
 	// Zoekbalk logica
 	let searchInput = null;
 
-
-
 	function searchWerkvormen(event) {
 		event.preventDefault();
 		const searchTerm = searchInput.value.toLowerCase();
@@ -79,7 +77,6 @@
 </script>
 
 <main>
-
 	<IntroSection />
 	<!-- v Uncomment to show selected filter v -->
 	<!-- <p>The selected filter is: {$selectedTag}</p> -->
@@ -87,6 +84,18 @@
 	<Nav></Nav>
 
 	<NavFilterList {data} {searchInput} />
+	<!-- als selectedtags niet op alletags staat dan wordt er weergeven hoeveel werkvormen er zijn gevonden -->
+	<section class="gevonden-werkvormen">
+		{#if $selectedTag !== 'allTags'}
+			<!-- als er 1 werkvorm terugkomt -->
+			{#if filteredWorkforms.length === 1}
+				<p>Er is 1 gevonden werkvorm</p>
+			{:else}
+				<!-- wanneer er meerdere werkvormen terugkomen -->
+				<p>Er zijn {filteredWorkforms.length} gevonden werkvormen</p>
+			{/if}
+		{/if}
+	</section>
 
 	<section class="werkvormen" id="custom-view">
 		<!-- Check if filteredWorkforms array contains more than 1 object -->
@@ -106,13 +115,16 @@
 	main {
 		padding: var(--unit-default);
 	}
+	.gevonden-werkvormen {
+		margin: 2rem auto;
+	}
 
 	.werkvormen {
 		display: flex;
 		flex-flow: row wrap;
 		gap: 2rem;
 		margin: 2rem auto 0;
-    	padding-bottom: 5rem;
+		padding-bottom: 5rem;
 	}
 
 	#custom-view {
@@ -123,7 +135,7 @@
 		.werkvormen {
 			width: 42rem;
 			margin: 2rem auto 0;
-    		padding-bottom: 5rem;
+			padding-bottom: 5rem;
 		}
 	}
 
@@ -138,5 +150,4 @@
 			width: 64rem;
 		}
 	}
-
 </style>
