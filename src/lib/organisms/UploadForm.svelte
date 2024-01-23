@@ -12,6 +12,14 @@
     export let btnText
 	export let data
 
+    let tagOptions = data.tag.map((tag) => {
+        return {
+            id: tag.id,
+            label: tag.title,
+            value: tag.value
+        }
+    })
+
     // Convert email field to titel field
     const contactpersoonObj = data.contact.map(({
         email: title,
@@ -51,6 +59,7 @@
 			inputName="werkvormName"
 			inputId="werkvormName"
             isRequired={true}
+            inputHint="Bijv. Waarom is X belangrijk voor jou?"
 		/>
 
         <!-- Korte beschrijving -->
@@ -64,6 +73,7 @@
             inputId="werkvormShortDesc"
             isRequired={true}
             maxLength="200"
+            inputHint="Schrijf hier een korte beschrijving van de werkvorm."
         />
 
 		<!-- Beschrijving -->
@@ -71,11 +81,12 @@
 			iconSrc="/images/icons/description.svg"
 			labelFor="werkvormDesc"
 			labelText="Beschrijving werkvorm"
-			inputType="text"
+			inputType="textarea"
 			inputPlaceholder="Beschrijf de werkvorm..."
 			inputName="werkvormDesc"
 			inputId="werkvormDesc"
             isRequired={true}
+            inputHint="Schrijf hier een uitgebreide beschrijving van de werkvorm."
 		/>
 
         <!-- Opleiding -->
@@ -89,18 +100,6 @@
 			options={data.course}
             isRequired={false}
 		/>
-
-        <!-- Studiejaar -->
-        <FormField
-            iconSrc="/images/icons/year.svg"
-            labelFor="werkvormStudiejaar"
-            labelText="Studiejaar"
-            inputType="number"
-            inputPlaceholder="Selecteer een studiejaar..."
-            inputName="werkvormStudiejaar"
-            inputId="werkvormStudiejaar"
-            isRequired={false}
-        />
 
         <!-- Contactpersoon -->
         <SelectFormField
@@ -125,6 +124,8 @@
             inputPlaceholder="Selecteer een thumbnail..."
             isRequired={true}
             hasMultiple={false}
+            accepted={"image/*"}
+            inputHint="Bijv. Een afbeelding van de werkvorm."
         />
 
         <!-- Video -->
@@ -138,17 +139,18 @@
             inputPlaceholder="Selecteer een video..."
             isRequired={false}
             hasMultiple={false}
+            accepted={"video/*"}
+            inputHint="Bijv. Een video van de werkvorm."
         />
-
-        <!-- TODO Tags -->
 	</div>
 
 	<Button btnType="submit" {btnText}></Button>
 </form>
 
-<!-- Check email -->
+<!-- After upload message -->
 <article class:showVerify={showVerify}>
-    <h2>Werkvorm succesvol geüpload</h2>
+    <h2>Werkvorm succesvol geüpload.</h2>
+    <p>Het kan even duren voor deze zichtbaar is.</p>
 </article>
 
 <style>
