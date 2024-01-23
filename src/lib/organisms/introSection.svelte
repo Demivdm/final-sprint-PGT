@@ -1,6 +1,5 @@
 <script>
     import { onMount } from 'svelte';
-    import { LottiePlayer } from '@lottiefiles/svelte-lottie-player';
 </script>
 <section>
     <div>
@@ -51,7 +50,7 @@
 
     @media (min-width: 1024px){
         section {
-            width: 80vw;    
+            width: 80vw;
             margin: 0 auto;
         }
     }

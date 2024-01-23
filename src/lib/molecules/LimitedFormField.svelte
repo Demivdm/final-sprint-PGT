@@ -2,6 +2,7 @@
 	import Icon from '$lib/atoms/Icon.svelte'
 	import Label from '$lib/atoms/Label.svelte'
 	import LimitedInput from '$lib/atoms/inputfields/LimitedInput.svelte'
+    import InputHint from '$lib/atoms/InputHint.svelte';
 
 	export let iconSrc
 	export let labelFor
@@ -12,6 +13,7 @@
 	export let inputId
     export let isRequired
     export let maxLength
+    export let inputHint
 </script>
 
 <div class="form-field">
@@ -21,6 +23,7 @@
 	</span>
 
 	<LimitedInput {inputType} {inputPlaceholder} {inputName} {inputId} {isRequired} {maxLength}></LimitedInput>
+    <InputHint {inputHint}></InputHint>
 </div>
 
 <style>

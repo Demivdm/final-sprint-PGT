@@ -218,8 +218,10 @@
 	}
 
 	.thumbnail {
-		transform: unset;
-		height: unset;
+		width: 100%;
+		height: initial;
+		aspect-ratio: initial;
+		transform: initial;
 	}
 
 	/* Layout content werkvorm */

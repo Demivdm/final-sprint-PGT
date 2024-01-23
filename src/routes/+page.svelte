@@ -112,7 +112,7 @@
 		flex-flow: row wrap;
 		gap: 2rem;
 		margin: 2rem auto 0;
-    	padding-bottom: 5rem;
+		padding-bottom: 5rem;
 	}
 
 	#custom-view {
@@ -123,7 +123,7 @@
 		.werkvormen {
 			width: 42rem;
 			margin: 2rem auto 0;
-    		padding-bottom: 5rem;
+			padding-bottom: 5rem;
 		}
 	}
 

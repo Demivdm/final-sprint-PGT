@@ -3,6 +3,7 @@
 	import Label from '$lib/atoms/Label.svelte'
 	import InputField from '$lib/atoms/InputField.svelte'
 	import StandardInput from '../atoms/inputfields/StandardInput.svelte';
+    import InputHint from '../atoms/InputHint.svelte';
 
 	export let iconSrc
 	export let labelFor
@@ -12,6 +13,7 @@
 	export let inputName
 	export let inputId
 	export let isRequired
+    export let inputHint
 </script>
 
 <div class="form-field">
@@ -21,6 +23,7 @@
 	</span>
 
 	<StandardInput {inputType} {inputPlaceholder} {inputName} {inputId} {isRequired}></StandardInput>
+    <InputHint {inputHint}></InputHint>
 </div>
 
 <style>
