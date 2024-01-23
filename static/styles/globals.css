@@ -9,6 +9,11 @@
     --color-hva-pink-enhanced: oklch(65.88% 0.257 9.82);
     --color-hva-green: #02857D;
     --color-white: #FFFFFF;
+
+    /* Waardes */
+    --unit-small: 0.5rem;
+    --unit-default: 1rem;
+    --unit-large: 2rem;
 }
 
 :root{
