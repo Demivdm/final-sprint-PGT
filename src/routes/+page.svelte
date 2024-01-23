@@ -101,7 +101,7 @@
 		<!-- Check if filteredWorkforms array contains more than 1 object -->
 		{#if filteredWorkforms.length > 0}
 			{#each filteredWorkforms as workform}
-				<WerkvormCard {workform} {data} />
+				<WerkvormCard {workform} />
 			{/each}
 		{:else}
 			<p>Geen werkvormen gevonden</p>
