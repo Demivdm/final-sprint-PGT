@@ -102,14 +102,10 @@ p {
 }
 
 /* Toegankelijkheid */
-#textIncrease {
+#fullScreen {
     display: none;
 }
 
-.javascriptEnabled #textIncrease {
+.javascriptEnabled #fullScreen {
     display: block;
-}
-
-.text-large {
-    font-size: 150%;
 }

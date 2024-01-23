@@ -1,6 +1,6 @@
 <script>
 	import UploadForm from '$lib/organisms/UploadForm.svelte';
-    import FullScreenButton from '../lib/molecules/FullScreenButton.svelte';
+    import FullScreenButton from '$lib/molecules/FullScreenButton.svelte';
 
     export let data;
 </script>

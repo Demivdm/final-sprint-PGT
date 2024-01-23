@@ -39,7 +39,7 @@
             <path d="M19 15l-4 0l0 4" />
             <path d="M15 15l6 6" />
         </svg>
-        <figcaption>Minimaliseer scherm</figcaption>
+        <figcaption>verklein scherm</figcaption>
       </figure>
     {:else}
       <figure>
@@ -52,7 +52,7 @@
             <path d="M8 4l-4 0l0 4" />
             <path d="M4 4l6 6" />
         </svg>
-        <figcaption>volledig scherm</figcaption>
+        <figcaption>vergroot scherm</figcaption>
       </figure>
     {/if}
   </button>
@@ -61,8 +61,8 @@
 <style>
 button {
     position: fixed;
-    bottom: 16px;
-    right: 16px;
+    bottom: 84px;
+    right: 32px;
     padding: 0.25rem 0.5rem;
     padding-left: 12px;
     background-color: var(--color-hva-pink);
