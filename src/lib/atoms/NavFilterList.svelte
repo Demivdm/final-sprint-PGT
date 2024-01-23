@@ -182,6 +182,10 @@
 
 	.header-tags .active-tag {
 		background-color: var(--color-hva-pink);
+		transition: 0.3s ease-in-out;
+		@supports (--css: variables) {
+			background: var(--color-hva-pink-enhanced);
+		}
 	}
 
 	section {
