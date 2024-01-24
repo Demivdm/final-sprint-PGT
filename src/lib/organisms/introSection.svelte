@@ -3,18 +3,7 @@
 </script>
 <section>
     <div>
-
-    <!-- <LottiePlayer
-        src="https://lottie.host/ca1bc273-5190-4bce-b7c8-325269aa3bbb/nwJwAaGoKA.json"
-        autoplay="true"
-        loop="true"
-        renderer="svg"
-        background="transparent"
-        height="128"
-        width="128"
-    /> -->
         <img src="/images/werkvorm-animation.gif" width="300" height="300" alt="animatie" />
-
     </div>
     <div>
         <h1>Welkom op het platform Werkvormen Grote Thema's</h1>
