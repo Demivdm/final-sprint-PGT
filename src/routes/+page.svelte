@@ -11,7 +11,6 @@
 
 	/* ----------------------------- TRISTAN ATTEMPT ---------------------------- */
 	$: filteredWorkforms = [];
-	// console.log("Reactive store:", selectedTagValue);
 
 	$: {
 		// Check if selectedTag equals allTags or if it is a specific tag
@@ -22,24 +21,11 @@
 			filteredWorkforms = data.workform.filter((workform) =>
 				workform.tags.some((tag) => tag.tag_id.id === $selectedTag)
 			);
-			// console.log("Filtered workforms:", filteredWorkforms);
 		}
 	}
 	/* ------------------------------- END ATTEMPT ------------------------------ */
 
 	export let data;
-	// console.log(data);
-
-	let loading = false;
-
-	const handleLogout = () => {
-		loading = true;
-		return async ({ result }) => {
-			await invalidate('supabase:auth');
-			await applyAction(result);
-			loading = false;
-		};
-	};
 
 	// Zoekbalk logica
 	let searchInput = null;
@@ -78,8 +64,6 @@
 
 <main>
 	<IntroSection />
-	<!-- v Uncomment to show selected filter v -->
-	<!-- <p>The selected filter is: {$selectedTag}</p> -->
 
 	<Nav></Nav>
 
@@ -135,7 +119,7 @@
 		.werkvormen {
 			width: 42rem;
 			margin: var(--unit-large) auto 0;
-    	padding-bottom: 5rem;
+			padding-bottom: 5rem;
 		}
 	}
 

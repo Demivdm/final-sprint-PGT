@@ -4,6 +4,7 @@
 	import { page } from '$app/stores';
 </script>
 
+<!-- Geef de url naam door voor gebruik in de header -->
 <Header path={$page.url.pathname} />
 
 <slot />

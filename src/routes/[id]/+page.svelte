@@ -3,8 +3,6 @@
 
 	export let data;
 	let workform = data.workform[0];
-
-    console.log(workform)
 </script>
 
 <main>
@@ -28,6 +26,7 @@
 		</header>
 
 		<!-- svelte-ignore a11y-media-has-caption -->
+		<!-- Check if a video is available, else display the thumbnail. -->
 		{#if workform.video == null}
 			<img
 				class="thumbnail"
