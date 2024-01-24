@@ -43,17 +43,18 @@
 	<section class="header-tags">
 		<button
 			class:selected-tag={selectedTag === data.tag}
+			class:active-tag={$selectedTag === 'allTags'}
 			on:click={() => selectedTag.set('allTags')}>Alle tags</button
 		>
 		{#each data.tag as tag}
-				<button
-					class:selected-tag={selectedTag === tag.title}
-					class:activeTag={$selectedTag === tag.id}
-					style="border: 2px solid {tag.color};"
-					on:click={() => handleTagClick(tag.id)}
-				>
-					{tag.title}
-				</button>
+			<button
+				class:selected-tag={selectedTag === tag.title}
+				class:active-tag={$selectedTag === tag.id}
+				style="border: 2px solid {tag.color};"
+				on:click={() => handleTagClick(tag.id)}
+			>
+				{tag.title}
+			</button>
 		{/each}
 	</section>
 	<!-- secondaire rij met tags, uitgecomment wegens feedback -->
@@ -167,6 +168,7 @@
 	/* FILTER */
 	.header-tags {
 		display: flex;
+		justify-content: center;
 		flex-wrap: wrap;
 	}
 	.header-tags button {
@@ -174,12 +176,16 @@
 		background-color: transparent;
 		padding: 0.3rem var(--unit-small) 0.3rem var(--unit-small);
 	}
-	.tag button:focus {
+	.tag button:focus-visible {
 		outline: solid 2px var(--color-hva-pink);
 	}
 
-	.activeTag {
+	.header-tags .active-tag {
 		background-color: var(--color-hva-pink);
+		transition: 0.3s ease-in-out;
+		@supports (--css: variables) {
+			background: var(--color-hva-pink-enhanced);
+		}
 	}
 
 	section {
