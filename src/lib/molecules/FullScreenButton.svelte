@@ -1,28 +1,42 @@
 <script>
-    import { onMount } from 'svelte';
-  
-    let isFullscreen = false;
-  
-    onMount(async () => {
-      // Vergroot de tekst op de site
-      const fullScreen = document.querySelector('#fullScreen');
-      const visual = document.querySelector('html');
-  
-      // Event bij volledig scherm knop
-      fullScreen.addEventListener('click', () => {
-        if (!isFullscreen) {
-          visual.requestFullscreen();
-        } else {
-          document.exitFullscreen();
-        }
-      });
-  
-      // Luister naar fullscreenchange event om de fullscreen status bij te houden
-      document.addEventListener('fullscreenchange', () => {
-        isFullscreen = document.fullscreenElement !== null;
-      });
+  import { onMount } from 'svelte';
+
+  // Controleer of localStorage beschikbaar is
+  let isLocalStorageAvailable = typeof localStorage !== 'undefined';
+  let isFullscreen = isLocalStorageAvailable && localStorage.getItem('isFullscreen') === 'true';
+
+  onMount(async () => {
+    // Vergroot de tekst op de site
+    const fullScreen = document.querySelector('#fullScreen');
+    const visual = document.querySelector('html');
+
+    // Update de knoptekst op basis van de opgeslagen status
+    updateButtonText();
+
+    // Event bij volledig scherm knop
+    fullScreen.addEventListener('click', () => {
+      if (!isFullscreen) {
+        visual.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
     });
-  </script>
+
+    // Luister naar fullscreenchange event om de fullscreen status bij te houden
+    document.addEventListener('fullscreenchange', () => {
+      isFullscreen = document.fullscreenElement !== null;
+      updateButtonText();
+      // Bewaar de status in de Local Storage
+      localStorage.setItem('isFullscreen', isFullscreen);
+    });
+  });
+
+  function updateButtonText() {
+    // Update de knoptekst op basis van de huidige status
+    const buttonText = document.querySelector('.inner-text');
+    buttonText.textContent = isFullscreen ? 'verklein scherm' : 'vergroot scherm';
+  }
+</script>
   
   <button id="fullScreen">
     {#if isFullscreen}
@@ -38,7 +52,7 @@
             <path d="M19 15l-4 0l0 4" />
             <path d="M15 15l6 6" />
         </svg>
-        <figcaption>verklein scherm</figcaption>
+        <figcaption class="inner-text">verklein scherm</figcaption>
       </figure>
     {:else}
       <figure>
@@ -50,7 +64,7 @@
             <path d="M8 4l-4 0l0 4" />
             <path d="M4 4l6 6" />
         </svg>
-        <figcaption>vergroot scherm</figcaption>
+        <figcaption class="inner-text">vergroot scherm</figcaption>
       </figure>
     {/if}
   </button>
