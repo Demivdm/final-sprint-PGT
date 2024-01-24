@@ -44,7 +44,7 @@
 		width: 100%;
 		object-fit: cover;
 		object-position: center;
-		transition: all ease-in-out 0.2s;
+		transition: all ease-in-out var(--animation-quick);
 	}
 
 	article:hover a {
@@ -80,7 +80,7 @@
 		text-decoration: underline;
 		font-weight: 600;
 		font-size: var(--unit-default);
-		transition: all ease-in-out 0.2s;
+		transition: all ease-in-out var(--animation-quick);
 	}
 
 	a:focus {
@@ -100,7 +100,7 @@
 		column-gap: var(--unit-small);
 		text-transform: capitalize;
 		position: relative;
-		transition: all ease-out 0.2s;
+		transition: all ease-out var(--animation-quick);
 		gap: var(--unit-small);
 	}
 

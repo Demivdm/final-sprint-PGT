@@ -64,8 +64,8 @@
 									><rect width="24" height="24" fill="white" class="svelte-1gdolbd"
 									></rect></clipPath
 								></defs
-							></svg
-						>
+							>
+						</svg>
 					</div>
 					<figcaption>menu</figcaption>
 				</figure>
@@ -226,7 +226,7 @@ summary {
     @supports (--css: variables) {
         background-color: var(--color-hva-blue-secundary-enhanced);
     }
-    border-radius: 0.25rem;
+    border-radius: var(--unit-micro);
     list-style: none;
     padding: 0.2rem var(--unit-small);
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -278,7 +278,7 @@ nav .mobile-menu ul {
     gap: var(--unit-small);
     padding: var(--unit-small);
     position: absolute;
-    right: -var(--unit-small);
+    right: var(--unit-small);
     top: 3.5rem;
     z-index: 2;
 }
@@ -321,12 +321,12 @@ li.menu-item button,
     @supports (--css: variables) {
         border: 2px solid var(--color-hva-blue-secundary-enhanced);
     }
-    border-radius: 0.25rem;
+    border-radius: var(--unit-micro);
     display: flex;
     font-size: var(--unit-default);
     gap: var(--unit-small);
     padding: 0.2rem var(--unit-small);
-    transition: 0.3s ease-in-out;
+    transition: var(--animation-default) ease-in-out;
     width: 100%;
 }
 
@@ -360,7 +360,7 @@ nav button figcaption {
     font-family: 'Open sans';
     font-size: 1.25rem;
     font-weight: 500;
-    transition: 0.2s ease-in-out;
+    transition: var(--animation-quick) ease-in-out;
 }
 
 nav button:hover figcaption {
@@ -374,7 +374,7 @@ nav button div svg {
 nav button svg {
     display: block;
     position: absolute;
-    transition: 0.2s ease-in-out;
+    transition: var(--animation-quick) ease-in-out;
     width: 1.5rem;
 }
 
@@ -418,7 +418,7 @@ nav .menu-item button {
     @supports (--css: variables) {
         border: 2px solid var(--color-hva-blue-secundary-enhanced);
     }
-    border-radius: 0.25rem;
+    border-radius: var(--unit-micro);
     padding: 0.2rem var(--unit-small);
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -447,7 +447,7 @@ ul li button:focus {
 .link-primary {
     align-items: center;
     background: oklch(0.54 0.28 278.48);
-    border-radius: 0.25rem;
+    border-radius: var(--unit-micro);
     display: flex;
     gap: var(--unit-small);
     padding: 0.2rem var(--unit-small);
@@ -457,7 +457,7 @@ ul li button:focus {
 .link-primary::before {
     background-image: url('https://img.freepik.com/free-vector/seamless-grainy-texture-background_1409-2115.jpg');
     background-size: 180%;
-    border-radius: 0.25rem;
+    border-radius: var(--unit-micro);
     content: '';
     height: 100%;
     left: 0;

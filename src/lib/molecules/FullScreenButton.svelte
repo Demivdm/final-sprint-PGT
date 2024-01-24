@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
 
-  // Controleer of localStorage beschikbaar is
+  // Controleert of localStorage beschikbaar is
   let isLocalStorageAvailable = typeof localStorage !== 'undefined';
   let isFullscreen = isLocalStorageAvailable && localStorage.getItem('isFullscreen') === 'true';
 
@@ -10,7 +10,7 @@
     const fullScreen = document.querySelector('#fullScreen');
     const visual = document.querySelector('html');
 
-    // Update de knoptekst op basis van de opgeslagen status
+    // Updated de knoptekst op basis van de opgeslagen status
     updateButtonText();
 
     // Event bij volledig scherm knop
@@ -22,11 +22,11 @@
       }
     });
 
-    // Luister naar fullscreenchange event om de fullscreen status bij te houden
+    // Luistert naar fullscreenchange event om de fullscreen status bij te houden
     document.addEventListener('fullscreenchange', () => {
       isFullscreen = document.fullscreenElement !== null;
       updateButtonText();
-      // Bewaar de status in de Local Storage
+      // Bewaart de status in de Local Storage
       localStorage.setItem('isFullscreen', isFullscreen);
     });
   });
@@ -75,12 +75,12 @@ button {
     position: fixed;
     bottom: 84px;
     right: 32px;
-    padding: 0.25rem var(--unit-small);
+    padding: var(--unit-micro) var(--unit-small);
     background-color: var(--color-hva-pink);
     border: 2px solid var(--color-hva-pink);
     color: var(--color-white);
     box-shadow: var(--unit-small) var(--unit-small) #1e1649;
-    transition: 0.3s ease-in-out;
+    transition: var(--animation-default) ease-in-out;
     z-index: 5;
 
     /* Enhanced kleuren binnen @supports */
@@ -96,7 +96,7 @@ button figure {
     align-items: center;
     font-size: var(--unit-default);
     text-transform: capitalize;
-    margin: 0 0.25rem;
+    margin: 0 var(--unit-micro);
 }
 
 button figure figcaption {
@@ -116,7 +116,7 @@ button:hover {
     }
 
     box-shadow: 0px 0px #1e1649;
-    transition: 0.3s ease-in-out;
+    transition: var(--animation-default) ease-in-out;
 }
 
 button:focus {

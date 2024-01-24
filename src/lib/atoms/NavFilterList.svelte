@@ -104,8 +104,8 @@
 
 	form input,
 	form button {
-		padding: 0.25rem var(--unit-small);
-		border-radius: 0.25rem;
+		padding: var(--unit-micro) var(--unit-small);
+		border-radius: var(--unit-micro);
 		background-color: var(--color-hva-blue-secundary);
 
 		/* Enhanced kleur binnen @supports */
@@ -128,7 +128,7 @@
 		font-size: var(--unit-default);
 		border: unset;
 		position: relative;
-		transition: 0.3s ease-in-out;
+		transition: var(--animation-default) ease-in-out;
 		display: flex;
 		align-items: center;
 		gap: var(--unit-small);
@@ -155,7 +155,7 @@
 	form button::before {
 		background-image: url('https://img.freepik.com/free-vector/seamless-grainy-texture-background_1409-2115.jpg');
 		background-size: 180%;
-		border-radius: 0.25rem;
+		border-radius: var(--unit-micro);
 		content: '';
 		height: 100%;
 		left: 0;
