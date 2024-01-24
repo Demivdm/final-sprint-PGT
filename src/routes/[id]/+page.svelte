@@ -165,7 +165,7 @@
 		padding: var(--unit-small);
 		aspect-ratio: 1/1;
 		transform: rotate(45deg);
-		transition: transform 0.2s ease-in-out;
+		transition: transform var(--animation-quick) ease-in-out;
 	}
 
 	.icon-box > svg,

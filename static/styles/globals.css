@@ -2,6 +2,11 @@
 /*                               Root variables                               */
 /* -------------------------------------------------------------------------- */
 :global(:root){
+    /* Animaties */
+    --animation-quick: 0.2s;
+    --animation-default: 0.3s;
+
+    /* Kleuren */
     --color-hva-blue: #351EB6;
     --color-hva-blue-secundary: #25167a;
     --color-hva-navy: #1E1649;
@@ -11,12 +16,17 @@
     --color-white: #FFFFFF;
 
     /* Waardes */
+    --unit-micro: 0.25rem;
     --unit-small: 0.5rem;
     --unit-default: 1rem;
     --unit-large: 2rem;
 }
 
 :root{
+    /* Animaties */
+    --animation-quick: 0.2s;
+    --animation-default: 0.3s;
+
     /* Kleuren */
     --color-hva-blue: #351EB6;
     --color-hva-blue-secundary: #25167a;
@@ -28,6 +38,7 @@
     --color-white: #FFFFFF;
 
     /* Waardes */
+    --unit-micro: 0.25rem;
     --unit-small: 0.5rem;
     --unit-default: 1rem;
     --unit-large: 2rem;

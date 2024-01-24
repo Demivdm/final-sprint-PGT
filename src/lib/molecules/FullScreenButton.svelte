@@ -75,12 +75,12 @@ button {
     position: fixed;
     bottom: 84px;
     right: 32px;
-    padding: 0.25rem var(--unit-small);
+    padding: var(--unit-micro) var(--unit-small);
     background-color: var(--color-hva-pink);
     border: 2px solid var(--color-hva-pink);
     color: var(--color-white);
     box-shadow: var(--unit-small) var(--unit-small) #1e1649;
-    transition: 0.3s ease-in-out;
+    transition: var(--animation-default) ease-in-out;
     z-index: 5;
 
     /* Enhanced kleuren binnen @supports */
@@ -96,7 +96,7 @@ button figure {
     align-items: center;
     font-size: var(--unit-default);
     text-transform: capitalize;
-    margin: 0 0.25rem;
+    margin: 0 var(--unit-micro);
 }
 
 button figure figcaption {
@@ -116,7 +116,7 @@ button:hover {
     }
 
     box-shadow: 0px 0px #1e1649;
-    transition: 0.3s ease-in-out;
+    transition: var(--animation-default) ease-in-out;
 }
 
 button:focus {
