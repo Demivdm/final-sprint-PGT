@@ -15,10 +15,10 @@
 
 <style>
 	select {
-		border: solid 2px var(--border-color, #ffffff);
+		border: solid 2px var(--border-color, var(--color-default));
 		padding: var(--unit-small) 0.8rem;
-		background-color: var(--input-bg, #1e1649);
-		color: var(--input-color, #ffffff);
+		background-color: var(--input-bg, var(--color-hva-navy));
+		color: var(--input-color, var(--color-default));
 	}
 
 	select::placeholder {
@@ -27,6 +27,6 @@
 	}
 
 	select:focus {
-		outline: var(--btn-focus, #f25379) solid 2px;
+		outline: var(--btn-focus, var(--color-hva-pink)) solid 2px;
 	}
 </style>
