@@ -12,10 +12,10 @@
 
 <style>
     input{
-        border: solid 2px var(--border-color, var(--color-white));
+        border: solid 2px var(--border-color, #fff);
         padding: var(--unit-small) 0.8rem;
         background-color: var(--input-bg, var(--color-hva-navy));
-        color: var(--input-color, var(--color-white));
+        color: var(--input-color, #fff);
     }
 
     input::placeholder {
