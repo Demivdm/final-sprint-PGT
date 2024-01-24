@@ -5,7 +5,7 @@
 
 	import WerkvormCard from '../lib/organisms/WerkvormCard.svelte';
 	import NavFilterList from '../lib/atoms/NavFilterList.svelte';
-	import IncreaseTextToggle from '../lib/molecules/IncreaseTextToggle.svelte';
+	import FullScreenButton from '../lib/molecules/FullScreenButton.svelte';
 	import IntroSection from '../lib/organisms/introSection.svelte';
 	import { selectedTag } from '../lib/Utils/tagStore';
 
@@ -109,7 +109,7 @@
 	</section>
 </main>
 
-<IncreaseTextToggle />
+<FullScreenButton />
 
 <style>
 	main {
@@ -122,9 +122,9 @@
 	.werkvormen {
 		display: flex;
 		flex-flow: row wrap;
-		gap: 2rem;
-		margin: 2rem auto 0;
-		padding-bottom: 5rem;
+		gap: var(--unit-large);
+		margin: var(--unit-large) auto 0;
+    padding-bottom: 5rem;
 	}
 
 	#custom-view {
@@ -134,14 +134,14 @@
 	@media (min-width: 46rem) {
 		.werkvormen {
 			width: 42rem;
-			margin: 2rem auto 0;
-			padding-bottom: 5rem;
+			margin: var(--unit-large) auto 0;
+    	padding-bottom: 5rem;
 		}
 	}
 
 	@media (min-width: 700px) {
 		main {
-			padding: 0 2rem;
+			padding: 0 var(--unit-large);
 		}
 	}
 

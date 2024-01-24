@@ -15,7 +15,7 @@
 		display: flex;
 		align-items: center;
 		position: relative;
-		padding-left: 1rem;
+		padding-left: var(--unit-default);
 	}
 
 	.icon-box {
@@ -24,7 +24,7 @@
 		justify-content: center;
 		position: absolute;
 		left: 0rem;
-		padding: 0.5rem;
+		padding: var(--unit-small);
 		aspect-ratio: 1/1;
 		transform: rotate(45deg);
 		transition: transform 0.2s ease-in-out;
@@ -36,8 +36,8 @@
 	}
 
 	.icon-box > img {
-		width: 1rem;
-		height: 1rem;
+		width: var(--unit-default);
+		height: var(--unit-default);
 		transform: rotate(-45deg);
 	}
 

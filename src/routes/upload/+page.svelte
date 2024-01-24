@@ -1,5 +1,6 @@
 <script>
 	import UploadForm from '$lib/organisms/UploadForm.svelte';
+    import FullScreenButton from '$lib/molecules/FullScreenButton.svelte';
 
     export let data;
 </script>
@@ -24,11 +25,13 @@
 	</section>
 </main>
 
+<FullScreenButton />
+
 <style>
 	main {
 		display: flex;
 		flex-direction: column;
-		padding: 6rem 2rem;
+		padding: 6rem var(--unit-large);
 	}
 
     section {
@@ -42,7 +45,7 @@
     header {
         display: flex;
         flex-direction: column;
-        row-gap: 0.5rem;
+        row-gap: var(--unit-small);
     }
 
     h1 {
@@ -58,7 +61,7 @@
 	@media (min-width: 48rem) {
         section {
             flex-direction: row;
-            gap: 2rem;
+            gap: var(--unit-large);
             margin: 0 auto;
             max-width: unset;
             position: relative;
@@ -81,7 +84,7 @@
         }
 
         header > p {
-            font-size: 1rem;
+            font-size: var(--unit-default);
         }
     }
 </style>

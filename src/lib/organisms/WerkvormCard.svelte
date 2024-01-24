@@ -31,7 +31,7 @@
 	article {
 		display: flex;
 		flex-direction: column;
-		row-gap: 1rem;
+		row-gap: var(--unit-default);
 		background-color: var(--color-hva-blue-secundary);
 		box-shadow: 8px 8px #1e1649;
         min-width: 20rem;
@@ -61,11 +61,11 @@
 	h2 {
 		font-size: 1.4rem;
 		font-weight: 700;
-		margin-bottom: 0.5rem;
+		margin-bottom: var(--unit-small);
 	}
 
 	p {
-		font-size: 1rem;
+		font-size: var(--unit-default);
 		font-weight: 400;
 		margin-bottom: 0.9rem;
 	}
@@ -74,12 +74,12 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		column-gap: 0.5rem;
-		margin-left: 0.5rem;
+		column-gap: var(--unit-small);
+		margin-left: var(--unit-small);
 		margin-bottom: 0.8rem;
 		text-decoration: underline;
 		font-weight: 600;
-		font-size: 1rem;
+		font-size: var(--unit-default);
 		transition: all ease-in-out 0.2s;
 	}
 
@@ -88,8 +88,8 @@
 	}
 
 	a > img {
-		height: 1rem;
-		width: 1rem;
+		height: var(--unit-default);
+		width: var(--unit-default);
 	}
 
 	ul {
@@ -97,17 +97,18 @@
 		align-items: center;
 		flex-flow: row wrap;
 		list-style: none;
-		column-gap: 0.5rem;
+		column-gap: var(--unit-small);
 		text-transform: capitalize;
 		position: relative;
 		transition: all ease-out 0.2s;
+		gap: var(--unit-small);
 	}
 
 	li {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0.2rem 0.5rem;
+		padding: 0.2rem var(--unit-small);
 		border: solid 2px;
 		border-radius: 0;
 		font-size: 0.8rem;

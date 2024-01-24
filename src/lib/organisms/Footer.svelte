@@ -6,8 +6,8 @@
 <style>
 	footer {
 		background-color: var(--color-hva-navy);
-		margin: 2rem auto 0;
-		padding: 1rem;
+		margin: var(--unit-large) auto 0;
+		padding: var(--unit-default);
         position: fixed;
         bottom: 0;
         left: 0;
