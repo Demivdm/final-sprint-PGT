@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
 
-  // Controleer of localStorage beschikbaar is
+  // Controleert of localStorage beschikbaar is
   let isLocalStorageAvailable = typeof localStorage !== 'undefined';
   let isFullscreen = isLocalStorageAvailable && localStorage.getItem('isFullscreen') === 'true';
 
@@ -10,7 +10,7 @@
     const fullScreen = document.querySelector('#fullScreen');
     const visual = document.querySelector('html');
 
-    // Update de knoptekst op basis van de opgeslagen status
+    // Updated de knoptekst op basis van de opgeslagen status
     updateButtonText();
 
     // Event bij volledig scherm knop
@@ -22,11 +22,11 @@
       }
     });
 
-    // Luister naar fullscreenchange event om de fullscreen status bij te houden
+    // Luistert naar fullscreenchange event om de fullscreen status bij te houden
     document.addEventListener('fullscreenchange', () => {
       isFullscreen = document.fullscreenElement !== null;
       updateButtonText();
-      // Bewaar de status in de Local Storage
+      // Bewaart de status in de Local Storage
       localStorage.setItem('isFullscreen', isFullscreen);
     });
   });
