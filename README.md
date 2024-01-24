@@ -15,15 +15,15 @@ Deze repository is de release candidate voor de opleiding CMD van de HvA.
 
 # Beschrijving
 
-[...]
+Voor de opleiding Communication and Multimedia design (CMD) vroeg men om een platform waar ze werkvormen kunnen uploaden. 
 
 # Gebruik
 
-[...]
+De meeste gebruikers van dit platform zijn de docenten van CMD. Zij kunnen door middel van het upload formulier een werkvorm uploaden met bijhorende content als een video, beschrijvende tekst en faculteit waar de opleiding onder valt. Het was primair voor CMD ontworpen maar is voorbereid op het gebruik voor andere opleidngen van andere faculteiten.
 
 # Kenmerken
 
-[...]
+Dit platform is gebouwd met onder andere: `html`, `css`, `javascript` en het framework `Sveltekit`
 
 # Installatie 
 ## create-svelte
@@ -66,6 +66,7 @@ You can preview the production build with `npm run preview`.
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
 
 # Bronnen
+[Fullscreen API](https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API)
 
 # Licentie
 
