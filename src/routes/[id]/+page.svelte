@@ -75,14 +75,14 @@
 			<div class="tags">
 				<h2>Tags</h2>
 				<div class="tag-list">
-					{#if workform.tags > 0}
+					{#if workform.tags.length > 0}
 						{#each workform.tags as tag}
-							<div class="tag" style="border-color: {tag.tag_id.color};">
+							<div class="single-tag" style="border-color: {tag.tag_id.color};">
 								<p>{tag.tag_id.title}</p>
 							</div>
 						{/each}
 					{:else}
-						<p class="tag">Geen tags beschikbaar.</p>
+						<p class="single-tag">Geen tags beschikbaar.</p>
 					{/if}
 				</div>
 			</div>
@@ -268,6 +268,30 @@
 
     .description h2 {
 		font-size: 1.3rem;
+	}
+
+	.tag-list {
+		display: flex;
+		align-items: center;
+		flex-flow: row wrap;
+		list-style: none;
+		column-gap: var(--unit-small);
+		text-transform: capitalize;
+		position: relative;
+		transition: all ease-out var(--animation-quick);
+		gap: var(--unit-small);
+		margin-top: 0.5rem;
+	}
+
+	.single-tag {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.2rem var(--unit-small);
+		border: solid 2px;
+		border-radius: 0;
+		font-size: 0.8rem;
+		font-weight: 500;
 	}
 
 	@media (min-width: 700px) {
