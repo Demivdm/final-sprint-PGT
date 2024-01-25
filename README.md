@@ -65,9 +65,17 @@ You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
 
-# 🔗 Bronnen
 
-[Adapter Vercel](https://www.npmjs.com/package/@sveltejs/adapter-vercel)
+## .Env bestand
+Dit project maakt gebruik van een .env bestand om onze omgeving te koppelen aan ons gekozen headless cms Directus. Hier vandaan haalt het project de benodigde data vandaan. De opmaak van het .env bestand ziet er alsvolgt uit:
+
+```
+DIRECTUS_KEY = "[...]"
+```
+
+Neem contact op voor meer informatie en toegang.
+
+# 🔗 Bronnen
 
 [Enhanced colours](https://oklch.com/)
 
