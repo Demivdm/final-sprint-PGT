@@ -15,7 +15,7 @@
 	console.log(allTags);
 </script>
 
-<div class="tag" id="mega-menu">
+<div class="dropdown" id="mega-menu">
 	<form method="get" action="/">
 		<fieldset>
 			<input name="q" type="text" id="search-werkvormen" bind:this={searchInput} />
